@@ -1,4 +1,4 @@
-export {Lib as ModelsModule} from './lib/index';
+export {Lib as SchemataModule} from './lib/index';
 
 export * from './lib/services/category.service';
 export * from './lib/services/tag.service';

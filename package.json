@@ -1,6 +1,6 @@
 {
-  "name": "schemata",
-  "version": "0.0.1",
+  "name": "@lamnhan/schemata",
+  "version": "1.0.0",
   "description": "Commonly used data schematics.",
   "author": "Lam Nhan",
   "homepage": "https://lamnhan.com",
@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "compile": "tsc",
-    "build": "npm run compile && npm i -g",
+    "build": "npm run compile",
     "docs": "ayedocs generate",
     "test": "npm run compile && nyc --cache false mocha test/**/*.js",
     "coverage": "nyc --cache false report --reporter=text-lcov | coveralls",
@@ -22,15 +22,17 @@
     "fix": "gts fix"
   },
   "keywords": [
-    "node",
-    "module"
+    "data",
+    "database",
+    "schematic",
+    "typescript"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lamnhan/seminjecto-lib.git"
+    "url": "https://github.com/lamnhan/schemata.git"
   },
   "bugs": {
-    "url": "https://github.com/lamnhan/seminjecto-lib/issues"
+    "url": "https://github.com/lamnhan/schemata/issues"
   },
   "dependencies": {},
   "devDependencies": {
