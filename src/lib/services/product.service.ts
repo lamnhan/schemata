@@ -1,6 +1,7 @@
 import {
   Ids,
   Status,
+  Timing,
   Authors,
   Images,
   Content,
@@ -17,7 +18,7 @@ import {Post} from './post.service';
 export interface ProductOption {
   title?: string;
   items: {
-    [$key: string]: ProductOptionItem;
+    [id: string]: ProductOptionItem;
   };
 }
 
@@ -41,6 +42,7 @@ export interface ProductVariant extends Images {
 export interface Product
   extends Ids,
     Status,
+    Timing,
     Authors,
     Images,
     Content,
@@ -54,7 +56,7 @@ export interface Product
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   // Authors
   // Images
   description?: string;

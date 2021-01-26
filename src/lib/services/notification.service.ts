@@ -5,6 +5,7 @@ export interface Notification extends Ids, Extras {
   thumbnail?: string;
   content?: string;
   link?: string;
+  schedule?: string | number;
   locale?: string;
   origin?: string;
   // Extras

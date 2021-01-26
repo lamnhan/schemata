@@ -1,7 +1,7 @@
-import {Ids, Status, Extras} from '../types/shared.type';
+import {Ids, Status, Timing, Extras} from '../types/shared.type';
 
 export interface OrderProduct {
-  _id: string;
+  id: string;
   title: string;
   sku: string;
   price: number;
@@ -26,11 +26,11 @@ export interface OrderAdjustment {
   value: number; // positive or nagative
 }
 
-export interface Order extends Ids, Status, Extras {
+export interface Order extends Ids, Status, Timing, Extras {
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   stage?: 'new' | 'confirmed' | 'delivering' | 'done' | 'cancelled';
   items: {
     [key: string]: OrderItem;

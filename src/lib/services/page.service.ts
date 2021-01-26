@@ -1,10 +1,17 @@
-import {Ids, Status, Images, Content, Extras} from '../types/shared.type';
+import {
+  Ids,
+  Status,
+  Timing,
+  Images,
+  Content,
+  Extras,
+} from '../types/shared.type';
 
-export interface Page extends Ids, Status, Images, Content, Extras {
+export interface Page extends Ids, Status, Timing, Images, Content, Extras {
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   // Images
   excerpt?: string;
   // Content

@@ -1,6 +1,7 @@
 import {
   Ids,
   Status,
+  Timing,
   Rating,
   Sharing,
   Statistics,
@@ -25,6 +26,7 @@ export interface GroupingThread {
 export interface Thread
   extends Ids,
     Status,
+    Timing,
     Rating,
     Sharing,
     Statistics,
@@ -32,13 +34,13 @@ export interface Thread
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   content: string;
   attachments?: {
     [index: string]: ThreadAttachment;
   };
   parent?: string;
-  master?: string; // <sheet>/<key> (posts/post-1)
+  master?: string; // <collection>/<doc> (posts/post-1)
   stars?: number; // with rating stars
   uid?: string;
   email?: string;

@@ -1,6 +1,7 @@
 import {
   Ids,
   Status,
+  Timing,
   Authors,
   Images,
   Content,
@@ -16,6 +17,7 @@ import {
 export interface Audio
   extends Ids,
     Status,
+    Timing,
     Authors,
     Images,
     Content,
@@ -29,7 +31,7 @@ export interface Audio
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   // Authors
   // Images
   description?: string;
@@ -56,7 +58,7 @@ export interface Audio
   genres?:
     | string
     | {
-        [$key: string]: unknown;
+        [id: string]: unknown;
       };
   // Taxonomies
   // Rating

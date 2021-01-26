@@ -1,6 +1,7 @@
 import {
   Ids,
   Status,
+  Timing,
   Images,
   Content,
   Taxonomies,
@@ -13,6 +14,7 @@ import {
 export interface Author
   extends Ids,
     Status,
+    Timing,
     Images,
     Content,
     Taxonomies,
@@ -23,7 +25,7 @@ export interface Author
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   // Images
   description?: string;
   // Content

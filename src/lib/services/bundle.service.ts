@@ -1,6 +1,7 @@
 import {
   Ids,
   Status,
+  Timing,
   Authors,
   Images,
   Content,
@@ -15,6 +16,7 @@ import {
 export interface Bundle
   extends Ids,
     Status,
+    Timing,
     Authors,
     Images,
     Content,
@@ -27,7 +29,7 @@ export interface Bundle
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
+  // Timing
   // Authors
   // Images
   description?: string;

@@ -1,12 +1,21 @@
 export interface Ids {
   '#'?: number;
-  title?: string;
+  title: string;
+  id: string;
+  // alias of id
   $key?: string;
+  // alias of id / clean version of the title (if the id is un-readable)
+  slug?: string;
 }
 
 export interface Status {
   // blank = 'draft'
   status?: 'draft' | 'published' | 'archived';
+}
+
+export interface Timing {
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Authors {
@@ -16,7 +25,7 @@ export interface Authors {
   authors?:
     | string
     | {
-        [$key: string]: unknown;
+        [id: string]: unknown;
       };
 }
 
@@ -32,7 +41,7 @@ export interface Content {
 export interface Parents {
   // { bundle-1: ... }
   parents?: {
-    [$key: string]: unknown;
+    [id: string]: unknown;
   };
 }
 
@@ -50,7 +59,7 @@ export interface Taxonomies {
   categories?:
     | string
     | {
-        [$key: string]: unknown;
+        [id: string]: unknown;
       };
   // Tag 1
   // Tag 1, Tag 2
@@ -58,20 +67,18 @@ export interface Taxonomies {
   tags?:
     | string
     | {
-        [$key: string]: unknown;
+        [id: string]: unknown;
       };
 }
 
 export interface Rating {
-  rating?: {
-    count: number; // number of rating
-    total: number; // number of stars
-  };
+  rateCount?: number; // number of stars: 0-5 (directly, no rateTotal) or total stars
+  rateTotal?: number; // number of rating
 }
 
 export interface Sharing {
-  sharing?: {
-    total: number; // all shared
+  shareCount?: number;
+  shareDetail?: {
     // facebook, twitter, email, sms, link, ...
     [provider: string]: number;
   };
@@ -84,5 +91,5 @@ export interface Statistics {
 }
 
 export interface Extras {
-  meta?: unknown;
+  meta?: Record<string, unknown>;
 }

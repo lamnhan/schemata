@@ -1,6 +1,7 @@
 import {
   Ids,
   Status,
+  Timing,
   Authors,
   Images,
   Content,
@@ -16,6 +17,7 @@ import {
 export interface Post
   extends Ids,
     Status,
+    Timing,
     Authors,
     Images,
     Content,
@@ -29,8 +31,7 @@ export interface Post
   // Ids
   type?: string;
   // Status
-  createdAt?: string;
-  updatedAt?: string;
+  // Timing
   // Authors
   // Images
   excerpt?: string;

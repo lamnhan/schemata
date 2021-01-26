@@ -125,7 +125,11 @@
 								<li class="tsd-kind-interface"><a href="interfaces/taxonomies.html" class="tsd-kind-icon">Taxonomies</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/thread.html" class="tsd-kind-icon">Thread</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/threadattachment.html" class="tsd-kind-icon">Thread<wbr>Attachment</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/timing.html" class="tsd-kind-icon">Timing</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/user.html" class="tsd-kind-icon">User</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/useraddress.html" class="tsd-kind-icon">User<wbr>Address</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/useraddressdetail.html" class="tsd-kind-icon">User<wbr>Address<wbr>Detail</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/usercontexts.html" class="tsd-kind-icon">User<wbr>Contexts</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/usereditableprofile.html" class="tsd-kind-icon">User<wbr>Editable<wbr>Profile</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/userinfo.html" class="tsd-kind-icon">User<wbr>Info</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/userprofile.html" class="tsd-kind-icon">User<wbr>Profile</a></li>
@@ -137,6 +141,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#authuser" class="tsd-kind-icon">Auth<wbr>User</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#childthread" class="tsd-kind-icon">Child<wbr>Thread</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#message" class="tsd-kind-icon">Message</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#parentthread" class="tsd-kind-icon">Parent<wbr>Thread</a></li>
@@ -150,12 +155,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="authuser" class="tsd-anchor"></a>
+					<h3>Auth<wbr>User</h3>
+					<div class="tsd-signature tsd-kind-icon">Auth<wbr>User<span class="tsd-signature-symbol">:</span> <a href="interfaces/userinfo.html" class="tsd-signature-type">UserInfo</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/user.service.ts#L8">lib/services/user.service.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="childthread" class="tsd-anchor"></a>
 					<h3>Child<wbr>Thread</h3>
 					<div class="tsd-signature tsd-kind-icon">Child<wbr>Thread<span class="tsd-signature-symbol">:</span> <a href="interfaces/thread.html" class="tsd-signature-type">Thread</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/63b9fe4/src/lib/services/thread.service.ts#L55">lib/services/thread.service.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/thread.service.ts#L57">lib/services/thread.service.ts:57</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">Message<span class="tsd-signature-symbol">:</span> <a href="globals.html#childthread" class="tsd-signature-type">ChildThread</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/63b9fe4/src/lib/services/thread.service.ts#L56">lib/services/thread.service.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/thread.service.ts#L58">lib/services/thread.service.ts:58</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">Parent<wbr>Thread<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/thread.html" class="tsd-signature-type">Thread</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"parent"</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/63b9fe4/src/lib/services/thread.service.ts#L53">lib/services/thread.service.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/thread.service.ts#L55">lib/services/thread.service.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Oob<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"resetPassword"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"verifyEmail"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/63b9fe4/src/lib/services/user.service.ts#L7">lib/services/user.service.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/user.service.ts#L16">lib/services/user.service.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -195,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Provider<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"password"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"custom"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"anonymous"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"google.com"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"facebook.com"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/63b9fe4/src/lib/services/user.service.ts#L1">lib/services/user.service.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/user.service.ts#L10">lib/services/user.service.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -368,7 +383,19 @@
 						<a href="interfaces/threadattachment.html" class="tsd-kind-icon">Thread<wbr>Attachment</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/timing.html" class="tsd-kind-icon">Timing</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/useraddress.html" class="tsd-kind-icon">User<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/useraddressdetail.html" class="tsd-kind-icon">User<wbr>Address<wbr>Detail</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/usercontexts.html" class="tsd-kind-icon">User<wbr>Contexts</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/usereditableprofile.html" class="tsd-kind-icon">User<wbr>Editable<wbr>Profile</a>
@@ -387,6 +414,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/video.html" class="tsd-kind-icon">Video</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#authuser" class="tsd-kind-icon">Auth<wbr>User</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#childthread" class="tsd-kind-icon">Child<wbr>Thread</a>
