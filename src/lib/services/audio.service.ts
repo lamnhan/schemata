@@ -36,12 +36,12 @@ export interface Audio
   // Images
   description?: string;
   // Content
-  src?:
+  srcs?:
     | string
     | {
         [type: string]: unknown; // { mp3: ..., webm: ... }
       };
-  sheet?:
+  sheets?:
     | string
     | {
         [type: string]: unknown; // { jpg: ..., pdf: ... }
@@ -49,7 +49,7 @@ export interface Audio
   duration?: number;
   birthday?: number | string;
   props?: {
-    [prop: string]: unknown;
+    [name: string]: unknown;
   };
   locale?: string;
   origin?: string;

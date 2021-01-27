@@ -33,7 +33,7 @@ export interface Author
   phoneNumber?: number | string;
   url?: string;
   stats?: {
-    [prop: string]: unknown;
+    [name: string]: unknown;
   };
   locale?: string;
   origin?: string;

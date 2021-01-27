@@ -36,7 +36,7 @@ export interface Video
   // Images
   description?: string;
   // Content
-  src?:
+  srcs?:
     | string
     | {
         [type: string]: unknown; // { mp4: ..., webm: ... }

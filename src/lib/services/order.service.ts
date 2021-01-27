@@ -48,10 +48,10 @@ export interface Order extends Ids, Status, Timing, Extras {
   paymentType?: string;
   transactionId?: string;
   discountData?: {
-    [type: string]: OrderDiscount;
+    [kind: string]: OrderDiscount;
   };
   adjustments?: {
-    [adjustment: string]: OrderAdjustment;
+    [name: string]: OrderAdjustment;
   };
   // Extras
 }

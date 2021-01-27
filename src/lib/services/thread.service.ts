@@ -37,7 +37,7 @@ export interface Thread
   // Timing
   content: string;
   attachments?: {
-    [index: string]: ThreadAttachment;
+    [name: string]: ThreadAttachment;
   };
   parent?: string;
   master?: string; // <collection>/<doc> (posts/post-1)
@@ -53,8 +53,9 @@ export interface Thread
 }
 
 export type ParentThread = Omit<Thread, 'parent'>;
-
 export type ChildThread = Thread;
+
+// export type Thread = Thread;
 export type Message = ChildThread;
 
 export class ThreadService {

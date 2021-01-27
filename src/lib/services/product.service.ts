@@ -77,7 +77,7 @@ export interface Product
   props?: {
     weight?: string;
     dimensions?: string;
-    [prop: string]: unknown;
+    [name: string]: unknown;
   };
   stockCount?: number;
   soldCount?: number;
@@ -85,7 +85,7 @@ export interface Product
     [name: string]: ProductOption;
   };
   variants?: {
-    [variant: string]: ProductVariant;
+    [name: string]: ProductVariant;
   };
   locale?: string;
   origin?: string;

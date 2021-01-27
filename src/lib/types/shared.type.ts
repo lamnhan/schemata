@@ -72,7 +72,7 @@ export interface Taxonomies {
 }
 
 export interface Rating {
-  rateCount?: number; // number of stars: 0-5 (directly, no rateTotal) or total stars
+  rateCount?: number; // number of stars: <=5 (directly/no rateTotal) or total stars
   rateTotal?: number; // number of rating
 }
 
