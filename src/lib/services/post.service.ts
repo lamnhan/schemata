@@ -14,6 +14,14 @@ import {
   Extras,
 } from '../types/shared.type';
 
+export interface PostTOCItem {
+  text: string;
+  level: number;
+  id?: string;
+  href?: string;
+  routerLink?: string | string[];
+}
+
 export interface Post
   extends Ids,
     Status,
@@ -35,6 +43,8 @@ export interface Post
   // Authors
   // Images
   excerpt?: string;
+  toc?: PostTOCItem[];
+  tldr?: string | string[];
   // Content
   slides?: {
     [slide: string]: Post;

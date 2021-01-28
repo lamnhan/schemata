@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Timing | @lamnhan/schemata</title>
+	<title>PostTOCItem | @lamnhan/schemata</title>
 	<meta name="description" content="Documentation for @lamnhan/schemata">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="timing.html">Timing</a>
+					<a href="posttocitem.html">PostTOCItem</a>
 				</li>
 			</ul>
-			<h1>Interface Timing</h1>
+			<h1>Interface PostTOCItem</h1>
 		</div>
 	</div>
 </header>
@@ -68,39 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Timing</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="audio.html" class="tsd-signature-type">Audio</a>
-							</li>
-							<li>
-								<a href="author.html" class="tsd-signature-type">Author</a>
-							</li>
-							<li>
-								<a href="bundle.html" class="tsd-signature-type">Bundle</a>
-							</li>
-							<li>
-								<a href="order.html" class="tsd-signature-type">Order</a>
-							</li>
-							<li>
-								<a href="page.html" class="tsd-signature-type">Page</a>
-							</li>
-							<li>
-								<a href="post.html" class="tsd-signature-type">Post</a>
-							</li>
-							<li>
-								<a href="product.html" class="tsd-signature-type">Product</a>
-							</li>
-							<li>
-								<a href="thread.html" class="tsd-signature-type">Thread</a>
-							</li>
-							<li>
-								<a href="userprofile.html" class="tsd-signature-type">UserProfile</a>
-							</li>
-							<li>
-								<a href="video.html" class="tsd-signature-type">Video</a>
-							</li>
-						</ul>
+						<span class="target">PostTOCItem</span>
 					</li>
 				</ul>
 			</section>
@@ -111,8 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timing.html#createdat" class="tsd-kind-icon">created<wbr>At</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="timing.html#updatedat" class="tsd-kind-icon">updated<wbr>At</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="posttocitem.html#href" class="tsd-kind-icon">href</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="posttocitem.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="posttocitem.html#level" class="tsd-kind-icon">level</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="posttocitem.html#routerlink" class="tsd-kind-icon">router<wbr>Link</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="posttocitem.html#text" class="tsd-kind-icon">text</a></li>
 							</ul>
 						</section>
 					</div>
@@ -121,22 +92,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="createdat" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> created<wbr>At</h3>
-					<div class="tsd-signature tsd-kind-icon">created<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="href" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> href</h3>
+					<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/types/shared.type.ts#L17">lib/types/shared.type.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/post.service.ts#L21">lib/services/post.service.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="updatedat" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> updated<wbr>At</h3>
-					<div class="tsd-signature tsd-kind-icon">updated<wbr>At<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/types/shared.type.ts#L18">lib/types/shared.type.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/post.service.ts#L20">lib/services/post.service.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="level" class="tsd-anchor"></a>
+					<h3>level</h3>
+					<div class="tsd-signature tsd-kind-icon">level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/post.service.ts#L19">lib/services/post.service.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="routerlink" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> router<wbr>Link</h3>
+					<div class="tsd-signature tsd-kind-icon">router<wbr>Link<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/post.service.ts#L22">lib/services/post.service.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="text" class="tsd-anchor"></a>
+					<h3>text</h3>
+					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/post.service.ts#L18">lib/services/post.service.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,13 +156,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="timing.html" class="tsd-kind-icon">Timing</a>
+						<a href="posttocitem.html" class="tsd-kind-icon">PostTOCItem</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="timing.html#createdat" class="tsd-kind-icon">created<wbr>At</a>
+								<a href="posttocitem.html#href" class="tsd-kind-icon">href</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="timing.html#updatedat" class="tsd-kind-icon">updated<wbr>At</a>
+								<a href="posttocitem.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="posttocitem.html#level" class="tsd-kind-icon">level</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="posttocitem.html#routerlink" class="tsd-kind-icon">router<wbr>Link</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="posttocitem.html#text" class="tsd-kind-icon">text</a>
 							</li>
 						</ul>
 					</li>

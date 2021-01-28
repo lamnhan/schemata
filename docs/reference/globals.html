@@ -110,6 +110,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/page.html" class="tsd-kind-icon">Page</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/parents.html" class="tsd-kind-icon">Parents</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/post.html" class="tsd-kind-icon">Post</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/posttocitem.html" class="tsd-kind-icon">PostTOCItem</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/product.html" class="tsd-kind-icon">Product</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/productoption.html" class="tsd-kind-icon">Product<wbr>Option</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/productoptionitem.html" class="tsd-kind-icon">Product<wbr>Option<wbr>Item</a></li>
@@ -145,6 +146,7 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#childthread" class="tsd-kind-icon">Child<wbr>Thread</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#message" class="tsd-kind-icon">Message</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#parentthread" class="tsd-kind-icon">Parent<wbr>Thread</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#promotionbuiltinkinds" class="tsd-kind-icon">Promotion<wbr>Builtin<wbr>Kinds</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#useroobmode" class="tsd-kind-icon">User<wbr>Oob<wbr>Mode</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#userproviderid" class="tsd-kind-icon">User<wbr>Provider<wbr>Id</a></li>
 							</ul>
@@ -160,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">Auth<wbr>User<span class="tsd-signature-symbol">:</span> <a href="interfaces/userinfo.html" class="tsd-signature-type">UserInfo</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/user.service.ts#L8">lib/services/user.service.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L8">lib/services/user.service.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +172,7 @@
 					<div class="tsd-signature tsd-kind-icon">Child<wbr>Thread<span class="tsd-signature-symbol">:</span> <a href="interfaces/thread.html" class="tsd-signature-type">Thread</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/thread.service.ts#L57">lib/services/thread.service.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/thread.service.ts#L56">lib/services/thread.service.ts:56</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">Message<span class="tsd-signature-symbol">:</span> <a href="globals.html#childthread" class="tsd-signature-type">ChildThread</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/thread.service.ts#L58">lib/services/thread.service.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/thread.service.ts#L59">lib/services/thread.service.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +192,17 @@
 					<div class="tsd-signature tsd-kind-icon">Parent<wbr>Thread<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/thread.html" class="tsd-signature-type">Thread</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"parent"</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/thread.service.ts#L55">lib/services/thread.service.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/thread.service.ts#L55">lib/services/thread.service.ts:55</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="promotionbuiltinkinds" class="tsd-anchor"></a>
+					<h3>Promotion<wbr>Builtin<wbr>Kinds</h3>
+					<div class="tsd-signature tsd-kind-icon">Promotion<wbr>Builtin<wbr>Kinds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"code"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"custom"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"auto"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/promotion.service.ts#L3">lib/services/promotion.service.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +212,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Oob<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"resetPassword"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"verifyEmail"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"none"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/user.service.ts#L16">lib/services/user.service.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L16">lib/services/user.service.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +222,7 @@
 					<div class="tsd-signature tsd-kind-icon">User<wbr>Provider<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"password"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"custom"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"anonymous"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"google.com"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"facebook.com"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/e44eb48/src/lib/services/user.service.ts#L10">lib/services/user.service.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L10">lib/services/user.service.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -338,6 +350,9 @@
 						<a href="interfaces/post.html" class="tsd-kind-icon">Post</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/posttocitem.html" class="tsd-kind-icon">PostTOCItem</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/product.html" class="tsd-kind-icon">Product</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -426,6 +441,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#parentthread" class="tsd-kind-icon">Parent<wbr>Thread</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#promotionbuiltinkinds" class="tsd-kind-icon">Promotion<wbr>Builtin<wbr>Kinds</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#useroobmode" class="tsd-kind-icon">User<wbr>Oob<wbr>Mode</a>
