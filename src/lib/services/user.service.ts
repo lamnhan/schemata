@@ -1,11 +1,14 @@
-import {Timing} from '../types/shared.type';
-export interface User extends UserInfo, UserSecret {
-  '#'?: number;
-  // UserInfo
-  // UserSecret
+export type AuthUser = UserProperties & UserMethods;
+
+export interface UserMethods {
+  [method: string]: Function;
 }
 
-export type AuthUser = UserInfo & Record<string, Function>;
+export interface User extends UserProperties, UserSecret {
+  '#'?: number;
+  // UserProperties
+  // UserSecret
+}
 
 export type UserProviderId =
   | 'password'
@@ -28,10 +31,45 @@ export interface UserAddressDetail {
 }
 
 export interface UserAddress {
-  default?: true;
+  default?: boolean;
+  publicly?: boolean;
   title?: string;
   text?: string;
   detail?: UserAddressDetail;
+}
+
+export interface UserMetadata {
+  creationTime?: string;
+  lastSignInTime?: string;
+}
+
+export interface UserProfileSettings {
+  emailPublicly?: boolean;
+  phoneNumberPublicly?: boolean;
+  addressesPublicly?: boolean;
+  typePublicly?: boolean;
+  // for additionalData
+  [key: string]: unknown;
+}
+
+export interface UserInfo {
+  providerId?: UserProviderId;
+  uid?: string;
+  displayName?: string;
+  photoURL?: string;
+  email?: string;
+  phoneNumber?: string;
+}
+
+export interface UserProperties extends UserContexts, UserProfile {
+  username?: string;
+  emailVerified?: boolean;
+  providerId?: UserProviderId;
+  providerData?: UserInfo[];
+  metadata?: UserMetadata;
+  settings?: UserProfileSettings;
+  // UserContexts
+  // UserProfile
 }
 
 export interface UserContexts {
@@ -39,31 +77,11 @@ export interface UserContexts {
   isAnonymous?: boolean;
 }
 
-export interface UserProfileSettings {
-  publicEmail?: boolean;
-  publicPhoneNumber?: boolean;
-  publicAddresses?: boolean;
-  publicType?: boolean;
-  // for additionalData
-  [key: string]: unknown;
-}
-
-export interface UserInfo extends UserContexts, UserProfile {
-  username?: string;
-  emailVerified?: boolean;
-  lastLogin?: string;
-  providerId?: UserProviderId;
-  settings?: UserProfileSettings;
-  // UserContexts
-  // UserProfile
-}
-
-export interface UserProfile extends Timing, UserEditableProfile {
+export interface UserProfile extends UserEditableProfile {
   uid?: string;
   type?: string;
-  // Timing
   email?: string;
-  phoneNumber?: number | string;
+  phoneNumber?: string;
   claims?: Record<string, unknown>;
   // UserEditableProfile
 }
