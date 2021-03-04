@@ -91,5 +91,5 @@ export interface Statistics {
 }
 
 export interface Extras {
-  meta?: Record<string, unknown>;
+  metas?: Record<string, unknown>;
 }
