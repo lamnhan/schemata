@@ -43,12 +43,17 @@ export interface UserMetadata {
   lastSignInTime?: string;
 }
 
-export interface UserProfileSettings {
+export interface UserSettings {
+  // profile settings
   emailPublicly?: boolean;
   phoneNumberPublicly?: boolean;
   addressesPublicly?: boolean;
   typePublicly?: boolean;
-  // for additionalData
+  // built-in
+  theme?: string;
+  persona?: string;
+  locale?: string;
+  // for additionalData visiblity or any things
   [key: string]: unknown;
 }
 
@@ -67,7 +72,7 @@ export interface UserProperties extends UserContexts, UserProfile {
   providerId?: UserProviderId;
   providerData?: UserInfo[];
   metadata?: UserMetadata;
-  settings?: UserProfileSettings;
+  settings?: UserSettings;
   // UserContexts
   // UserProfile
 }
