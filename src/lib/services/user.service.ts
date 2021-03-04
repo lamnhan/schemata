@@ -1,9 +1,3 @@
-export type AuthUser = UserProperties & UserMethods;
-
-export interface UserMethods {
-  [method: string]: Function;
-}
-
 export interface User extends UserProperties, UserSecret {
   '#'?: number;
   // UserProperties
@@ -53,7 +47,7 @@ export interface UserSettings {
   theme?: string;
   persona?: string;
   locale?: string;
-  // for additionalData visiblity or any things
+  // for additionalData profile settings (visiblility) or any things
   [key: string]: unknown;
 }
 
@@ -67,12 +61,12 @@ export interface UserInfo {
 }
 
 export interface UserProperties extends UserContexts, UserProfile {
-  username?: string;
   emailVerified?: boolean;
   providerId?: UserProviderId;
   providerData?: UserInfo[];
   metadata?: UserMetadata;
   settings?: UserSettings;
+  claims?: Record<string, unknown>;
   // UserContexts
   // UserProfile
 }
@@ -85,9 +79,9 @@ export interface UserContexts {
 export interface UserProfile extends UserEditableProfile {
   uid?: string;
   type?: string;
+  username?: string;
   email?: string;
   phoneNumber?: string;
-  claims?: Record<string, unknown>;
   // UserEditableProfile
 }
 
