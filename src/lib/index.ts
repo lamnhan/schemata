@@ -9,7 +9,6 @@ import {PageService} from './services/page.service';
 import {PostService} from './services/post.service';
 import {ProductService} from './services/product.service';
 import {PromotionService} from './services/promotion.service';
-import {PropertyService} from './services/property.service';
 import {TagService} from './services/tag.service';
 import {ThreadService} from './services/thread.service';
 import {UserService} from './services/user.service';
@@ -27,7 +26,6 @@ export class Lib {
   postService: PostService;
   productService: ProductService;
   promotionService: PromotionService;
-  propertyService: PropertyService;
   tagService: TagService;
   threadService: ThreadService;
   userService: UserService;
@@ -44,7 +42,6 @@ export class Lib {
     this.postService = new PostService();
     this.productService = new ProductService();
     this.promotionService = new PromotionService();
-    this.propertyService = new PropertyService();
     this.tagService = new TagService();
     this.threadService = new ThreadService();
     this.userService = new UserService();

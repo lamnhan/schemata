@@ -78,10 +78,6 @@ const post: Post = {};
 
 [Source](https://github.com/sheetbase/models/blob/master/src/lib/services/order.service.ts)
 
-### :heart: Property `properties` :x:
-
-[Source](https://github.com/sheetbase/models/blob/master/src/lib/services/property.service.ts)
-
 ### :purple_heart: Notification `notifications` :earth_asia:
 
 [Source](https://github.com/sheetbase/models/blob/master/src/lib/services/notification.service.ts)

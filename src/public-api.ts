@@ -13,6 +13,5 @@ export * from './lib/services/audio.service';
 export * from './lib/services/video.service';
 export * from './lib/services/product.service';
 export * from './lib/services/order.service';
-export * from './lib/services/property.service';
 export * from './lib/services/notification.service';
 export * from './lib/services/promotion.service';
