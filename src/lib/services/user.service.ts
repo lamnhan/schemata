@@ -37,17 +37,16 @@ export interface UserMetadata {
   lastSignInTime?: string;
 }
 
+export interface UserPublicly {
+  email?: boolean;
+  phoneNumber?: boolean;
+  [propKey: string]: undefined | boolean; // for .props
+}
+
 export interface UserSettings {
-  // profile settings
-  emailPublicly?: boolean;
-  phoneNumberPublicly?: boolean;
-  addressesPublicly?: boolean;
-  typePublicly?: boolean;
-  // built-in
   theme?: string;
   persona?: string;
   locale?: string;
-  // for additionalData profile settings (visiblility) or any things
   [key: string]: unknown;
 }
 
@@ -60,38 +59,49 @@ export interface UserInfo {
   phoneNumber?: string;
 }
 
-export interface UserProperties extends UserContexts, UserProfile {
-  emailVerified?: boolean;
-  providerId?: UserProviderId;
-  providerData?: UserInfo[];
-  metadata?: UserMetadata;
-  settings?: UserSettings;
-  claims?: Record<string, unknown>;
-  // UserContexts
+export interface UserProperties extends UserPrivate, UserContext, UserProfile {
+  // UserPrivate
+  // UserContext
   // UserProfile
 }
 
-export interface UserContexts {
-  isNew?: boolean;
-  isAnonymous?: boolean;
+export interface UserPrivate {
+  providerId?: UserProviderId;
+  providerData?: UserInfo[];
+  metadata?: UserMetadata;
+  publicly?: UserPublicly;
+  settings?: UserSettings;
 }
 
-export interface UserProfile extends UserEditableProfile {
+export interface UserContext {
+  isNew?: boolean;
+  isAnonymous?: boolean;
+  emailVerified?: boolean;
+}
+
+export interface UserProfile extends UserInternalProfile, UserEditableProfile {
+  // UserInternalProfile
+  // UserEditableProfile
+}
+
+export interface UserInternalProfile {
+  official?: boolean;
   uid?: string;
-  type?: string;
   username?: string;
   email?: string;
   phoneNumber?: string;
-  // UserEditableProfile
+  addresses?: string | Record<string, string | UserAddress>;
+  claims?: Record<string, unknown>;
+  props?: Record<string, unknown>;
 }
 
 export interface UserEditableProfile {
   displayName?: string;
   photoURL?: string;
-  bio?: string;
+  coverPhoto?: string;
+  intro?: string;
+  detail?: string;
   url?: string;
-  addresses?: string | Record<string, string | UserAddress>;
-  additionalData?: Record<string, unknown>;
 }
 
 export interface UserSecret {
