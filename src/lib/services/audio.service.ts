@@ -11,7 +11,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 
 export interface Audio
@@ -26,8 +25,7 @@ export interface Audio
     Taxonomies,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   type?: string;
   // Status
@@ -65,7 +63,6 @@ export interface Audio
   // Sharing
   // Statistics
   keywords?: string;
-  // Extras
 }
 
 export class AudioService {

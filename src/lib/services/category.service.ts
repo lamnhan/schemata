@@ -1,6 +1,6 @@
-import {Ids, Images, Extras} from '../types/shared.type';
+import {Ids, Images} from '../types/shared.type';
 
-export interface Category extends Ids, Images, Extras {
+export interface Category extends Ids, Images {
   // Ids
   // Images
   description?: string;
@@ -8,7 +8,6 @@ export interface Category extends Ids, Images, Extras {
   only?: string | string[];
   locale?: string;
   origin?: string;
-  // Extras
 }
 
 export class CategoryService {

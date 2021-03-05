@@ -11,7 +11,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 
 export interface Video
@@ -26,8 +25,7 @@ export interface Video
     Taxonomies,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   type?: string;
   // Status
@@ -55,7 +53,6 @@ export interface Video
   // Sharing
   // Statistics
   keywords?: string;
-  // Extras
 }
 
 export class VideoService {

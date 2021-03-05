@@ -10,7 +10,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 
 export interface Bundle
@@ -24,8 +23,7 @@ export interface Bundle
     Taxonomies,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   type?: string;
   // Status
@@ -43,7 +41,6 @@ export interface Bundle
   // Sharing
   // Statistics
   keywords?: string;
-  // Extras
 }
 
 export class BundleService {

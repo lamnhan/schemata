@@ -11,7 +11,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 import {Post} from './post.service';
 
@@ -51,8 +50,7 @@ export interface Product
     Taxonomies,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   type?: string;
   // Status
@@ -96,7 +94,6 @@ export interface Product
   // Sharing
   // Statistics
   keywords?: string;
-  // Extras
 }
 
 export class ProductService {

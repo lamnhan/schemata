@@ -11,7 +11,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 
 export interface PostTOCItem {
@@ -34,8 +33,7 @@ export interface Post
     Taxonomies,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   type?: string;
   // Status
@@ -59,7 +57,6 @@ export interface Post
   // Sharing
   // Statistics
   keywords?: string;
-  // Extras
 }
 
 export class PostService {

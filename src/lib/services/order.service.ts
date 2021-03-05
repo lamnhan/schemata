@@ -1,4 +1,4 @@
-import {Ids, Status, Timing, Extras} from '../types/shared.type';
+import {Ids, Status, Timing} from '../types/shared.type';
 
 export interface OrderProduct {
   id: string;
@@ -26,7 +26,7 @@ export interface OrderAdjustment {
   value: number; // positive or nagative
 }
 
-export interface Order extends Ids, Status, Timing, Extras {
+export interface Order extends Ids, Status, Timing {
   // Ids
   type?: string;
   // Status
@@ -53,7 +53,6 @@ export interface Order extends Ids, Status, Timing, Extras {
   adjustments?: {
     [name: string]: OrderAdjustment;
   };
-  // Extras
 }
 
 export class OrderService {

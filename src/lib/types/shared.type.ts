@@ -93,7 +93,3 @@ export interface Statistics {
   likeCount?: number;
   commentCount?: number;
 }
-
-export interface Extras {
-  metas?: Record<string, unknown>; // direct metas
-}

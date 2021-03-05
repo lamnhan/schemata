@@ -8,7 +8,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 
 export interface Profile
@@ -20,8 +19,7 @@ export interface Profile
     Taxonomies,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   // Status
   // Timing
@@ -42,7 +40,6 @@ export interface Profile
   // Sharing
   // Statistics
   keywords?: string;
-  // Extras
 }
 
 export class ProfileService {

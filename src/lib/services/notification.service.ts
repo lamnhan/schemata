@@ -1,6 +1,6 @@
-import {Ids, Extras} from '../types/shared.type';
+import {Ids} from '../types/shared.type';
 
-export interface Notification extends Ids, Extras {
+export interface Notification extends Ids {
   // Ids
   thumbnail?: string;
   content?: string;
@@ -8,7 +8,6 @@ export interface Notification extends Ids, Extras {
   schedule?: string | number;
   locale?: string;
   origin?: string;
-  // Extras
 }
 
 export class NotificationService {

@@ -5,7 +5,6 @@ import {
   Rating,
   Sharing,
   Statistics,
-  Extras,
 } from '../types/shared.type';
 
 export interface ThreadAttachment {
@@ -29,8 +28,7 @@ export interface Thread
     Timing,
     Rating,
     Sharing,
-    Statistics,
-    Extras {
+    Statistics {
   // Ids
   type?: string;
   // Status
@@ -49,7 +47,6 @@ export interface Thread
   // Rating
   // Sharing
   // Statistics
-  // Extras
 }
 
 export type ParentThread = Omit<Thread, 'parent'>;

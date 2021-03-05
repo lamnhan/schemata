@@ -13,6 +13,7 @@ import {ThreadService} from './services/thread.service';
 import {UserService} from './services/user.service';
 import {ProfileService} from './services/profile.service';
 import {VideoService} from './services/video.service';
+import {MetaService} from './services/meta.service';
 
 export class Lib {
   public readonly audioService: AudioService;
@@ -30,6 +31,7 @@ export class Lib {
   public readonly threadService: ThreadService;
   public readonly userService: UserService;
   public readonly videoService: VideoService;
+  public readonly metaService: MetaService;
   constructor() {
     this.audioService = new AudioService();
     this.profileService = new ProfileService();
@@ -46,5 +48,6 @@ export class Lib {
     this.threadService = new ThreadService();
     this.userService = new UserService();
     this.videoService = new VideoService();
+    this.metaService = new MetaService();
   }
 }
