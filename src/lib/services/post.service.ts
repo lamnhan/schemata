@@ -47,7 +47,7 @@ export interface Post
   tldr?: string | string[];
   // Content
   slides?: {
-    [slide: string]: Post;
+    [id: string]: Post;
   };
   duration?: number;
   locale?: string;
