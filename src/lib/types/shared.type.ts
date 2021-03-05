@@ -95,6 +95,5 @@ export interface Statistics {
 }
 
 export interface Extras {
-  metaId?: string; // standalone meta
   metas?: Record<string, unknown>; // direct metas
 }
