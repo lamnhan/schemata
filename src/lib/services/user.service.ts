@@ -40,7 +40,8 @@ export interface UserMetadata {
 export interface UserPublicly {
   email?: boolean;
   phoneNumber?: boolean;
-  [propKey: string]: undefined | boolean; // for .props
+  // for .additionalData
+  [key: string]: undefined | boolean;
 }
 
 export interface UserSettings {
@@ -92,7 +93,7 @@ export interface UserInternalProfile {
   phoneNumber?: string;
   addresses?: string | Record<string, string | UserAddress>;
   claims?: Record<string, unknown>;
-  props?: Record<string, unknown>;
+  additionalData?: Record<string, unknown>;
 }
 
 export interface UserEditableProfile {
