@@ -1,7 +1,8 @@
-import {Ids, Timing, Images} from '../types/shared.type';
+import {Ids, Status, Timing, Images} from '../types/shared.type';
 
-export interface Category extends Ids, Timing, Images {
+export interface Category extends Ids, Status, Timing, Images {
   // Ids
+  // Status
   // Timing
   // Images
   description?: string;

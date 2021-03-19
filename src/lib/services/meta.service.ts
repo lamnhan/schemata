@@ -1,7 +1,8 @@
-import {Ids, Timing} from '../types/shared.type';
+import {Ids, Status, Timing} from '../types/shared.type';
 
-export interface Meta extends Ids, Timing {
+export interface Meta extends Ids, Status, Timing {
   // Ids
+  // Status
   // Timing
   value: unknown;
 }

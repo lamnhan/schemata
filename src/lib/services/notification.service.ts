@@ -1,7 +1,8 @@
-import {Ids, Timing} from '../types/shared.type';
+import {Ids, Status, Timing} from '../types/shared.type';
 
-export interface Notification extends Ids, Timing {
+export interface Notification extends Ids, Status, Timing {
   // Ids
+  // Status
   // Timing
   thumbnail?: string;
   content?: string;

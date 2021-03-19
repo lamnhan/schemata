@@ -1,7 +1,8 @@
-import {Timing} from '../types/shared.type';
+import {Status, Timing} from '../types/shared.type';
 
-export interface User extends Timing, UserProperties, UserSecret {
+export interface User extends Status, Timing, UserProperties, UserSecret {
   '#'?: number;
+  // Status
   // Timing
   // UserProperties
   // UserSecret
@@ -57,7 +58,7 @@ export interface UserSettings {
 export interface UserInfo {
   providerId?: UserProviderId;
   uid: string;
-  email: string;
+  email?: string;
   displayName?: string;
   photoURL?: string;
   phoneNumber?: string;
@@ -91,7 +92,7 @@ export interface UserProfile extends UserInternalProfile, UserEditableProfile {
 export interface UserInternalProfile {
   official?: boolean;
   uid: string;
-  email: string;
+  email?: string;
   username?: string;
   phoneNumber?: string;
   addresses?: string | Record<string, string | UserAddress>;
