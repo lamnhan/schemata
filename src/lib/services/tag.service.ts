@@ -1,7 +1,8 @@
-import {Ids} from '../types/shared.type';
+import {Ids, Timing} from '../types/shared.type';
 
-export interface Tag extends Ids {
+export interface Tag extends Ids, Timing {
   // Ids
+  // Timing
   count?: number;
 }
 
