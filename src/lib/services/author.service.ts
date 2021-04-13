@@ -25,7 +25,7 @@ export interface Author
   official?: boolean;
   uid?: string;
   email?: string;
-  phoneNumber?: number | string;
+  phoneNumber?: string;
   url?: string;
   roles?: Record<string, unknown>;
   props?: Record<string, unknown>;

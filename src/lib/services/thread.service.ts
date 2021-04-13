@@ -30,7 +30,7 @@ export interface Thread extends Ids, Status, Timing, Statistics {
   uid?: string;
   email?: string;
   displayName?: string;
-  phoneNumber?: number | string;
+  phoneNumber?: string;
   // Statistics
 }
 

@@ -1,7 +1,6 @@
 import {Category} from '../services/category.service';
 import {Tag} from '../services/tag.service';
 import {Author} from '../services/author.service';
-import {Profile} from '../services/profile.service';
 import {Bundle} from '../services/bundle.service';
 
 export interface Ids {
@@ -19,11 +18,10 @@ export interface Timing {
 }
 
 export interface Authors {
-  author?: Author | Profile;
   authors?: {
     // author-1: ...
     // author-2: ...
-    [id: string]: Author | Profile;
+    [id: string]: Author;
   };
 }
 
@@ -38,7 +36,6 @@ export interface Content {
 }
 
 export interface Parents {
-  parent?: Bundle;
   parents?: {
     // bundle-1: ...
     [id: string]: Bundle;

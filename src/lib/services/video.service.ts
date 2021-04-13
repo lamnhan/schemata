@@ -30,13 +30,12 @@ export interface Video
   // Images
   description?: string;
   // Content
-  srcs?:
-    | string
-    | {
-        [type: string]: unknown; // { mp4: ..., webm: ... }
-      };
+  src?: string;
+  srcs?: {
+    [type: string]: unknown; // { mp4: ..., webm: ... }
+  };
   duration?: number;
-  birthday?: number | string;
+  birthday?: string;
   props?: {
     [prop: string]: unknown;
   };

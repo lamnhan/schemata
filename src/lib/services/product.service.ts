@@ -30,7 +30,7 @@ export interface ProductVariant extends Images {
   sku: string; // product SKU + options ids: P001-XL-B
   price?: number;
   discounted?: number;
-  upc?: number | string;
+  upc?: string;
   // Images
   stockCount?: number;
   soldCount?: number;
@@ -63,9 +63,9 @@ export interface Product
   price: number;
   discounted?: number;
   brand?: string;
-  birthday?: number | string;
+  birthday?: string;
   country?: string;
-  upc?: number | string;
+  upc?: string;
   promotion?: string;
   warranty?: string;
   props?: {

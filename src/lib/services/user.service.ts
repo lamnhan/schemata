@@ -23,7 +23,7 @@ export interface UserAddressDetail {
   district?: string;
   village?: string; // or town
   street?: string;
-  number?: number | string;
+  number?: string;
   // custom
   [key: string]: unknown;
 }
@@ -95,7 +95,9 @@ export interface UserInternalProfile {
   email?: string;
   username?: string;
   phoneNumber?: string;
-  addresses?: string | Record<string, string | UserAddress>;
+  addresses?: {
+    [name: string]: UserAddress;
+  };
   claims?: Record<string, unknown>;
   additionalData?: Record<string, unknown>;
 }
@@ -116,8 +118,8 @@ export interface UserSecret {
   oobCode?: string;
   oobMode?: UserOobMode;
   oobTimestamp?: number;
-  jwtWhitelist?: string | string[]; // hashed single/list
-  instanceWhitelist?: string | string[]; // hashed single/list
+  jwtWhitelist?: string[]; // hashed single/list
+  instanceWhitelist?: string[]; // hashed single/list
 }
 
 export class UserService {

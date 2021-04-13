@@ -8,7 +8,7 @@ export interface Promotion extends Ids, Status, Timing {
   // Timing
   content?: string;
   value: number;
-  kind?: string | PromotionBuiltinKinds;
+  kind?: PromotionBuiltinKinds;
   locale?: string;
   origin?: string;
 }

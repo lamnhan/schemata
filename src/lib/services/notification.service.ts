@@ -7,7 +7,7 @@ export interface Notification extends Ids, Status, Timing {
   thumbnail?: string;
   content?: string;
   link?: string;
-  schedule?: string | number;
+  schedule?: string;
   locale?: string;
   origin?: string;
 }

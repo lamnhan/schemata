@@ -42,7 +42,7 @@ export interface Order extends Ids, Status, Timing {
   uid?: string;
   email?: string;
   displayName?: string;
-  phoneNumber?: number | string;
+  phoneNumber?: string;
   address?: string;
   note?: string;
   paymentType?: string;
