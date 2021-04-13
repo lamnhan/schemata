@@ -16,3 +16,4 @@ export * from './lib/services/order.service';
 export * from './lib/services/notification.service';
 export * from './lib/services/promotion.service';
 export * from './lib/services/meta.service';
+export * from './lib/services/author.service';

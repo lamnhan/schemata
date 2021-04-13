@@ -8,8 +8,6 @@ import {
   Parents,
   Relationships,
   Taxonomies,
-  Rating,
-  Sharing,
   Statistics,
 } from '../types/shared.type';
 
@@ -23,8 +21,6 @@ export interface Video
     Parents,
     Relationships,
     Taxonomies,
-    Rating,
-    Sharing,
     Statistics {
   // Ids
   type?: string;
@@ -49,8 +45,6 @@ export interface Video
   // Parents
   // Relationships
   // Taxonomies
-  // Rating
-  // Sharing
   // Statistics
   keywords?: string;
 }

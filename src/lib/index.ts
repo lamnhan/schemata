@@ -14,6 +14,7 @@ import {UserService} from './services/user.service';
 import {ProfileService} from './services/profile.service';
 import {VideoService} from './services/video.service';
 import {MetaService} from './services/meta.service';
+import {AuthorService} from './services/author.service';
 
 export class Lib {
   public readonly audioService: AudioService;
@@ -32,6 +33,8 @@ export class Lib {
   public readonly userService: UserService;
   public readonly videoService: VideoService;
   public readonly metaService: MetaService;
+  public readonly authorService: AuthorService;
+
   constructor() {
     this.audioService = new AudioService();
     this.profileService = new ProfileService();
@@ -49,5 +52,6 @@ export class Lib {
     this.userService = new UserService();
     this.videoService = new VideoService();
     this.metaService = new MetaService();
+    this.authorService = new AuthorService();
   }
 }

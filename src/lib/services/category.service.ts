@@ -7,7 +7,7 @@ export interface Category extends Ids, Status, Timing, Images {
   // Images
   description?: string;
   count?: number;
-  only?: string | string[];
+  only?: string[]; // posts, pages, posts:post, posts:project, ...
   locale?: string;
   origin?: string;
 }

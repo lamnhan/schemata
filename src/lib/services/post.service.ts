@@ -8,8 +8,6 @@ import {
   Parents,
   Relationships,
   Taxonomies,
-  Rating,
-  Sharing,
   Statistics,
 } from '../types/shared.type';
 
@@ -18,7 +16,7 @@ export interface PostTOCItem {
   level: number;
   id?: string;
   href?: string;
-  routerLink?: string | string[];
+  routerLink?: string;
 }
 
 export interface Post
@@ -31,8 +29,6 @@ export interface Post
     Parents,
     Relationships,
     Taxonomies,
-    Rating,
-    Sharing,
     Statistics {
   // Ids
   type?: string;
@@ -42,7 +38,7 @@ export interface Post
   // Images
   excerpt?: string;
   toc?: PostTOCItem[];
-  tldr?: string | string[];
+  tldr?: string;
   // Content
   slides?: {
     [id: string]: Post;
@@ -53,8 +49,6 @@ export interface Post
   // Parents
   // Relationships
   // Taxonomies
-  // Rating
-  // Sharing
   // Statistics
   keywords?: string;
 }

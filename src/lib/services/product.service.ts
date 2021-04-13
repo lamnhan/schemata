@@ -8,8 +8,6 @@ import {
   Parents,
   Relationships,
   Taxonomies,
-  Rating,
-  Sharing,
   Statistics,
 } from '../types/shared.type';
 import {Post} from './post.service';
@@ -48,8 +46,6 @@ export interface Product
     Parents,
     Relationships,
     Taxonomies,
-    Rating,
-    Sharing,
     Statistics {
   // Ids
   type?: string;
@@ -90,8 +86,6 @@ export interface Product
   // Parents
   // Relationships
   // Taxonomies
-  // Rating
-  // Sharing
   // Statistics
   keywords?: string;
 }

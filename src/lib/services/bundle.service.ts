@@ -7,8 +7,6 @@ import {
   Content,
   Relationships,
   Taxonomies,
-  Rating,
-  Sharing,
   Statistics,
 } from '../types/shared.type';
 
@@ -21,8 +19,6 @@ export interface Bundle
     Content,
     Relationships,
     Taxonomies,
-    Rating,
-    Sharing,
     Statistics {
   // Ids
   type?: string;
@@ -37,8 +33,6 @@ export interface Bundle
   origin?: string;
   // Relationships
   // Taxonomies
-  // Rating
-  // Sharing
   // Statistics
   keywords?: string;
 }

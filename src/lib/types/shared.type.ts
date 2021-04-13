@@ -1,14 +1,12 @@
 import {Category} from '../services/category.service';
 import {Tag} from '../services/tag.service';
+import {Author} from '../services/author.service';
 import {Profile} from '../services/profile.service';
 import {Bundle} from '../services/bundle.service';
 
 export interface Ids {
-  '#'?: number; // row number or index or numerical id
   title: string;
   id: string;
-  $key?: string; // alias of id
-  slug?: string; // alias of id / clean version of the title (if the id is un-readable)
 }
 
 export interface Status {
@@ -21,13 +19,11 @@ export interface Timing {
 }
 
 export interface Authors {
-  // John Doe
-  // John Doe, Another John
-  textAuthors?: string;
+  author?: Author | Profile;
   authors?: {
     // author-1: ...
     // author-2: ...
-    [id: string]: Profile;
+    [id: string]: Author | Profile;
   };
 }
 
@@ -42,6 +38,7 @@ export interface Content {
 }
 
 export interface Parents {
+  parent?: Bundle;
   parents?: {
     // bundle-1: ...
     [id: string]: Bundle;
@@ -52,22 +49,16 @@ export interface Relationships {
   relationships?: {
     // "posts#post-1": ...
     // "pages#page-2": ...
-    [to: string]: unknown;
+    [to: string]: boolean;
   };
 }
 
 export interface Taxonomies {
-  // Cat 1
-  // Cat 1, Cat 2
-  textCategories?: string;
   categories?: {
     // cat-1: ...
     // cat-2: ...
     [id: string]: Category;
   };
-  // Tag 1
-  // Tag 1, Tag 2
-  textTags?: string;
   // tag-1: ...
   // tag-2: ...
   tags?: {
@@ -75,21 +66,10 @@ export interface Taxonomies {
   };
 }
 
-export interface Rating {
-  rateCount?: number; // number of stars: <=5 (directly/no rateTotal) or total stars
-  rateTotal?: number; // number of rating
-}
-
-export interface Sharing {
-  shareCount?: number;
-  shareDetail?: {
-    // facebook, twitter, email, sms, link, ...
-    [provider: string]: number;
-  };
-}
-
 export interface Statistics {
   viewCount?: number;
   likeCount?: number;
   commentCount?: number;
+  rateCount?: number;
+  shareCount?: number;
 }

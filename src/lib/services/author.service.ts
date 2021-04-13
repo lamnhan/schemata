@@ -8,7 +8,7 @@ import {
   Statistics,
 } from '../types/shared.type';
 
-export interface Profile
+export interface Author
   extends Ids,
     Status,
     Timing,
@@ -29,11 +29,13 @@ export interface Profile
   url?: string;
   roles?: Record<string, unknown>;
   props?: Record<string, unknown>;
+  locale?: string;
+  origin?: string;
   // Taxonomies
   // Statistics
   keywords?: string;
 }
 
-export class ProfileService {
+export class AuthorService {
   constructor() {}
 }

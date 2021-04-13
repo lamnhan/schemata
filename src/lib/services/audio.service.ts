@@ -8,8 +8,6 @@ import {
   Parents,
   Relationships,
   Taxonomies,
-  Rating,
-  Sharing,
   Statistics,
 } from '../types/shared.type';
 
@@ -23,8 +21,6 @@ export interface Audio
     Parents,
     Relationships,
     Taxonomies,
-    Rating,
-    Sharing,
     Statistics {
   // Ids
   type?: string;
@@ -59,8 +55,6 @@ export interface Audio
         [id: string]: unknown;
       };
   // Taxonomies
-  // Rating
-  // Sharing
   // Statistics
   keywords?: string;
 }
