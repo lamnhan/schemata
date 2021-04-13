@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UserProfileSettings | @lamnhan/schemata</title>
+	<title>UserSettings | @lamnhan/schemata</title>
 	<meta name="description" content="Documentation for @lamnhan/schemata">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="userprofilesettings.html">UserProfileSettings</a>
+					<a href="usersettings.html">UserSettings</a>
 				</li>
 			</ul>
-			<h1>Interface UserProfileSettings</h1>
+			<h1>Interface UserSettings</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">UserProfileSettings</span>
+						<span class="target">UserSettings</span>
 					</li>
 				</ul>
 			</section>
@@ -83,10 +83,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprofilesettings.html#publicaddresses" class="tsd-kind-icon">public<wbr>Addresses</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprofilesettings.html#publicemail" class="tsd-kind-icon">public<wbr>Email</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprofilesettings.html#publicphonenumber" class="tsd-kind-icon">public<wbr>Phone<wbr>Number</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprofilesettings.html#publictype" class="tsd-kind-icon">public<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="usersettings.html#locale" class="tsd-kind-icon">locale</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="usersettings.html#persona" class="tsd-kind-icon">persona</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="usersettings.html#theme" class="tsd-kind-icon">theme</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,42 +94,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="publicaddresses" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> public<wbr>Addresses</h3>
-					<div class="tsd-signature tsd-kind-icon">public<wbr>Addresses<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="locale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> locale</h3>
+					<div class="tsd-signature tsd-kind-icon">locale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L45">lib/services/user.service.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L54">lib/services/user.service.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="publicemail" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> public<wbr>Email</h3>
-					<div class="tsd-signature tsd-kind-icon">public<wbr>Email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="persona" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> persona</h3>
+					<div class="tsd-signature tsd-kind-icon">persona<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L43">lib/services/user.service.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L53">lib/services/user.service.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="publicphonenumber" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> public<wbr>Phone<wbr>Number</h3>
-					<div class="tsd-signature tsd-kind-icon">public<wbr>Phone<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="theme" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> theme</h3>
+					<div class="tsd-signature tsd-kind-icon">theme<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L44">lib/services/user.service.ts:44</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="publictype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> public<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">public<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L46">lib/services/user.service.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L52">lib/services/user.service.ts:52</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,19 +138,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="userprofilesettings.html" class="tsd-kind-icon">User<wbr>Profile<wbr>Settings</a>
+						<a href="usersettings.html" class="tsd-kind-icon">User<wbr>Settings</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userprofilesettings.html#publicaddresses" class="tsd-kind-icon">public<wbr>Addresses</a>
+								<a href="usersettings.html#locale" class="tsd-kind-icon">locale</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userprofilesettings.html#publicemail" class="tsd-kind-icon">public<wbr>Email</a>
+								<a href="usersettings.html#persona" class="tsd-kind-icon">persona</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userprofilesettings.html#publicphonenumber" class="tsd-kind-icon">public<wbr>Phone<wbr>Number</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="userprofilesettings.html#publictype" class="tsd-kind-icon">public<wbr>Type</a>
+								<a href="usersettings.html#theme" class="tsd-kind-icon">theme</a>
 							</li>
 						</ul>
 					</li>

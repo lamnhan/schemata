@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UserContexts | @lamnhan/schemata</title>
+	<title>UserPrivate | @lamnhan/schemata</title>
 	<meta name="description" content="Documentation for @lamnhan/schemata">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="usercontexts.html">UserContexts</a>
+					<a href="userprivate.html">UserPrivate</a>
 				</li>
 			</ul>
-			<h1>Interface UserContexts</h1>
+			<h1>Interface UserPrivate</h1>
 		</div>
 	</div>
 </header>
@@ -68,10 +68,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">UserContexts</span>
+						<span class="target">UserPrivate</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="userinfo.html" class="tsd-signature-type">UserInfo</a>
+								<a href="userproperties.html" class="tsd-signature-type">UserProperties</a>
 							</li>
 						</ul>
 					</li>
@@ -84,8 +84,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="usercontexts.html#isanonymous" class="tsd-kind-icon">is<wbr>Anonymous</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="usercontexts.html#isnew" class="tsd-kind-icon">is<wbr>New</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprivate.html#metadata" class="tsd-kind-icon">metadata</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprivate.html#providerdata" class="tsd-kind-icon">provider<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprivate.html#providerid" class="tsd-kind-icon">provider<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprivate.html#publicly" class="tsd-kind-icon">publicly</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="userprivate.html#settings" class="tsd-kind-icon">settings</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,22 +97,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isanonymous" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>Anonymous</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Anonymous<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="metadata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> metadata</h3>
+					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <a href="usermetadata.html" class="tsd-signature-type">UserMetadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L39">lib/services/user.service.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L76">lib/services/user.service.ts:76</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isnew" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> is<wbr>New</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>New<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="providerdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> provider<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">provider<wbr>Data<span class="tsd-signature-symbol">:</span> <a href="userinfo.html" class="tsd-signature-type">UserInfo</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/dcdd6c7/src/lib/services/user.service.ts#L38">lib/services/user.service.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L75">lib/services/user.service.ts:75</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="providerid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> provider<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">provider<wbr>Id<span class="tsd-signature-symbol">:</span> <a href="../globals.html#userproviderid" class="tsd-signature-type">UserProviderId</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L74">lib/services/user.service.ts:74</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="publicly" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> publicly</h3>
+					<div class="tsd-signature tsd-kind-icon">publicly<span class="tsd-signature-symbol">:</span> <a href="userpublicly.html" class="tsd-signature-type">UserPublicly</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L77">lib/services/user.service.ts:77</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="settings" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> settings</h3>
+					<div class="tsd-signature tsd-kind-icon">settings<span class="tsd-signature-symbol">:</span> <a href="usersettings.html" class="tsd-signature-type">UserSettings</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/lamnhan/schemata/blob/5fe97cb/src/lib/services/user.service.ts#L78">lib/services/user.service.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -128,13 +161,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="usercontexts.html" class="tsd-kind-icon">User<wbr>Contexts</a>
+						<a href="userprivate.html" class="tsd-kind-icon">User<wbr>Private</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="usercontexts.html#isanonymous" class="tsd-kind-icon">is<wbr>Anonymous</a>
+								<a href="userprivate.html#metadata" class="tsd-kind-icon">metadata</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="usercontexts.html#isnew" class="tsd-kind-icon">is<wbr>New</a>
+								<a href="userprivate.html#providerdata" class="tsd-kind-icon">provider<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="userprivate.html#providerid" class="tsd-kind-icon">provider<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="userprivate.html#publicly" class="tsd-kind-icon">publicly</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="userprivate.html#settings" class="tsd-kind-icon">settings</a>
 							</li>
 						</ul>
 					</li>
