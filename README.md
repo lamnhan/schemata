@@ -1,6 +1,6 @@
 # Schemata
 
-Commonly used data schematics.
+Commonly used data models.
 
 [![License][license_badge]][license_url] [![Support me on Patreon][patreon_badge]][patreon_url] [![PayPal][paypal_donate_badge]][paypal_donate_url] [![Ask me anything][ask_me_badge]][ask_me_url]
 
@@ -25,7 +25,7 @@ const recordPosts: Record<string, Post> = {};
 const post: Post = {};
 ```
 
-## Schematics
+## Models
 
 ### :blue_heart: Category `categories` :earth_asia:
 
