@@ -68,6 +68,7 @@ export type UserRoles =
   | 'sadmin'
   | 'admin'
   | 'author'
+  | 'editor'
   | 'contributor'
   | 'subscriber';
 
