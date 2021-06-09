@@ -43,7 +43,9 @@
     "@angular/platform-browser": "~12.0.1",
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
+    "@lamnhan/nguix-starter": "0.0.5",
     "@lamnhan/ngx-useful": "0.0.10",
+    "@lamnhan/unistylus": "0.0.10",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+/**
+ * ====================================================
+ * 3rd parties
+ * ====================================================
+ */
+
+// prismjs
+@import 'prismjs/themes/prism-okaidia.css';
+@import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+
+/**
+ * ====================================================
+ * Unistylus
+ * ====================================================
+ */
+
+// register skins
+@import '@lamnhan/unistylus/scss/skins/light-default';
+@import '@lamnhan/unistylus/scss/skins/dark';
+
+// customize a skin
+:root,
+[data-theme=default],
+[data-theme=light],
+[data-theme=dark]
+{
+  --app-font-head: 'Poppins', sans-serif;
+  --app-font-body: 'Roboto', sans-serif;
+}
+
+// register a soul
+@import '@lamnhan/unistylus/scss/souls/bootstrap/full';
+
+// register app
+@import './theming/app.module';
+
+/**
+ * ====================================================
+ * Global styles 
+ * ====================================================
+ */
+

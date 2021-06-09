@@ -1,0 +1,7 @@
+<div class="guide-page" *ngIf="contentSrc$ | async as contentSrc; else loading">
+  <nguix-content [contentSrc]="contentSrc"></nguix-content>
+</div>
+
+<ng-template #loading>
+  <div class="loading">Loading ...</div>
+</ng-template>
