@@ -1,11 +1,40 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "skipLibCheck": true
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "paths": {
+      "ngx-schemata": [
+        "dist/ngx-schemata/ngx-schemata",
+        "dist/ngx-schemata"
+      ],
+      "schemata": [
+        "dist/schemata/schemata",
+        "dist/schemata"
+      ]
+    },
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
   },
-  "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ]
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }
