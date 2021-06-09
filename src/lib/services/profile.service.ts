@@ -22,13 +22,12 @@ export interface Profile
   // Images
   description?: string;
   // Content
-  official?: boolean;
   uid?: string;
   email?: string;
   phoneNumber?: string;
   url?: string;
-  roles?: Record<string, unknown>;
-  props?: Record<string, unknown>;
+  badges?: string[]; // values of user.claims
+  props?: Record<string, unknown>; // picks of user.additionalData
   // Taxonomies
   // Statistics
   keywords?: string;

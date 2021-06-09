@@ -22,12 +22,11 @@ export interface Author
   // Images
   description?: string;
   // Content
-  official?: boolean;
   uid?: string;
   email?: string;
   phoneNumber?: string;
   url?: string;
-  roles?: Record<string, unknown>;
+  badges?: string[];
   props?: Record<string, unknown>;
   locale?: string;
   origin?: string;

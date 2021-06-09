@@ -64,6 +64,21 @@ export interface UserInfo {
   phoneNumber?: string;
 }
 
+export type UserRoles =
+  | 'sadmin'
+  | 'admin'
+  | 'author'
+  | 'contributor'
+  | 'subscriber';
+
+export type UserLegits = 'average' | 'official' | 'suspicious';
+
+export interface UserClaims {
+  role?: UserRoles;
+  legit?: UserLegits;
+  [name: string]: unknown;
+}
+
 export interface UserProperties extends UserPrivate, UserContext, UserProfile {
   // UserPrivate
   // UserContext
@@ -90,7 +105,6 @@ export interface UserProfile extends UserInternalProfile, UserEditableProfile {
 }
 
 export interface UserInternalProfile {
-  official?: boolean;
   uid: string;
   email?: string;
   username?: string;
@@ -98,7 +112,7 @@ export interface UserInternalProfile {
   addresses?: {
     [name: string]: UserAddress;
   };
-  claims?: Record<string, unknown>;
+  claims?: UserClaims;
   additionalData?: Record<string, unknown>;
 }
 
