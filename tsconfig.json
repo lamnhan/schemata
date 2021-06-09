@@ -14,12 +14,6 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "paths": {
-      "ngx-schemata": [
-        "dist/ngx-schemata/ngx-schemata",
-        "dist/ngx-schemata"
-      ]
-    },
     "target": "es2017",
     "module": "es2020",
     "lib": [

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { CacheConfig } from '@lamnhan/ngx-useful';
 
-import { CacheConfig } from '../../../lib/services/cache/cache.service';
 import { ProfileDataService } from '../../services/profile/profile.service';
 
 @Pipe({

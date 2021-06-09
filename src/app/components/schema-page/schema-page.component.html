@@ -8,21 +8,21 @@
     </div>
   </section>
 
-  <section class="usage" *ngIf="usageContent">
+  <section class="usage margin-top-3x" *ngIf="usageContent">
     <h3 class="title">Usage</h3>
     <div class="body">
       <nguix-content [content]="usageContent"></nguix-content>
     </div>
   </section>
 
-  <section class="security" *ngIf="securitySrc">
+  <section class="security margin-top-3x" *ngIf="securitySrc">
     <h3 class="title">Security rule</h3>
     <div class="body">
       <nguix-content [contentSrc]="securitySrc"></nguix-content>
     </div>
   </section>
 
-  <section class="api" *ngIf="apiSrc">
+  <section class="api margin-top-3x" *ngIf="apiSrc">
     <h3 class="title">API</h3>
     <div class="body">
       <nguix-content [contentSrc]="apiSrc"></nguix-content>

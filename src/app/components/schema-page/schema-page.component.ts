@@ -60,7 +60,7 @@ import { ${this.titleName}PipeModule } from '@lamnhan/ngx-schemata';
 
 \`\`\`html
 <!-- listing -->
-<div *ngIf="queryFn | ${this.pluralName} | async; let items">
+<div *ngIf="10 | ${this.pluralName} | async; let items">
   <ul *ngIf="items.length">
     <li *ngFor="let item of items">{{ item.title }}</li>
   </ul>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '@lamnhan/schemata';
 
-import { DatabaseService, DatabaseData } from '../../../lib/services/database/database.service';
+import { DatabaseService, DatabaseData } from '@lamnhan/ngx-useful';
 
 @Injectable({
   providedIn: 'root'
