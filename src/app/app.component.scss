@@ -1,6 +1,6 @@
 .host {
   width: 100%;
-  max-width: 992px;
+  max-width: 1200px;
   margin: auto;
   margin-top: 65px;
 
@@ -30,7 +30,7 @@
       flex: 1;
       padding-left: 2rem;
       border-left: 1px solid var(--app-color-background-shade);
-      max-width: calc(992px - 250px - 3rem);
+      max-width: calc(1200px - 250px - 3rem);
       min-height: calc(100vh - 65px - 97px); // header - footer
     }
   }
