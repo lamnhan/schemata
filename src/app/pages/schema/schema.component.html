@@ -1,5 +1,5 @@
-<div class="host" *ngIf="schemataName$ | async as schemataName; else loading">
-  <app-schemata-page [name]="schemataName"></app-schemata-page>
+<div class="host" *ngIf="schemaName$ | async as schemaName; else loading">
+  <app-schema-page [name]="schemaName"></app-schema-page>
 </div>
 
 <ng-template #loading>

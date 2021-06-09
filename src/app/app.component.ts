@@ -19,7 +19,7 @@ export class AppComponent {
         routerLink: ['guide', 'introduction']
       },
       {
-        text: 'Angular',
+        text: 'For Angular',
         level: 1,
         routerLink: ['guide', 'ngx-schemata']
       },

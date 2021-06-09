@@ -1,4 +1,7 @@
 .host {
+  width: 100%;
+  max-width: 992px;
+  margin: auto;
   margin-top: 65px;
 
   .sidebar {
@@ -6,9 +9,7 @@
   }
   
   .page-container {
-    width: 100%;
-    max-width: 992px;
-    margin: auto;
+    padding: 1rem;
     min-height: calc(100vh - 65px - 49px - 97px); // header - aside - footer
   }
 }
@@ -19,6 +20,7 @@
   .host {
     display: flex;
     flex-wrap: nowrap;
+    padding: 3rem 0;
 
     .sidebar {
       width: 250px;
@@ -26,7 +28,10 @@
     
     .page-container {
       flex: 1;
-      margin: 0 0 0 2rem;
+      padding-left: 2rem;
+      border-left: 1px solid var(--app-color-background-shade);
+      max-width: calc(992px - 250px - 3rem);
+      min-height: calc(100vh - 65px - 97px); // header - footer
     }
   }
 }

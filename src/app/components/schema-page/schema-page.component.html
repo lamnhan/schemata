@@ -2,6 +2,10 @@
 
   <section class="heading">
     <h2>{{ titleName }}</h2>
+    <div class="body">
+      <p>Collection url (replace <strong>[PROJECT_ID]</strong>):</p>
+      <p><a [href]="collectionUrl" target="_blank">{{ collectionUrl }}</a></p>
+    </div>
   </section>
 
   <section class="usage" *ngIf="usageContent">
