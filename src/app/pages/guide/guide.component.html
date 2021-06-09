@@ -1,4 +1,4 @@
-<div class="guide-page" *ngIf="contentSrc$ | async as contentSrc; else loading">
+<div class="host" *ngIf="contentSrc$ | async as contentSrc; else loading">
   <nguix-content [contentSrc]="contentSrc"></nguix-content>
 </div>
 

@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NguixContentComponentModule} from '@lamnhan/nguix-starter';
 
-import { ArticleRoutingModule } from './article-routing.module';
-import { ArticleComponent } from './article.component';
+import { GuideRoutingModule } from './guide-routing.module';
+import { GuideComponent } from './guide.component';
 
 
 @NgModule({
   declarations: [
-    ArticleComponent
+    GuideComponent
   ],
   imports: [
     CommonModule,
     NguixContentComponentModule,
-    ArticleRoutingModule
+    GuideRoutingModule
   ]
 })
-export class ArticlePageModule {}
+export class GuidePageModule { }

@@ -1,0 +1,28 @@
+<div class="host" *ngIf="name">
+
+  <section class="heading">
+    <h2>{{ titleName }}</h2>
+  </section>
+
+  <section class="usage" *ngIf="usageContent">
+    <h3 class="title">Usage</h3>
+    <div class="body">
+      <nguix-content [content]="usageContent"></nguix-content>
+    </div>
+  </section>
+
+  <section class="security" *ngIf="securitySrc">
+    <h3 class="title">Security rule</h3>
+    <div class="body">
+      <nguix-content [contentSrc]="securitySrc"></nguix-content>
+    </div>
+  </section>
+
+  <section class="api" *ngIf="apiSrc">
+    <h3 class="title">API</h3>
+    <div class="body">
+      <nguix-content [contentSrc]="apiSrc"></nguix-content>
+    </div>
+  </section>
+
+</div>

@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule), pathMatch: 'full' },
-  { path: 'article/:id', loadChildren: () => import('./pages/article/article.module').then(m => m.ArticlePageModule) },
+  { path: 'guide/:id', loadChildren: () => import('./pages/guide/guide.module').then(m => m.GuidePageModule) },
+  { path: 'schema/:id', loadChildren: () => import('./pages/schema/schema.module').then(m => m.SchemaPageModule) },
   { path: '**', loadChildren: () => import('@lamnhan/nguix-starter').then(m => m.NguixOopsPageModule) }
 ];
 

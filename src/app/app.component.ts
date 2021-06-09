@@ -10,18 +10,48 @@ import { LocalstorageService, AppService, MetaService, NavService, NavItem, Sett
 export class AppComponent {
   menuItems: NavItem[] = [
     {
-      text: 'Getting started',
+      text: 'Guides',
       level: 0,
     },
       {
         text: 'Introduction',
         level: 1,
-        routerLink: ['article', 'introduction']
+        routerLink: ['guide', 'introduction']
+      },
+      {
+        text: 'Angular',
+        level: 1,
+        routerLink: ['guide', 'ngx-schemata']
+      },
+      {
+        text: 'Security helpers',
+        level: 1,
+        routerLink: ['guide', 'security-helpers']
       },
     {
       text: 'List of schemas',
       level: 0,
     },
+      {
+        text: 'Category',
+        level: 1,
+        routerLink: ['schema', 'category']
+      },
+      {
+        text: 'Tag',
+        level: 1,
+        routerLink: ['schema', 'tag']
+      },
+      {
+        text: 'Page',
+        level: 1,
+        routerLink: ['schema', 'page']
+      },
+      {
+        text: 'Post',
+        level: 1,
+        routerLink: ['schema', 'post']
+      },
   ];
 
   
