@@ -18,10 +18,6 @@
       "ngx-schemata": [
         "dist/ngx-schemata/ngx-schemata",
         "dist/ngx-schemata"
-      ],
-      "schemata": [
-        "dist/schemata/schemata",
-        "dist/schemata"
       ]
     },
     "target": "es2017",

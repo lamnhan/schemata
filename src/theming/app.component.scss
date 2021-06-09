@@ -1,14 +1,16 @@
 @import '@lamnhan/unistylus/scss/mixins';
 
-$shared_icons: ();
+$shared_icons: (
+  github-light: '#{$bootstrap_icons}/dark/github.svg',
+);
 
 $light_theme_icons: (
-  ok: '#{$bootstrap_icons}/light/check-circle-fill.svg',
+  menu: '#{$bootstrap_icons}/light/list.svg',
   github: '#{$bootstrap_icons}/light/github.svg',
 );
 
 $dark_theme_icons: (
-  ok: '#{$bootstrap_icons}/dark/check-circle-fill.svg',
+  menu: '#{$bootstrap_icons}/dark/list.svg',
   github: '#{$bootstrap_icons}/dark/github.svg',
 );
 
