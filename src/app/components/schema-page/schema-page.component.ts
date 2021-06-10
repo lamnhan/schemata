@@ -41,21 +41,22 @@ const item: ${this.titleName} = {
 
 Use the service ([@lamnhan/ngx-schemata](/guide/ngx-schemata)):
 \`\`\`ts
-import { ${this.titleName}Service } from '@lamnhan/ngx-schemata';
+import { ${this.titleName}DataService } from '@lamnhan/ngx-schemata';
 
 // inject the service
-constructor(private ${this.name}Service: ${this.titleName}Service) {}
+constructor(private ${this.name}DataService: ${this.titleName}DataService) {}
 
 // use methods
-public readonly list$ = this.${this.name}Service.flatCollection();
+public readonly list$ = this.${this.name}DataService.getCollection();
+public readonly item$ = this.${this.name}DataService.getDoc('foo');
 \`\`\`
 
 Use the pipe ([@lamnhan/ngx-schemata](/guide/ngx-schemata)):
 \`\`\`ts
 // listing pipe
-import { ${this.pluralTitleName}PipeModule } from '@lamnhan/ngx-schemata';
+import { ${this.pluralTitleName}DataPipeModule } from '@lamnhan/ngx-schemata';
 // getting pipe
-import { ${this.titleName}PipeModule } from '@lamnhan/ngx-schemata';
+import { ${this.titleName}DataPipeModule } from '@lamnhan/ngx-schemata';
 \`\`\`
 
 \`\`\`html
