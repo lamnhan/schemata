@@ -1,7 +1,6 @@
 import {Status, Timing} from '../shared.type';
 
 export interface User extends Status, Timing, UserProperties, UserSecret {
-  '#'?: number;
   // Status
   // Timing
   // UserProperties
@@ -65,12 +64,12 @@ export interface UserInfo {
 }
 
 export type UserRoles =
-  | 'sadmin'
-  | 'admin'
-  | 'author'
-  | 'editor'
-  | 'contributor'
-  | 'subscriber';
+  | 'sadmin' // level = 6
+  | 'admin' // level = 5
+  | 'editor' // level = 4
+  | 'author' // level = 3
+  | 'contributor' // level = 2
+  | 'subscriber'; // level = 1
 
 export type UserLegits = 'average' | 'official' | 'suspicious';
 
