@@ -33,14 +33,44 @@ export class AppComponent {
       level: 0,
     },
       {
+        text: 'Audio',
+        level: 1,
+        routerLink: ['schema', 'audio']
+      },
+      {
+        text: 'Author',
+        level: 1,
+        routerLink: ['schema', 'author']
+      },
+      {
+        text: 'Bundle',
+        level: 1,
+        routerLink: ['schema', 'bundle']
+      },
+      {
         text: 'Category',
         level: 1,
         routerLink: ['schema', 'category']
       },
       {
-        text: 'Tag',
+        text: 'Meta',
         level: 1,
-        routerLink: ['schema', 'tag']
+        routerLink: ['schema', 'meta']
+      },
+      {
+        text: 'Notification',
+        level: 1,
+        routerLink: ['schema', 'notification']
+      },
+      {
+        text: 'Option',
+        level: 1,
+        routerLink: ['schema', 'option']
+      },
+      {
+        text: 'Order',
+        level: 1,
+        routerLink: ['schema', 'order']
       },
       {
         text: 'Page',
@@ -51,6 +81,41 @@ export class AppComponent {
         text: 'Post',
         level: 1,
         routerLink: ['schema', 'post']
+      },
+      {
+        text: 'Product',
+        level: 1,
+        routerLink: ['schema', 'product']
+      },
+      {
+        text: 'Profile',
+        level: 1,
+        routerLink: ['schema', 'profile']
+      },
+      {
+        text: 'Promotion',
+        level: 1,
+        routerLink: ['schema', 'promotion']
+      },
+      {
+        text: 'Tag',
+        level: 1,
+        routerLink: ['schema', 'tag']
+      },
+      {
+        text: 'Thread',
+        level: 1,
+        routerLink: ['schema', 'thread']
+      },
+      {
+        text: 'User',
+        level: 1,
+        routerLink: ['schema', 'user']
+      },
+      {
+        text: 'Video',
+        level: 1,
+        routerLink: ['schema', 'video']
       },
   ];
 

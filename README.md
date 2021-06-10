@@ -15,14 +15,63 @@ Commonly used data models.
 
 ## Install & usage
 
-`npm install --save @lamnhan/schemata`
+- Interface package:
+
+```sh
+npm install --save @lamnhan/schemata
+```
+
+Use the interface:
 
 ```ts
 import { Post } from '@lamnhan/schemata';
 
 const posts: Post[] = [];
 const recordPosts: Record<string, Post> = {};
-const post: Post = {};
+const post: Post = {
+  id: '...',
+  title: '...',
+};
+```
+
+- Angular utilities:
+
+```sh
+npm install --save @lamnhan/ngx-schemata
+```
+
+Use services:
+
+```ts
+import { PostDataService } from '@lamnhan/ngx-schemata';
+
+class Foo {
+  public readonly posts$ = this.postDataService.getCollection();
+  public readonly post$ = this.postDataService.getDoc('foo');
+}
+```
+
+Use pipes:
+
+```ts
+// listing pipe
+import { PostsDataPipeModule } from '@lamnhan/ngx-schemata';
+// getting pipe
+import { PostDataPipeModule } from '@lamnhan/ngx-schemata';
+```
+
+```html
+<!-- listing -->
+<div *ngIf="10 | posts | async; let items">
+  <ul *ngIf="items.length">
+    <li *ngFor="let item of items">{{ item.title }}</li>
+  </ul>
+</div>
+
+<!-- getting -->
+<div *ngIf="'foo' | post | async; let item">
+  <h1>{{ item.title }}</h1>
+</div>
 ```
 
 ## Models

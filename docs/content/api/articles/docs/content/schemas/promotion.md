@@ -1,0 +1,16 @@
+<section id="main" data-note="AUTO-GENERATED CONTENT, DO NOT EDIT DIRECTLY!">
+
+| Name                                                                                             | Type                                                                                                                                               | Description |
+| ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [content?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#content)     | <code>undefined \| string</code>                                                                                                                   |             |
+| [createdAt?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#createdat) | <code>undefined \| string</code>                                                                                                                   |             |
+| [**id**](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#id)            | <code>string</code>                                                                                                                                |             |
+| [kind?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#kind)           | <code><a href="https://schemata.lamnhan.com/content/reference/globals.html#promotionbuiltinkinds" target="_blank">PromotionBuiltinKinds</a></code> |             |
+| [locale?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#locale)       | <code>undefined \| string</code>                                                                                                                   |             |
+| [origin?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#origin)       | <code>undefined \| string</code>                                                                                                                   |             |
+| [status?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#status)       | <code>"draft" \| "publish" \| "archive" \| "trash"</code>                                                                                          |             |
+| [**title**](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#title)      | <code>string</code>                                                                                                                                |             |
+| [updatedAt?](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#updatedat) | <code>undefined \| string</code>                                                                                                                   |             |
+| [**value**](https://schemata.lamnhan.com/content/reference/interfaces/promotion.html#value)      | <code>number</code>                                                                                                                                |             |
+
+</section>

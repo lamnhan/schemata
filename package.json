@@ -44,7 +44,7 @@
     "@angular/platform-browser-dynamic": "~12.0.3",
     "@angular/router": "~12.0.3",
     "@lamnhan/nguix-starter": "0.0.7",
-    "@lamnhan/ngx-schemata": "0.0.2",
+    "@lamnhan/ngx-schemata": "0.0.3",
     "@lamnhan/ngx-useful": "0.0.11",
     "@lamnhan/schemata": "0.0.9",
     "@lamnhan/unistylus": "0.0.10",

@@ -70,12 +70,46 @@
 				<a href="#install-amp-usage" id="install-amp-usage" style="color: inherit; text-decoration: none;">
 					<h2>Install &amp; usage</h2>
 				</a>
-				<p><code>npm install --save @lamnhan/schemata</code></p>
+				<ul>
+					<li>Interface package:</li>
+				</ul>
+				<pre><code class="language-sh">npm install --save @lamnhan/schemata</code></pre>
+				<p>Use the interface:</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Post } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/schemata&#x27;</span>;
 
 <span class="hljs-keyword">const</span> posts: Post[] = [];
 <span class="hljs-keyword">const</span> recordPosts: Record&lt;<span class="hljs-built_in">string</span>, Post&gt; = {};
-<span class="hljs-keyword">const</span> post: Post = {};</code></pre>
+<span class="hljs-keyword">const</span> post: Post = {
+  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;...&#x27;</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;...&#x27;</span>,
+};</code></pre>
+				<ul>
+					<li>Angular utilities:</li>
+				</ul>
+				<pre><code class="language-sh">npm install --save @lamnhan/ngx-schemata</code></pre>
+				<p>Use services:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { PostDataService } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>{
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> posts$ = <span class="hljs-built_in">this</span>.postDataService.getCollection();
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> post$ = <span class="hljs-built_in">this</span>.postDataService.getDoc(<span class="hljs-string">&#x27;foo&#x27;</span>);
+}</code></pre>
+				<p>Use pipes:</p>
+				<pre><code class="language-ts"><span class="hljs-comment">// listing pipe</span>
+<span class="hljs-keyword">import</span> { PostsDataPipeModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;
+<span class="hljs-comment">// getting pipe</span>
+<span class="hljs-keyword">import</span> { PostDataPipeModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;</code></pre>
+				<pre><code class="language-html"><span class="hljs-comment">&lt;!-- listing --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;10 | posts | async; let items&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;items.length&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> *<span class="hljs-attr">ngFor</span>=<span class="hljs-string">&quot;let item of items&quot;</span>&gt;</span>{{ item.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- getting --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;&#x27;foo&#x27; | post | async; let item&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ item.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 				<a href="#models" id="models" style="color: inherit; text-decoration: none;">
 					<h2>Models</h2>
 				</a>
