@@ -18,6 +18,22 @@ import { OptionDataPipeModule } from './pipes/option/option.module';
 import { OptionsDataPipeModule } from './pipes/options/options.module';
 import { UserDataPipeModule } from './pipes/user/user.module';
 import { UsersDataPipeModule } from './pipes/users/users.module';
+import { AudioDataPipeModule } from './pipes/audio/audio.module';
+import { AudiosDataPipeModule } from './pipes/audios/audios.module';
+import { BundleDataPipeModule } from './pipes/bundle/bundle.module';
+import { BundlesDataPipeModule } from './pipes/bundles/bundles.module';
+import { NotificationDataPipeModule } from './pipes/notification/notification.module';
+import { NotificationsDataPipeModule } from './pipes/notifications/notifications.module';
+import { OrderDataPipeModule } from './pipes/order/order.module';
+import { OrdersDataPipeModule } from './pipes/orders/orders.module';
+import { ProductDataPipeModule } from './pipes/product/product.module';
+import { ProductsDataPipeModule } from './pipes/products/products.module';
+import { PromotionDataPipeModule } from './pipes/promotion/promotion.module';
+import { PromotionsDataPipeModule } from './pipes/promotions/promotions.module';
+import { ThreadDataPipeModule } from './pipes/thread/thread.module';
+import { ThreadsDataPipeModule } from './pipes/threads/threads.module';
+import { VideoDataPipeModule } from './pipes/video/video.module';
+import { VideosDataPipeModule } from './pipes/videos/videos.module';
 
 import {CategoryDataService} from './services/category/category.service';
 import {TagDataService} from './services/tag/tag.service';
@@ -50,6 +66,22 @@ import {UserDataService} from './services/user/user.service';
     OptionsDataPipeModule,
     UserDataPipeModule,
     UsersDataPipeModule,
+    AudioDataPipeModule,
+    AudiosDataPipeModule,
+    BundleDataPipeModule,
+    BundlesDataPipeModule,
+    NotificationDataPipeModule,
+    NotificationsDataPipeModule,
+    OrderDataPipeModule,
+    OrdersDataPipeModule,
+    ProductDataPipeModule,
+    ProductsDataPipeModule,
+    PromotionDataPipeModule,
+    PromotionsDataPipeModule,
+    ThreadDataPipeModule,
+    ThreadsDataPipeModule,
+    VideoDataPipeModule,
+    VideosDataPipeModule,
   ],
   providers: [
     CategoryDataService,
@@ -72,6 +104,22 @@ import {UserDataService} from './services/user/user.service';
     MetaDataPipeModule,
     OptionDataPipeModule,
     UserDataPipeModule,
+    AudioDataPipeModule,
+    AudiosDataPipeModule,
+    BundleDataPipeModule,
+    BundlesDataPipeModule,
+    NotificationDataPipeModule,
+    NotificationsDataPipeModule,
+    OrderDataPipeModule,
+    OrdersDataPipeModule,
+    ProductDataPipeModule,
+    ProductsDataPipeModule,
+    PromotionDataPipeModule,
+    PromotionsDataPipeModule,
+    ThreadDataPipeModule,
+    ThreadsDataPipeModule,
+    VideoDataPipeModule,
+    VideosDataPipeModule,
   ]
 })
 export class SchemataModule {}

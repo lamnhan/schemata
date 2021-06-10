@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { CacheConfig } from '@lamnhan/ngx-useful';
 
-import { PageDataService } from '../../services/page/page.service';
+import { ProductDataService } from '../../services/product/product.service';
 
 @Pipe({
-  name: 'page'
+  name: 'product'
 })
-export class PagePipe implements PipeTransform {
-  constructor(private dataService: PageDataService) {}
+export class ProductPipe implements PipeTransform {
+  constructor(private dataService: ProductDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
     return this.dataService.getDoc(id, caching);
   }

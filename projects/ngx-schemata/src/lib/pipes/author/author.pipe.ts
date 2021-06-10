@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { AuthorDataService } from '../../services/author/author.service';
 
 @Pipe({
-  name: 'authorDoc'
+  name: 'author'
 })
 export class AuthorPipe implements PipeTransform {
   constructor(private dataService: AuthorDataService) {}
