@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 
 import { CategoryDataPipeModule } from './pipes/category/category.module';
+import { CategoriesDataPipeModule } from './pipes/categories/categories.module';
 import { TagDataPipeModule } from './pipes/tag/tag.module';
+import { TagsDataPipeModule } from './pipes/tags/tags.module';
 import { PageDataPipeModule } from './pipes/page/page.module';
+import { PagesDataPipeModule } from './pipes/pages/pages.module';
 import { PostDataPipeModule } from './pipes/post/post.module';
+import { PostsDataPipeModule } from './pipes/posts/posts.module';
 import { AuthorDataPipeModule } from './pipes/author/author.module';
+import { AuthorsDataPipeModule } from './pipes/authors/authors.module';
 import { ProfileDataPipeModule } from './pipes/profile/profile.module';
+import { ProfilesDataPipeModule } from './pipes/profiles/profiles.module';
+import { MetaDataPipeModule } from './pipes/meta/meta.module';
+import { MetasDataPipeModule } from './pipes/metas/metas.module';
+import { OptionDataPipeModule } from './pipes/option/option.module';
+import { OptionsDataPipeModule } from './pipes/options/options.module';
+import { UserDataPipeModule } from './pipes/user/user.module';
+import { UsersDataPipeModule } from './pipes/users/users.module';
 
 import {CategoryDataService} from './services/category/category.service';
 import {TagDataService} from './services/tag/tag.service';
@@ -21,11 +33,23 @@ import {UserDataService} from './services/user/user.service';
   declarations: [],
   imports: [
     CategoryDataPipeModule,
+    CategoriesDataPipeModule,
     TagDataPipeModule,
+    TagsDataPipeModule,
     PageDataPipeModule,
+    PagesDataPipeModule,
     PostDataPipeModule,
+    PostsDataPipeModule,
     AuthorDataPipeModule,
+    AuthorsDataPipeModule,
     ProfileDataPipeModule,
+    ProfilesDataPipeModule,
+    MetaDataPipeModule,
+    MetasDataPipeModule,
+    OptionDataPipeModule,
+    OptionsDataPipeModule,
+    UserDataPipeModule,
+    UsersDataPipeModule,
   ],
   providers: [
     CategoryDataService,
@@ -45,6 +69,9 @@ import {UserDataService} from './services/user/user.service';
     PostDataPipeModule,
     AuthorDataPipeModule,
     ProfileDataPipeModule,
+    MetaDataPipeModule,
+    OptionDataPipeModule,
+    UserDataPipeModule,
   ]
 })
 export class SchemataModule {}
