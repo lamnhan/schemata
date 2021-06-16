@@ -6,7 +6,7 @@ export interface Page extends Ids, Status, Timing, Images, Content {
   // Status
   // Timing
   // Images
-  excerpt?: string;
+  description?: string;
   // Content
   locale?: string;
   origin?: string;
