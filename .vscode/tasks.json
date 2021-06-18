@@ -1,0 +1,68 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build:schemata",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build:schemata",
+			"detail": "ng build schemata && cpy README.md LICENSE dist/schemata"
+		},
+		{
+			"type": "npm",
+			"script": "deploy:schemata",
+			"problemMatcher": [],
+			"label": "npm: deploy:schemata",
+			"detail": "cd ./dist/schemata && npm publish && cd ../../"
+		},
+		{
+			"type": "npm",
+			"script": "build:ngx-schemata",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build:ngx-schemata",
+			"detail": "ng build ngx-schemata && cpy README.md LICENSE dist/ngx-schemata"
+		},
+		{
+			"type": "npm",
+			"script": "deploy:ngx-schemata",
+			"problemMatcher": [],
+			"label": "npm: deploy:ngx-schemata",
+			"detail": "cd ./dist/ngx-schemata && npm publish && cd ../../"
+		},
+		{
+			"type": "npm",
+			"script": "build:app",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build:app",
+			"detail": "ng build && ayedocs generate"
+		},
+		{
+			"type": "npm",
+			"script": "deploy:app",
+			"problemMatcher": [],
+			"label": "npm: deploy:app",
+			"detail": "git add . && git commit -m 'deploy:app' && git push"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build",
+			"detail": "npm run build:app && npm run build:schemata && npm run build:ngx-schemata"
+		},
+		{
+			"type": "npm",
+			"script": "deploy",
+			"problemMatcher": [],
+			"label": "npm: deploy",
+			"detail": "npm run deploy:app && npm run deploy:schemata && npm run deploy:ngx-schemata"
+		}
+	]
+}

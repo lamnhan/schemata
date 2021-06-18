@@ -37,7 +37,7 @@ export interface Post
   // Timing
   // Authors
   // Images
-  excerpt?: string;
+  description?: string;
   toc?: PostTOCItem[];
   tldr?: string;
   // Content
