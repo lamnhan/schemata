@@ -48,6 +48,7 @@ export interface Product
     Taxonomies,
     Statistics {
   // Ids
+  uid?: string;
   type?: string;
   // Status
   // Timing

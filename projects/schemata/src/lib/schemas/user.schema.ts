@@ -55,12 +55,12 @@ export interface UserSettings {
 }
 
 export interface UserInfo {
-  providerId?: UserProviderId;
   uid: string;
   email?: string;
   displayName?: string;
   photoURL?: string;
   phoneNumber?: string;
+  providerId?: UserProviderId;
 }
 
 export type UserRoles =

@@ -1,7 +1,8 @@
 import {Category} from './schemas/category.schema';
 import {Tag} from './schemas/tag.schema';
-import {Author} from './schemas/author.schema';
 import {Bundle} from './schemas/bundle.schema';
+import {Profile} from './schemas/profile.schema';
+import {Author} from './schemas/author.schema';
 
 export interface Ids {
   title: string;
@@ -21,7 +22,7 @@ export interface Authors {
   authors?: {
     // author-1: ...
     // author-2: ...
-    [id: string]: Author;
+    [id: string]: Profile | Author;
   };
 }
 

@@ -2,6 +2,7 @@ import {Ids, Status, Timing, Images} from '../shared.type';
 
 export interface Category extends Ids, Status, Timing, Images {
   // Ids
+  uid?: string;
   // Status
   // Timing
   // Images
