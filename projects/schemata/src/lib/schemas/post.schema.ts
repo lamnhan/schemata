@@ -44,6 +44,8 @@ export interface Post
   slides?: {
     [id: string]: Post;
   };
+  audio?: string;
+  video?: string;
   duration?: number;
   locale?: string;
   origin?: string;
