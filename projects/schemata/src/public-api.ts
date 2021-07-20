@@ -20,4 +20,3 @@ export * from './lib/schemas/order.schema';
 export * from './lib/schemas/notification.schema';
 export * from './lib/schemas/promotion.schema';
 export * from './lib/schemas/meta.schema';
-export * from './lib/schemas/author.schema';

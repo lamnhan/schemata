@@ -17,6 +17,7 @@ export interface Profile
     Taxonomies,
     Statistics {
   // Ids
+  type?: string;
   // Status
   // Timing
   // Images

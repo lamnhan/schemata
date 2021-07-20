@@ -8,8 +8,6 @@ import { PageDataPipeModule } from './pipes/page/page.module';
 import { PagesDataPipeModule } from './pipes/pages/pages.module';
 import { PostDataPipeModule } from './pipes/post/post.module';
 import { PostsDataPipeModule } from './pipes/posts/posts.module';
-import { AuthorDataPipeModule } from './pipes/author/author.module';
-import { AuthorsDataPipeModule } from './pipes/authors/authors.module';
 import { ProfileDataPipeModule } from './pipes/profile/profile.module';
 import { ProfilesDataPipeModule } from './pipes/profiles/profiles.module';
 import { MetaDataPipeModule } from './pipes/meta/meta.module';
@@ -35,15 +33,23 @@ import { ThreadsDataPipeModule } from './pipes/threads/threads.module';
 import { VideoDataPipeModule } from './pipes/video/video.module';
 import { VideosDataPipeModule } from './pipes/videos/videos.module';
 
-import {CategoryDataService} from './services/category/category.service';
-import {TagDataService} from './services/tag/tag.service';
-import {PageDataService} from './services/page/page.service';
-import {PostDataService} from './services/post/post.service';
-import {OptionDataService} from './services/option/option.service';
-import {MetaDataService} from './services/meta/meta.service';
-import {AuthorDataService} from './services/author/author.service';
-import {ProfileDataService} from './services/profile/profile.service';
-import {UserDataService} from './services/user/user.service';
+
+import { CategoryDataService } from './services/category/category.service';
+import { TagDataService } from './services/tag/tag.service';
+import { PageDataService } from './services/page/page.service';
+import { PostDataService } from './services/post/post.service';
+import { OptionDataService } from './services/option/option.service';
+import { MetaDataService } from './services/meta/meta.service';
+import { ProfileDataService } from './services/profile/profile.service';
+import { UserDataService } from './services/user/user.service';
+import { AudioDataService } from './services/audio/audio.service';
+import { BundleDataService } from './services/bundle/bundle.service';
+import { NotificationDataService } from './services/notification/notification.service';
+import { OrderDataService } from './services/order/order.service';
+import { ProductDataService } from './services/product/product.service';
+import { PromotionDataService } from './services/promotion/promotion.service';
+import { ThreadDataService } from './services/thread/thread.service';
+import { VideoDataService } from './services/video/video.service';
 
 @NgModule({
   declarations: [],
@@ -56,8 +62,6 @@ import {UserDataService} from './services/user/user.service';
     PagesDataPipeModule,
     PostDataPipeModule,
     PostsDataPipeModule,
-    AuthorDataPipeModule,
-    AuthorsDataPipeModule,
     ProfileDataPipeModule,
     ProfilesDataPipeModule,
     MetaDataPipeModule,
@@ -90,20 +94,34 @@ import {UserDataService} from './services/user/user.service';
     PostDataService,
     OptionDataService,
     MetaDataService,
-    AuthorDataService,
     ProfileDataService,
     UserDataService,
+    AudioDataService,
+    BundleDataService,
+    NotificationDataService,
+    OrderDataService,
+    ProductDataService,
+    PromotionDataService,
+    ThreadDataService,
+    VideoDataService,
   ],
   exports: [
     CategoryDataPipeModule,
+    CategoriesDataPipeModule,
     TagDataPipeModule,
+    TagsDataPipeModule,
     PageDataPipeModule,
+    PagesDataPipeModule,
     PostDataPipeModule,
-    AuthorDataPipeModule,
+    PostsDataPipeModule,
     ProfileDataPipeModule,
+    ProfilesDataPipeModule,
     MetaDataPipeModule,
+    MetasDataPipeModule,
     OptionDataPipeModule,
+    OptionsDataPipeModule,
     UserDataPipeModule,
+    UsersDataPipeModule,
     AudioDataPipeModule,
     AudiosDataPipeModule,
     BundleDataPipeModule,
