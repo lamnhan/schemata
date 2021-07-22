@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { VideoDataService } from '../../services/video/video.service';
 
 @Pipe({
-  name: 'video'
+  name: 'videoDataItem'
 })
 export class VideoPipe implements PipeTransform {
   constructor(private dataService: VideoDataService) {}

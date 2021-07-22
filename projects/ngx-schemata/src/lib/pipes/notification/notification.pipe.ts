@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { NotificationDataService } from '../../services/notification/notification.service';
 
 @Pipe({
-  name: 'notification'
+  name: 'notificationDataList'
 })
 export class NotificationPipe implements PipeTransform {
   constructor(private dataService: NotificationDataService) {}

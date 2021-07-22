@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { MetaDataService } from '../../services/meta/meta.service';
 
 @Pipe({
-  name: 'meta'
+  name: 'metaDataItem'
 })
 export class MetaPipe implements PipeTransform {
   constructor(private dataService: MetaDataService) {}

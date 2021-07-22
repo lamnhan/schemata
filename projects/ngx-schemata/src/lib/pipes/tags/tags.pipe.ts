@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { TagDataService } from '../../services/tag/tag.service';
 
 @Pipe({
-  name: 'tags'
+  name: 'tagDataList'
 })
 export class TagsPipe implements PipeTransform {
   constructor(private dataService: TagDataService) {}

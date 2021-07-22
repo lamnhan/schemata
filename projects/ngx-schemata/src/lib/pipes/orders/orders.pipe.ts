@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { OrderDataService } from '../../services/order/order.service';
 
 @Pipe({
-  name: 'orders'
+  name: 'orderDataList'
 })
 export class OrdersPipe implements PipeTransform {
   constructor(private dataService: OrderDataService) {}

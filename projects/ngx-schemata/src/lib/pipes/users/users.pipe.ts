@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { UserDataService } from '../../services/user/user.service';
 
 @Pipe({
-  name: 'users'
+  name: 'userDataList'
 })
 export class UsersPipe implements PipeTransform {
   constructor(private dataService: UserDataService) {}

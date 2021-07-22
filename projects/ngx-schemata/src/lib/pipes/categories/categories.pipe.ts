@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { CategoryDataService } from '../../services/category/category.service';
 
 @Pipe({
-  name: 'categories'
+  name: 'categoryDataList'
 })
 export class CategoriesPipe implements PipeTransform {
   constructor(private dataService: CategoryDataService) {}

@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { ThreadDataService } from '../../services/thread/thread.service';
 
 @Pipe({
-  name: 'thread'
+  name: 'threadDataItem'
 })
 export class ThreadPipe implements PipeTransform {
   constructor(private dataService: ThreadDataService) {}

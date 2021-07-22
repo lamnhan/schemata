@@ -1,6 +1,6 @@
 {
   "name": "@lamnhan/ngx-schemata",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Schemata native services, pipes for Angular apps.",
   "author": "Lam Nhan",
   "homepage": "https://schemata.lamnhan.com",
@@ -22,7 +22,7 @@
     "@angular/common": "^12.0.3",
     "@angular/core": "^12.0.3",
     "@lamnhan/schemata": "^0.0.14",
-    "@lamnhan/ngx-useful": "^0.0.20"
+    "@lamnhan/ngx-useful": "^0.0.21"
   },
   "dependencies": {
     "tslib": "^2.1.0"

@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { AudioDataService } from '../../services/audio/audio.service';
 
 @Pipe({
-  name: 'audio'
+  name: 'audioDataItem'
 })
 export class AudioPipe implements PipeTransform {
   constructor(private dataService: AudioDataService) {}
