@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgxsModule } from '@ngxs/store';
 
 import { CategoryDataPipeModule } from './pipes/category/category.module';
 import { CategoriesDataPipeModule } from './pipes/categories/categories.module';
@@ -33,7 +34,6 @@ import { ThreadsDataPipeModule } from './pipes/threads/threads.module';
 import { VideoDataPipeModule } from './pipes/video/video.module';
 import { VideosDataPipeModule } from './pipes/videos/videos.module';
 
-
 import { CategoryDataService } from './services/category/category.service';
 import { TagDataService } from './services/tag/tag.service';
 import { PageDataService } from './services/page/page.service';
@@ -51,9 +51,47 @@ import { PromotionDataService } from './services/promotion/promotion.service';
 import { ThreadDataService } from './services/thread/thread.service';
 import { VideoDataService } from './services/video/video.service';
 
+import { CategoryState } from './states/category/category.state';
+import { TagState } from './states/tag/tag.state';
+import { PageState } from './states/page/page.state';
+import { PostState } from './states/post/post.state';
+import { OptionState } from './states/option/option.state';
+import { MetaState } from './states/meta/meta.state';
+import { ProfileState } from './states/profile/profile.state';
+import { UserState } from './states/user/user.state';
+import { AudioState } from './states/audio/audio.state';
+import { BundleState } from './states/bundle/bundle.state';
+import { NotificationState } from './states/notification/notification.state';
+import { OrderState } from './states/order/order.state';
+import { ProductState } from './states/product/product.state';
+import { PromotionState } from './states/promotion/promotion.state';
+import { ThreadState } from './states/thread/thread.state';
+import { VideoState } from './states/video/video.state';
+
 @NgModule({
   declarations: [],
   imports: [
+    NgxsModule.forRoot(
+      [
+        CategoryState,
+        TagState,
+        PageState,
+        PostState,
+        OptionState,
+        MetaState,
+        ProfileState,
+        UserState,
+        AudioState,
+        BundleState,
+        NotificationState,
+        OrderState,
+        ProductState,
+        PromotionState,
+        ThreadState,
+        VideoState,
+      ],
+      { developmentMode: false }
+    ),
     CategoryDataPipeModule,
     CategoriesDataPipeModule,
     TagDataPipeModule,

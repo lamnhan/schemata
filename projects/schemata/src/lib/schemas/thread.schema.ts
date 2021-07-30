@@ -1,4 +1,4 @@
-import {Ids, Status, Timing, Statistics} from '../shared.type';
+import {Ids, Status, Timing, Images, Statistics} from '../shared.type';
 
 export interface ThreadAttachment {
   // link attachment
@@ -15,11 +15,12 @@ export interface GroupingThread {
   children: Thread[];
 }
 
-export interface Thread extends Ids, Status, Timing, Statistics {
+export interface Thread extends Ids, Status, Timing, Images, Statistics {
   // Ids
   type?: string;
   // Status
   // Timing
+  // Images
   content: string;
   attachments?: {
     [name: string]: ThreadAttachment;
@@ -29,7 +30,6 @@ export interface Thread extends Ids, Status, Timing, Statistics {
   stars?: number; // with rating stars
   uid?: string;
   email?: string;
-  displayName?: string;
   phoneNumber?: string;
   // Statistics
 }
