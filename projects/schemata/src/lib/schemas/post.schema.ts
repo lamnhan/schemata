@@ -41,9 +41,7 @@ export interface Post
   toc?: PostTOCItem[];
   tldr?: string;
   // Content
-  slides?: {
-    [id: string]: Post;
-  };
+  slides?: Post[];
   audio?: string;
   video?: string;
   duration?: number;
@@ -53,5 +51,5 @@ export interface Post
   // Relationships
   // Taxonomies
   // Statistics
-  keywords?: string;
+  keyword?: string;
 }

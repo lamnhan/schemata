@@ -1,6 +1,6 @@
 import {Ids, Status, Timing} from '../shared.type';
 
-export type PromotionBuiltinKinds = 'code' | 'custom' | 'auto';
+export type PromotionBuiltinKind = 'code' | 'custom' | 'auto';
 
 export interface Promotion extends Ids, Status, Timing {
   // Ids
@@ -10,7 +10,7 @@ export interface Promotion extends Ids, Status, Timing {
   // Timing
   content?: string;
   value: number;
-  kind?: PromotionBuiltinKinds;
+  kind?: PromotionBuiltinKind;
   locale?: string;
   origin?: string;
 }

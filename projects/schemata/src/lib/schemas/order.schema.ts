@@ -10,7 +10,7 @@ export interface OrderProduct {
 }
 
 export interface OrderItem {
-  at: string;
+  updatedAt: string;
   qty: number;
   product: OrderProduct;
 }
@@ -21,7 +21,7 @@ export interface OrderDiscount {
 }
 
 export interface OrderAdjustment {
-  at: string;
+  updatedAt: string;
   reason: string;
   value: number; // positive or nagative
 }
@@ -31,7 +31,7 @@ export interface Order extends Ids, Status, Timing {
   type?: string;
   // Status
   // Timing
-  stage?: 'new' | 'confirmed' | 'delivering' | 'done' | 'cancelled';
+  stage: 'new' | 'confirmed' | 'delivering' | 'done' | 'cancelled';
   items: {
     [key: string]: OrderItem;
   };
@@ -40,17 +40,11 @@ export interface Order extends Ids, Status, Timing {
   subtotal?: number;
   discountTotal?: number;
   uid?: string;
-  email?: string;
-  displayName?: string;
-  phoneNumber?: string;
-  address?: string;
   note?: string;
   paymentType?: string;
   transactionId?: string;
   discountData?: {
     [kind: string]: OrderDiscount;
   };
-  adjustments?: {
-    [name: string]: OrderAdjustment;
-  };
+  adjustments?: OrderAdjustment[];
 }

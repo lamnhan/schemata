@@ -26,12 +26,12 @@ export interface ProductOptionItem {
 }
 
 export interface ProductVariant extends Images {
+  // Images
   title: string; // Product 1 (XL, Blue)
   sku: string; // product SKU + options ids: P001-XL-B
   price?: number;
   discounted?: number;
   upc?: string;
-  // Images
   stockCount?: number;
   soldCount?: number;
 }
@@ -56,9 +56,8 @@ export interface Product
   // Images
   description?: string;
   // Content
-  slides?: {
-    [slide: string]: Post;
-  };
+  slides?: Post[];
+  video?: string;
   sku: string;
   unit: string;
   price: number;
@@ -69,24 +68,20 @@ export interface Product
   upc?: string;
   promotion?: string;
   warranty?: string;
-  props?: {
+  prop?: {
     weight?: string;
     dimensions?: string;
     [name: string]: unknown;
   };
   stockCount?: number;
   soldCount?: number;
-  options?: {
-    [name: string]: ProductOption;
-  };
-  variants?: {
-    [name: string]: ProductVariant;
-  };
+  options?: ProductOption[];
+  variants?: ProductVariant[];
   locale?: string;
   origin?: string;
   // Parents
   // Relationships
   // Taxonomies
   // Statistics
-  keywords?: string;
+  keyword?: string;
 }

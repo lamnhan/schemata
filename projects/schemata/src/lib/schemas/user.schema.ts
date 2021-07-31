@@ -47,7 +47,7 @@ export interface UserPublicly {
   [key: string]: undefined | boolean;
 }
 
-export interface UserSettings {
+export interface UserSetting {
   theme?: string;
   persona?: string;
   locale?: string;
@@ -63,7 +63,7 @@ export interface UserInfo {
   providerId?: UserProviderId;
 }
 
-export type UserRoles =
+export type UserRole =
   | 'sadmin' // level = 6
   | 'admin' // level = 5
   | 'editor' // level = 4
@@ -71,11 +71,11 @@ export type UserRoles =
   | 'contributor' // level = 2
   | 'subscriber'; // level = 1
 
-export type UserLegits = 'average' | 'official' | 'suspicious';
+export type UserLegit = 'average' | 'official' | 'suspicious';
 
-export interface UserClaims {
-  role?: UserRoles;
-  legit?: UserLegits;
+export interface UserClaim {
+  role?: UserRole;
+  legit?: UserLegit;
   [name: string]: unknown;
 }
 
@@ -87,10 +87,10 @@ export interface UserProperties extends UserPrivate, UserContext, UserProfile {
 
 export interface UserPrivate {
   providerId?: UserProviderId;
-  providerData?: UserInfo[];
+  providerDatas?: UserInfo[];
   metadata?: UserMetadata;
   publicly?: UserPublicly;
-  settings?: UserSettings;
+  setting?: UserSetting;
 }
 
 export interface UserContext {
@@ -109,10 +109,8 @@ export interface UserInternalProfile {
   email?: string;
   username?: string;
   phoneNumber?: string;
-  addresses?: {
-    [name: string]: UserAddress;
-  };
-  claims?: UserClaims;
+  addresses?: UserAddress[];
+  claim?: UserClaim;
   additionalData?: Record<string, unknown>;
 }
 
@@ -132,6 +130,6 @@ export interface UserSecret {
   oobCode?: string;
   oobMode?: UserOobMode;
   oobTimestamp?: number;
-  jwtWhitelist?: string[]; // hashed single/list
-  instanceWhitelist?: string[]; // hashed single/list
+  jwtWhitelists?: string[]; // hashed single/list
+  instanceWhitelists?: string[]; // hashed single/list
 }

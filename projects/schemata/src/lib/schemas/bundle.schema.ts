@@ -21,6 +21,7 @@ export interface Bundle
     Taxonomies,
     Statistics {
   // Ids
+  for: string; // collection:type
   uid?: string;
   type?: string;
   // Status
@@ -35,5 +36,5 @@ export interface Bundle
   // Relationships
   // Taxonomies
   // Statistics
-  keywords?: string;
+  keyword?: string;
 }

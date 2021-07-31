@@ -27,9 +27,9 @@ export interface Profile
   email?: string;
   phoneNumber?: string;
   url?: string;
-  badges?: string[]; // values of user.claims
-  props?: Record<string, unknown>; // picks of user.additionalData
+  badges?: string[]; // values of user.claim
+  prop?: Record<string, unknown>; // picks of user.additionalData
   // Taxonomies
   // Statistics
-  keywords?: string;
+  keyword?: string;
 }

@@ -32,19 +32,14 @@ export interface Video
   description?: string;
   // Content
   src?: string;
-  srcs?: {
-    [type: string]: unknown; // { mp4: ..., webm: ... }
-  };
   duration?: number;
   birthday?: string;
-  props?: {
-    [prop: string]: unknown;
-  };
+  prop?: Record<string, unknown>;
   locale?: string;
   origin?: string;
   // Parents
   // Relationships
   // Taxonomies
   // Statistics
-  keywords?: string;
+  keyword?: string;
 }
