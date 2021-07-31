@@ -1,15 +1,24 @@
+import { CategoryLite } from './schemas/category.schema';
+import { TagLite } from './schemas/tag.schema';
+import { BundleLite } from './schemas/bundle.schema';
+import { ProfileLite } from './schemas/profile.schema';
+
 export interface BasicWithLocalization extends Basic, I18n {
   // Basic
   // I18n
 }
 
-export interface Basic extends Status, Timing {
+export interface Basic extends Minimum, Status, Timing {
   uid: string;
+  // Minimum
+  // Status
+  // Timing
+}
+
+export interface Minimum {
   id: string;
   title: string;
   type: string;
-  // Status
-  // Timing
 }
 
 export interface Status {
@@ -27,7 +36,7 @@ export interface I18n {
 }
 
 export interface Authors {
-  authors?: string[];
+  authors?: Record<string, ProfileLite>;
 }
 
 export interface Images {
@@ -40,16 +49,12 @@ export interface Content {
 }
 
 export interface Parents {
-  parents?: string[];
-}
-
-export interface Relationships {
-  relationships?: string[]; // collection#id
+  parents?: Record<string, BundleLite>;
 }
 
 export interface Taxonomies {
-  categories?: string[];
-  tags?: string[];
+  categories?: Record<string, CategoryLite>;
+  tags?: Record<string, TagLite>;
 }
 
 export interface Statistics {

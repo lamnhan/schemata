@@ -1,19 +1,26 @@
 import {
+  Minimum,
   BasicWithLocalization,
   Authors,
   Images,
   Content,
-  Relationships,
   Taxonomies,
   Statistics,
 } from '../shared.type';
+
+export interface BundleLite extends Minimum {
+  // Minimum
+  createdAt: string;
+  thumbnail?: string;
+  description?: string;
+  count?: number;
+}
 
 export interface Bundle
   extends BasicWithLocalization,
     Authors,
     Images,
     Content,
-    Relationships,
     Taxonomies,
     Statistics {
   // BasicWithLocalization
@@ -23,7 +30,6 @@ export interface Bundle
   description?: string;
   // Content
   count?: number;
-  // Relationships
   // Taxonomies
   // Statistics
   keyword?: string;

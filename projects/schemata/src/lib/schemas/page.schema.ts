@@ -1,8 +1,7 @@
-import {BasicWithLocalization, Authors, Images, Content} from '../shared.type';
+import {BasicWithLocalization, Images, Content} from '../shared.type';
 
-export interface Page extends BasicWithLocalization, Authors, Images, Content {
+export interface Page extends BasicWithLocalization, Images, Content {
   // BasicWithLocalization
-  // Authors
   // Images
   description?: string;
   // Content

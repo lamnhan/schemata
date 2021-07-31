@@ -1,13 +1,21 @@
 import {
+  Minimum,
   BasicWithLocalization,
   Authors,
   Images,
   Content,
   Parents,
-  Relationships,
   Taxonomies,
   Statistics,
 } from '../shared.type';
+
+export interface VideoLite extends Minimum {
+  // Minimum
+  createdAt: string;
+  thumbnail?: string;
+  description?: string;
+  duration?: number;
+}
 
 export interface Video
   extends BasicWithLocalization,
@@ -15,7 +23,6 @@ export interface Video
     Images,
     Content,
     Parents,
-    Relationships,
     Taxonomies,
     Statistics {
   // BasicWithLocalization
@@ -26,9 +33,8 @@ export interface Video
   src?: string;
   duration?: number;
   birthday?: string;
-  prop?: Record<string, unknown>;
+  props?: Record<string, unknown>;
   // Parents
-  // Relationships
   // Taxonomies
   // Statistics
   keyword?: string;

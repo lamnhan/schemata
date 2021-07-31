@@ -1,13 +1,22 @@
 import {
+  Minimum,
   BasicWithLocalization,
   Authors,
   Images,
   Content,
   Parents,
-  Relationships,
   Taxonomies,
   Statistics,
 } from '../shared.type';
+import { CategoryLite } from './category.schema';
+
+export interface AudioLite extends Minimum {
+  // Minimum
+  createdAt: string;
+  thumbnail?: string;
+  description?: string;
+  duration?: number;
+}
 
 export interface Audio
   extends BasicWithLocalization,
@@ -15,7 +24,6 @@ export interface Audio
     Images,
     Content,
     Parents,
-    Relationships,
     Taxonomies,
     Statistics {
   // BasicWithLocalization
@@ -27,10 +35,9 @@ export interface Audio
   sheets?: string[];
   duration?: number;
   birthday?: string;
-  prop?: Record<string, unknown>;
+  props?: Record<string, unknown>;
   // Parents
-  // Relationships
-  genres?: string[];
+  genres?: Record<string, CategoryLite>;
   // Taxonomies
   // Statistics
   keyword?: string;

@@ -1,13 +1,18 @@
 import {Basic, Statistics} from '../shared.type';
 
-export interface ThreadAttachment {
-  // link attachment
-  link?: string;
-  // file attachment
-  id?: string; // Drive file id or undefined for Gmail attachments
-  name?: string;
-  mimeType?: string;
-  size?: number;
+export type ThreadAttachment = LinkAttachment | FileAttachment;
+
+export interface LinkAttachment {
+  url: string;
+  thumbnail?: string;
+  description?: string;
+}
+
+export interface FileAttachment {
+  url: string;
+  name: string;
+  mimeType: string;
+  size: number;
 }
 
 export interface GroupingThread {
@@ -18,8 +23,8 @@ export interface GroupingThread {
 export interface Thread extends Basic, Statistics {
   // Basic
   content: string;
-  attachments?: ThreadAttachment[];
-  parent?: false | string; // composite
+  parent: string; // composite: '' (top), parent-1 (level 1), parent-1child-1 (lv. 2), ...
   master?: string; // collection#doc
+  attachments?: ThreadAttachment[];
   // Statistics
 }

@@ -1,10 +1,10 @@
 import {
+  Minimum,
   BasicWithLocalization,
   Authors,
   Images,
   Content,
   Parents,
-  Relationships,
   Taxonomies,
   Statistics,
 } from '../shared.type';
@@ -17,13 +17,20 @@ export interface PostTOCItem {
   routerLink?: string;
 }
 
+export interface PostLite extends Minimum {
+  // Minimum
+  createdAt: string;
+  thumbnail?: string;
+  description?: string;
+  duration?: number;
+}
+
 export interface Post
   extends BasicWithLocalization,
     Authors,
     Images,
     Content,
     Parents,
-    Relationships,
     Taxonomies,
     Statistics {
   // BasicWithLocalization
@@ -38,7 +45,6 @@ export interface Post
   video?: string;
   duration?: number;
   // Parents
-  // Relationships
   // Taxonomies
   // Statistics
   keyword?: string;

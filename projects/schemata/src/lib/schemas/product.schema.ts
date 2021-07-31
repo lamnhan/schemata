@@ -1,10 +1,10 @@
 import {
+  Minimum,
   BasicWithLocalization,
   Authors,
   Images,
   Content,
   Parents,
-  Relationships,
   Taxonomies,
   Statistics,
 } from '../shared.type';
@@ -12,12 +12,11 @@ import {Post} from './post.schema';
 
 export interface ProductOption {
   title?: string;
-  items: {
-    [id: string]: ProductOptionItem;
-  };
+  items: ProductOptionItem[];
 }
 
 export interface ProductOptionItem {
+  name: string;
   title: string;
   content?: unknown; // color code, ...
   offset?: number; // positive or nagative, original price + this
@@ -34,13 +33,22 @@ export interface ProductVariant extends Images {
   soldCount?: number;
 }
 
+export interface ProductLite extends Minimum {
+  // Minimum
+  createdAt: string;
+  sku: string;
+  unit: string;
+  price: number;
+  thumbnail?: string;
+  description?: string;
+}
+
 export interface Product
   extends BasicWithLocalization,
     Authors,
     Images,
     Content,
     Parents,
-    Relationships,
     Taxonomies,
     Statistics {
   // BasicWithLocalization
@@ -60,7 +68,7 @@ export interface Product
   upc?: string;
   promotion?: string;
   warranty?: string;
-  prop?: {
+  props?: {
     weight?: string;
     dimensions?: string;
     [name: string]: unknown;
@@ -70,7 +78,6 @@ export interface Product
   options?: ProductOption[];
   variants?: ProductVariant[];
   // Parents
-  // Relationships
   // Taxonomies
   // Statistics
   keyword?: string;

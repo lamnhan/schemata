@@ -1,18 +1,10 @@
-import {Basic} from '../shared.type';
-
-export interface OrderProduct {
-  id: string;
-  title: string;
-  sku: string;
-  price: number;
-  unit?: string;
-  thumbnail?: string;
-}
+import { Basic } from '../shared.type';
+import { ProductLite } from './product.schema';
 
 export interface OrderItem {
   updatedAt: string;
   qty: number;
-  product: OrderProduct;
+  product: ProductLite;
 }
 
 export interface OrderDiscount {
@@ -31,7 +23,7 @@ export interface Order extends Basic {
   stage: 'new' | 'confirmed' | 'delivering' | 'done' | 'cancelled';
   note?: string;
   items: {
-    [key: string]: OrderItem;
+    [id: string]: OrderItem;
   };
   count?: number;
   total?: number;

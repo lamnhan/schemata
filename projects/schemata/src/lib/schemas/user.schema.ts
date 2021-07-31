@@ -29,7 +29,7 @@ export interface UserAddressDetail {
 
 export interface UserAddress {
   default?: boolean;
-  publicly?: boolean;
+  public?: boolean;
   title?: string;
   text?: string;
   detail?: UserAddressDetail;
@@ -47,7 +47,7 @@ export interface UserPublicly {
   [key: string]: undefined | boolean;
 }
 
-export interface UserSetting {
+export interface UserSettings {
   theme?: string;
   persona?: string;
   locale?: string;
@@ -73,7 +73,7 @@ export type UserRole =
 
 export type UserLegit = 'average' | 'official' | 'suspicious';
 
-export interface UserClaim {
+export interface UserClaims {
   role?: UserRole;
   legit?: UserLegit;
   [name: string]: unknown;
@@ -87,10 +87,10 @@ export interface UserProperties extends UserPrivate, UserContext, UserProfile {
 
 export interface UserPrivate {
   providerId?: UserProviderId;
-  providerDatas?: UserInfo[];
+  providerData?: UserInfo[];
   metadata?: UserMetadata;
   publicly?: UserPublicly;
-  setting?: UserSetting;
+  settings?: UserSettings;
 }
 
 export interface UserContext {
@@ -110,7 +110,7 @@ export interface UserInternalProfile {
   username?: string;
   phoneNumber?: string;
   addresses?: UserAddress[];
-  claim?: UserClaim;
+  claims?: UserClaims;
   additionalData?: Record<string, unknown>;
 }
 

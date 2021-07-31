@@ -1,4 +1,11 @@
-import { BasicWithLocalization, Images } from '../shared.type';
+import { Minimum, BasicWithLocalization, Images } from '../shared.type';
+
+export interface CategoryLite extends Minimum {
+  // Minimum
+  thumbnail?: string;
+  description?: string;
+  count?: number;
+}
 
 export interface Category extends BasicWithLocalization, Images {
   // BasicWithLocalization
