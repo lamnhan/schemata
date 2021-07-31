@@ -1,7 +1,5 @@
 import {
-  Ids,
-  Status,
-  Timing,
+  BasicWithLocalization,
   Authors,
   Images,
   Content,
@@ -12,9 +10,7 @@ import {
 } from '../shared.type';
 
 export interface Video
-  extends Ids,
-    Status,
-    Timing,
+  extends BasicWithLocalization,
     Authors,
     Images,
     Content,
@@ -22,11 +18,7 @@ export interface Video
     Relationships,
     Taxonomies,
     Statistics {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+  // BasicWithLocalization
   // Authors
   // Images
   description?: string;
@@ -35,8 +27,6 @@ export interface Video
   duration?: number;
   birthday?: string;
   prop?: Record<string, unknown>;
-  locale?: string;
-  origin?: string;
   // Parents
   // Relationships
   // Taxonomies

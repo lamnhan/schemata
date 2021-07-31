@@ -1,7 +1,5 @@
 import {
-  Ids,
-  Status,
-  Timing,
+  BasicWithLocalization,
   Authors,
   Images,
   Content,
@@ -12,9 +10,7 @@ import {
 } from '../shared.type';
 
 export interface Audio
-  extends Ids,
-    Status,
-    Timing,
+  extends BasicWithLocalization,
     Authors,
     Images,
     Content,
@@ -22,11 +18,7 @@ export interface Audio
     Relationships,
     Taxonomies,
     Statistics {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+  // BasicWithLocalization
   // Authors
   // Images
   description?: string;
@@ -36,8 +28,6 @@ export interface Audio
   duration?: number;
   birthday?: string;
   prop?: Record<string, unknown>;
-  locale?: string;
-  origin?: string;
   // Parents
   // Relationships
   genres?: string[];

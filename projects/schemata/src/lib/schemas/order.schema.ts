@@ -1,4 +1,4 @@
-import {Ids, Status, Timing} from '../shared.type';
+import {Basic} from '../shared.type';
 
 export interface OrderProduct {
   id: string;
@@ -26,12 +26,10 @@ export interface OrderAdjustment {
   value: number; // positive or nagative
 }
 
-export interface Order extends Ids, Status, Timing {
-  // Ids
-  type?: string;
-  // Status
-  // Timing
+export interface Order extends Basic {
+  // Basic
   stage: 'new' | 'confirmed' | 'delivering' | 'done' | 'cancelled';
+  note?: string;
   items: {
     [key: string]: OrderItem;
   };
@@ -39,8 +37,6 @@ export interface Order extends Ids, Status, Timing {
   total?: number;
   subtotal?: number;
   discountTotal?: number;
-  uid?: string;
-  note?: string;
   paymentType?: string;
   transactionId?: string;
   discountData?: {

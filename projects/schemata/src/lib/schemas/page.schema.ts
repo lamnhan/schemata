@@ -1,15 +1,9 @@
-import {Ids, Status, Timing, Authors, Images, Content} from '../shared.type';
+import {BasicWithLocalization, Authors, Images, Content} from '../shared.type';
 
-export interface Page extends Ids, Status, Timing, Authors, Images, Content {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+export interface Page extends BasicWithLocalization, Authors, Images, Content {
+  // BasicWithLocalization
   // Authors
   // Images
   description?: string;
   // Content
-  locale?: string;
-  origin?: string;
 }

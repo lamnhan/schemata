@@ -1,11 +1,7 @@
-import {Ids, Status, Timing} from '../shared.type';
+import {Basic} from '../shared.type';
 
-export interface Meta extends Ids, Status, Timing {
-  // Ids
+export interface Meta extends Basic {
+  // Basic
   master: string; // collection#doc
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
-  value: unknown;
+  value: any;
 }

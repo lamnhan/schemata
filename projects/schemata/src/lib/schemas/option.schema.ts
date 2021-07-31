@@ -1,10 +1,6 @@
-import {Ids, Status, Timing} from '../shared.type';
+import {Basic} from '../shared.type';
 
-export interface Option extends Ids, Status, Timing {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
-  value: unknown;
+export interface Option extends Basic {
+  // Basic
+  value: any;
 }

@@ -1,7 +1,5 @@
 import {
-  Ids,
-  Status,
-  Timing,
+  Basic,
   Images,
   Content,
   Taxonomies,
@@ -9,21 +7,15 @@ import {
 } from '../shared.type';
 
 export interface Profile
-  extends Ids,
-    Status,
-    Timing,
+  extends Basic,
     Images,
     Content,
     Taxonomies,
     Statistics {
-  // Ids
-  type?: string;
-  // Status
-  // Timing
+  // Basic
   // Images
   description?: string;
   // Content
-  uid?: string;
   email?: string;
   phoneNumber?: string;
   url?: string;

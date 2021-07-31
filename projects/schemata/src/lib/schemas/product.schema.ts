@@ -1,7 +1,5 @@
 import {
-  Ids,
-  Status,
-  Timing,
+  BasicWithLocalization,
   Authors,
   Images,
   Content,
@@ -37,9 +35,7 @@ export interface ProductVariant extends Images {
 }
 
 export interface Product
-  extends Ids,
-    Status,
-    Timing,
+  extends BasicWithLocalization,
     Authors,
     Images,
     Content,
@@ -47,20 +43,16 @@ export interface Product
     Relationships,
     Taxonomies,
     Statistics {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+  // BasicWithLocalization
+  sku: string;
+  unit: string;
+  price: number;
   // Authors
   // Images
   description?: string;
   // Content
   slides?: Post[];
   video?: string;
-  sku: string;
-  unit: string;
-  price: number;
   discounted?: number;
   brand?: string;
   birthday?: string;
@@ -77,8 +69,6 @@ export interface Product
   soldCount?: number;
   options?: ProductOption[];
   variants?: ProductVariant[];
-  locale?: string;
-  origin?: string;
   // Parents
   // Relationships
   // Taxonomies

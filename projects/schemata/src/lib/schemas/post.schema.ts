@@ -1,7 +1,5 @@
 import {
-  Ids,
-  Status,
-  Timing,
+  BasicWithLocalization,
   Authors,
   Images,
   Content,
@@ -20,9 +18,7 @@ export interface PostTOCItem {
 }
 
 export interface Post
-  extends Ids,
-    Status,
-    Timing,
+  extends BasicWithLocalization,
     Authors,
     Images,
     Content,
@@ -30,11 +26,7 @@ export interface Post
     Relationships,
     Taxonomies,
     Statistics {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+  // BasicWithLocalization
   // Authors
   // Images
   description?: string;
@@ -45,8 +37,6 @@ export interface Post
   audio?: string;
   video?: string;
   duration?: number;
-  locale?: string;
-  origin?: string;
   // Parents
   // Relationships
   // Taxonomies

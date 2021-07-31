@@ -1,7 +1,5 @@
 import {
-  Ids,
-  Status,
-  Timing,
+  BasicWithLocalization,
   Authors,
   Images,
   Content,
@@ -11,28 +9,20 @@ import {
 } from '../shared.type';
 
 export interface Bundle
-  extends Ids,
-    Status,
-    Timing,
+  extends BasicWithLocalization,
     Authors,
     Images,
     Content,
     Relationships,
     Taxonomies,
     Statistics {
-  // Ids
-  for: string; // collection:type
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+  // BasicWithLocalization
+  only: string; // collection:type
   // Authors
   // Images
   description?: string;
   // Content
   count?: number;
-  locale?: string;
-  origin?: string;
   // Relationships
   // Taxonomies
   // Statistics

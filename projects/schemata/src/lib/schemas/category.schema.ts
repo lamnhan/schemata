@@ -1,15 +1,9 @@
-import {Ids, Status, Timing, Images} from '../shared.type';
+import { BasicWithLocalization, Images } from '../shared.type';
 
-export interface Category extends Ids, Status, Timing, Images {
-  // Ids
-  for: string; // collection:type
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+export interface Category extends BasicWithLocalization, Images {
+  // BasicWithLocalization
+  only: string; // collection:type
   // Images
   description?: string;
   count?: number;
-  locale?: string;
-  origin?: string;
 }

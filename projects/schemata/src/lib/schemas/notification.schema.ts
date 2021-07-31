@@ -1,15 +1,9 @@
-import {Ids, Status, Timing} from '../shared.type';
+import {BasicWithLocalization} from '../shared.type';
 
-export interface Notification extends Ids, Status, Timing {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
+export interface Notification extends BasicWithLocalization {
+  // Basic
   thumbnail?: string;
   content?: string;
   link?: string;
   schedule?: string;
-  locale?: string;
-  origin?: string;
 }

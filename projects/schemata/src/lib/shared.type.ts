@@ -1,6 +1,15 @@
-export interface Ids {
-  title: string;
+export interface BasicWithLocalization extends Basic, I18n {
+  // Basic
+  // I18n
+}
+
+export interface Basic extends Status, Timing {
+  uid: string;
   id: string;
+  title: string;
+  type: string;
+  // Status
+  // Timing
 }
 
 export interface Status {
@@ -10,6 +19,11 @@ export interface Status {
 export interface Timing {
   createdAt: string;
   updatedAt: string;
+}
+
+export interface I18n {
+  locale: string;
+  origin: string;
 }
 
 export interface Authors {

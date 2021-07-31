@@ -1,16 +1,10 @@
-import {Ids, Status, Timing} from '../shared.type';
+import {BasicWithLocalization} from '../shared.type';
 
 export type PromotionBuiltinKind = 'code' | 'custom' | 'auto';
 
-export interface Promotion extends Ids, Status, Timing {
-  // Ids
-  uid?: string;
-  type?: string;
-  // Status
-  // Timing
-  content?: string;
-  value: number;
+export interface Promotion extends BasicWithLocalization {
+  // BasicWithLocalization
   kind?: PromotionBuiltinKind;
-  locale?: string;
-  origin?: string;
+  value: number;
+  content?: string;
 }
