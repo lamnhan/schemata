@@ -6,7 +6,9 @@ import {
   Content,
   Parents,
   Taxonomies,
+  Relationships,
   Statistics,
+  ResourceAlike,
 } from '../shared.type';
 import {Post} from './post.schema';
 
@@ -39,7 +41,7 @@ export interface ProductLite extends Minimum {
   sku: string;
   unit: string;
   price: number;
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   description?: string;
 }
 
@@ -50,6 +52,7 @@ export interface Product
     Content,
     Parents,
     Taxonomies,
+    Relationships,
     Statistics {
   // BasicWithLocalization
   sku: string;
@@ -79,6 +82,7 @@ export interface Product
   variants?: ProductVariant[];
   // Parents
   // Taxonomies
+  // Relationships
   // Statistics
   keyword?: string;
 }

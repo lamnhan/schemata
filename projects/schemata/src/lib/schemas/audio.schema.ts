@@ -6,14 +6,16 @@ import {
   Content,
   Parents,
   Taxonomies,
+  Relationships,
   Statistics,
+  ResourceAlike,
 } from '../shared.type';
 import { CategoryLite } from './category.schema';
 
 export interface AudioLite extends Minimum {
   // Minimum
   createdAt: string;
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   description?: string;
   duration?: number;
 }
@@ -25,20 +27,22 @@ export interface Audio
     Content,
     Parents,
     Taxonomies,
+    Relationships,
     Statistics {
   // BasicWithLocalization
   // Authors
   // Images
   description?: string;
   // Content
-  src?: string;
-  sheets?: string[];
+  srcs?: Record<string, ResourceAlike>;
+  sheets?: ResourceAlike[];
   duration?: number;
   birthday?: string;
   props?: Record<string, unknown>;
   // Parents
   genres?: Record<string, CategoryLite>;
   // Taxonomies
+  // Relationships
   // Statistics
   keyword?: string;
 }

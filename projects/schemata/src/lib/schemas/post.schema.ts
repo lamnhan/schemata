@@ -6,7 +6,9 @@ import {
   Content,
   Parents,
   Taxonomies,
+  Relationships,
   Statistics,
+  ResourceAlike,
 } from '../shared.type';
 
 export interface PostTOCItem {
@@ -20,7 +22,7 @@ export interface PostTOCItem {
 export interface PostLite extends Minimum {
   // Minimum
   createdAt: string;
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   description?: string;
   duration?: number;
 }
@@ -32,6 +34,7 @@ export interface Post
     Content,
     Parents,
     Taxonomies,
+    Relationships,
     Statistics {
   // BasicWithLocalization
   // Authors
@@ -46,6 +49,7 @@ export interface Post
   duration?: number;
   // Parents
   // Taxonomies
+  // Relationships
   // Statistics
   keyword?: string;
 }

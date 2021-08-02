@@ -1,8 +1,8 @@
-import { Minimum, BasicWithLocalization, Images } from '../shared.type';
+import { Minimum, BasicWithLocalization, Images, ResourceAlike } from '../shared.type';
 
 export interface CategoryLite extends Minimum {
   // Minimum
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   description?: string;
   count?: number;
 }

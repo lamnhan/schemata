@@ -4,8 +4,9 @@ export type ThreadAttachment = LinkAttachment | FileAttachment;
 
 export interface LinkAttachment {
   url: string;
-  thumbnail?: string;
+  title?: string;
   description?: string;
+  screenshot?: string;
 }
 
 export interface FileAttachment {

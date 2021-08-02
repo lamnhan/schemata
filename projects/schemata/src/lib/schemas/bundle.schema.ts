@@ -5,13 +5,15 @@ import {
   Images,
   Content,
   Taxonomies,
+  Relationships,
   Statistics,
+  ResourceAlike,
 } from '../shared.type';
 
 export interface BundleLite extends Minimum {
   // Minimum
   createdAt: string;
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   description?: string;
   count?: number;
 }
@@ -22,6 +24,7 @@ export interface Bundle
     Images,
     Content,
     Taxonomies,
+    Relationships,
     Statistics {
   // BasicWithLocalization
   only: string; // collection:type
@@ -31,6 +34,7 @@ export interface Bundle
   // Content
   count?: number;
   // Taxonomies
+  // Relationships
   // Statistics
   keyword?: string;
 }

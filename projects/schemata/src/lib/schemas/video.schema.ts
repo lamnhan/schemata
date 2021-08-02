@@ -6,13 +6,15 @@ import {
   Content,
   Parents,
   Taxonomies,
+  Relationships,
   Statistics,
+  ResourceAlike,
 } from '../shared.type';
 
 export interface VideoLite extends Minimum {
   // Minimum
   createdAt: string;
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   description?: string;
   duration?: number;
 }
@@ -24,18 +26,20 @@ export interface Video
     Content,
     Parents,
     Taxonomies,
+    Relationships,
     Statistics {
   // BasicWithLocalization
   // Authors
   // Images
   description?: string;
   // Content
-  src?: string;
+  srcs?: Record<string, ResourceAlike>;
   duration?: number;
   birthday?: string;
   props?: Record<string, unknown>;
   // Parents
   // Taxonomies
+  // Relationships
   // Statistics
   keyword?: string;
 }

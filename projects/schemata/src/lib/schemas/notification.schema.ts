@@ -1,8 +1,8 @@
-import {BasicWithLocalization} from '../shared.type';
+import { BasicWithLocalization, ResourceAlike } from '../shared.type';
 
 export interface Notification extends BasicWithLocalization {
   // Basic
-  thumbnail?: string;
+  thumbnails?: Record<string, ResourceAlike>;
   content?: string;
   link?: string;
   schedule?: string;

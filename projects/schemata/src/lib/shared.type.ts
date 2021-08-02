@@ -1,7 +1,11 @@
 import { CategoryLite } from './schemas/category.schema';
 import { TagLite } from './schemas/tag.schema';
+import { PostLite } from './schemas/post.schema';
+import { AudioLite } from './schemas/audio.schema';
+import { VideoLite } from './schemas/video.schema';
 import { BundleLite } from './schemas/bundle.schema';
 import { ProfileLite } from './schemas/profile.schema';
+import { ProductLite } from './schemas/product.schema';
 
 export interface BasicWithLocalization extends Basic, I18n {
   // Basic
@@ -40,8 +44,8 @@ export interface Authors {
 }
 
 export interface Images {
-  thumbnail?: string;
-  image?: string;
+  thumbnails?: Record<string, ResourceAlike>;
+  images?: Record<string, ResourceAlike>;
 }
 
 export interface Content {
@@ -57,10 +61,24 @@ export interface Taxonomies {
   tags?: Record<string, TagLite>;
 }
 
+export interface Relationships {
+  relatedPosts?: PostLite[];
+  relatedAudios?: AudioLite[];
+  relatedVideos?: VideoLite[];
+  relatedBundles?: BundleLite[];
+  relatedProfiles?: ProfileLite[];
+  relatedProducts?: ProductLite[];
+}
+
 export interface Statistics {
   viewCount?: number;
   likeCount?: number;
   commentCount?: number;
   rateCount?: number;
   shareCount?: number;
+}
+
+export interface ResourceAlike {
+  name: string;
+  src: string;
 }
