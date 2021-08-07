@@ -36,5 +36,5 @@ export interface Bundle
   // Taxonomies
   // Relationships
   // Statistics
-  keyword?: string;
+  keywords?: string[];
 }

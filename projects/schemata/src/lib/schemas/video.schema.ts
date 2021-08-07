@@ -41,5 +41,5 @@ export interface Video
   // Taxonomies
   // Relationships
   // Statistics
-  keyword?: string;
+  keywords?: string[];
 }

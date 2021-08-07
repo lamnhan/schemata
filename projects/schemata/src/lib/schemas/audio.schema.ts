@@ -44,5 +44,5 @@ export interface Audio
   // Taxonomies
   // Relationships
   // Statistics
-  keyword?: string;
+  keywords?: string[];
 }

@@ -51,5 +51,5 @@ export interface Post
   // Taxonomies
   // Relationships
   // Statistics
-  keyword?: string;
+  keywords?: string[];
 }

@@ -36,5 +36,5 @@ export interface Profile
   // Taxonomies
   // Relationships
   // Statistics
-  keyword?: string;
+  keywords?: string[];
 }

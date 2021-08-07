@@ -84,5 +84,5 @@ export interface Product
   // Taxonomies
   // Relationships
   // Statistics
-  keyword?: string;
+  keywords?: string[];
 }
