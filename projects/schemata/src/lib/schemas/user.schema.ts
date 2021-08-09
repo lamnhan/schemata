@@ -1,6 +1,6 @@
 import {Status, Timing} from '../shared.type';
 
-export interface User extends Status, Timing, UserProperties, UserSecret {
+export interface User extends Status, Timing, UserProperties, UserActivities, UserSecret {
   // Status
   // Timing
   // UserProperties
@@ -121,6 +121,11 @@ export interface UserEditableProfile {
   intro?: string;
   detail?: string;
   url?: string;
+}
+
+export interface UserActivities {
+  displayNameChangedAt?: string;
+  photoURLChangedAt?: string;
 }
 
 export interface UserSecret {

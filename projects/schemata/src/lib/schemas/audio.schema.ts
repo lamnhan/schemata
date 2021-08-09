@@ -7,6 +7,7 @@ import {
   Parents,
   Taxonomies,
   Relationships,
+  RepostOptions,
   Statistics,
   ResourceAlike,
 } from '../shared.type';
@@ -28,6 +29,7 @@ export interface Audio
     Parents,
     Taxonomies,
     Relationships,
+    RepostOptions,
     Statistics {
   // BasicWithLocalization
   // Authors
@@ -43,6 +45,7 @@ export interface Audio
   genres?: Record<string, CategoryLite>;
   // Taxonomies
   // Relationships
+  // RepostOptions
   // Statistics
   keywords?: string[];
 }

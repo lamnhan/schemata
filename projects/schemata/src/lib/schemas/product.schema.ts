@@ -7,6 +7,7 @@ import {
   Parents,
   Taxonomies,
   Relationships,
+  RepostOptions,
   Statistics,
   ResourceAlike,
 } from '../shared.type';
@@ -53,6 +54,7 @@ export interface Product
     Parents,
     Taxonomies,
     Relationships,
+    RepostOptions,
     Statistics {
   // BasicWithLocalization
   sku: string;
@@ -83,6 +85,7 @@ export interface Product
   // Parents
   // Taxonomies
   // Relationships
+  // RepostOptions
   // Statistics
   keywords?: string[];
 }

@@ -70,6 +70,12 @@ export interface Relationships {
   relatedProducts?: ProductLite[];
 }
 
+export interface RepostOptions {
+  original?: boolean;
+  source?: {name: string, url: string, createdAt: string};
+  repostable?: boolean;
+}
+
 export interface Statistics {
   viewCount?: number;
   likeCount?: number;

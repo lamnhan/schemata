@@ -8,6 +8,7 @@ import {
   Taxonomies,
   Relationships,
   Statistics,
+  RepostOptions,
   ResourceAlike,
 } from '../shared.type';
 
@@ -35,6 +36,7 @@ export interface Post
     Parents,
     Taxonomies,
     Relationships,
+    RepostOptions,
     Statistics {
   // BasicWithLocalization
   // Authors
@@ -50,6 +52,7 @@ export interface Post
   // Parents
   // Taxonomies
   // Relationships
+  // RepostOptions
   // Statistics
   keywords?: string[];
 }

@@ -6,6 +6,7 @@ import {
   Content,
   Taxonomies,
   Relationships,
+  RepostOptions,
   Statistics,
   ResourceAlike,
 } from '../shared.type';
@@ -25,6 +26,7 @@ export interface Bundle
     Content,
     Taxonomies,
     Relationships,
+    RepostOptions,
     Statistics {
   // BasicWithLocalization
   only: string; // collection:type
@@ -35,6 +37,7 @@ export interface Bundle
   count?: number;
   // Taxonomies
   // Relationships
+  // RepostOptions
   // Statistics
   keywords?: string[];
 }

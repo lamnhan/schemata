@@ -7,6 +7,7 @@ import {
   Parents,
   Taxonomies,
   Relationships,
+  RepostOptions,
   Statistics,
   ResourceAlike,
 } from '../shared.type';
@@ -27,6 +28,7 @@ export interface Video
     Parents,
     Taxonomies,
     Relationships,
+    RepostOptions,
     Statistics {
   // BasicWithLocalization
   // Authors
@@ -40,6 +42,7 @@ export interface Video
   // Parents
   // Taxonomies
   // Relationships
+  // RepostOptions
   // Statistics
   keywords?: string[];
 }
