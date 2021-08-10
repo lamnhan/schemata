@@ -8,6 +8,20 @@ import { DatabaseService, DatabaseData } from '@lamnhan/ngx-useful';
 })
 export class TagDataService extends DatabaseData<Tag> {
   constructor(databaseService: DatabaseService) {
-    super(databaseService, 'tags');
+    super(
+      databaseService,
+      'tags',
+      {
+        updateEffects: [
+          { collection: 'posts', key: 'tags' },
+          { collection: 'audios', key: 'tags' },
+          { collection: 'videos', key: 'tags' },
+          { collection: 'profiles', key: 'tags' },
+        ],
+        linkingFields: [
+          'count'
+        ],
+      }
+    );
   }
 }

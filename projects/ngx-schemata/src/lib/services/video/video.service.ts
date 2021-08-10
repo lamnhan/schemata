@@ -8,6 +8,28 @@ import { DatabaseService, DatabaseData } from '@lamnhan/ngx-useful';
 })
 export class VideoDataService extends DatabaseData<Video> {
   constructor(databaseService: DatabaseService) {
-    super(databaseService, 'videos');
+    super(
+      databaseService,
+      'videos',
+      {
+        updateEffects: [
+          { collection: 'videos', key: 'relatedVideos' },
+        ],
+        linkingFields: [
+          'createdAt',
+          'thumbnails',
+          'description',
+          'duration',
+        ],
+        effectDataPickers: {
+          thumbnails: data => (!data ? undefined : {
+            default: {
+              name: 'default',
+              src: (data.md || data.default).src,
+            }
+          }),
+        }
+      }
+    );
   }
 }

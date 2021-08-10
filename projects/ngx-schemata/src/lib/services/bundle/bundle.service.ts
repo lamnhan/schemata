@@ -8,6 +8,31 @@ import { DatabaseService, DatabaseData } from '@lamnhan/ngx-useful';
 })
 export class BundleDataService extends DatabaseData<Bundle> {
   constructor(databaseService: DatabaseService) {
-    super(databaseService, 'bundles');
+    super(
+      databaseService,
+      'bundles',
+      {
+        updateEffects: [
+          { collection: 'bundles', key: 'relatedBundles' },
+          { collection: 'posts', key: 'parents' },
+          { collection: 'audios', key: 'parents' },
+          { collection: 'videos', key: 'parents' },
+        ],
+        linkingFields: [
+          'createdAt',
+          'thumbnails',
+          'description',
+          'count',
+        ],
+        effectDataPickers: {
+          thumbnails: data => (!data ? undefined : {
+            default: {
+              name: 'default',
+              src: (data.md || data.default).src,
+            }
+          }),
+        }
+      }
+    );
   }
 }

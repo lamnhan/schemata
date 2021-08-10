@@ -99,7 +99,7 @@ export class ProfileState {
       .getDoc(id)
       .pipe(
         tap(item =>
-          patchState({
+          !item ? false : patchState({
             itemRecord: {
               ...currentItemRecord,
               [id]: item,

@@ -8,6 +8,30 @@ import { DatabaseService, DatabaseData } from '@lamnhan/ngx-useful';
 })
 export class ProductDataService extends DatabaseData<Product> {
   constructor(databaseService: DatabaseService) {
-    super(databaseService, 'products');
+    super(
+      databaseService,
+      'products',
+      {
+        updateEffects: [
+          { collection: 'products', key: 'relatedProducts' },
+        ],
+        linkingFields: [
+          'createdAt',
+          'thumbnails',
+          'description',
+          'sku',
+          'unit',
+          'price',
+        ],
+        effectDataPickers: {
+          thumbnails: data => (!data ? undefined : {
+            default: {
+              name: 'default',
+              src: (data.md || data.default).src,
+            }
+          }),
+        }
+      }
+    );
   }
 }
