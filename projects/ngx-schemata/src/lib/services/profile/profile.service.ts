@@ -21,9 +21,9 @@ export class ProfileDataService extends DatabaseData<Profile> {
         ],
         linkingFields: [
           'createdAt',
-          'role',
           'thumbnails',
           'description',
+          'role',
           'rank',
           'legit',
           'badges',
@@ -35,7 +35,9 @@ export class ProfileDataService extends DatabaseData<Profile> {
               src: (data.md || data.default).src,
             }
           }),
-        }
+        },
+        searchIndexingBuildItemExtender: ({role, rank}) => ({ role, ...(!rank ? {} : {rank}) }),
+        searchIndexingCheckUpdateExtender: ({role, rank}) => (role || rank),
       }
     );
   }
