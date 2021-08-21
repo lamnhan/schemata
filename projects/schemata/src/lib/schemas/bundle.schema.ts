@@ -29,7 +29,6 @@ export interface Bundle
     RepostOptions,
     Statistics {
   // BasicWithLocalization
-  only: string; // collection:type
   // Authors
   // Images
   description?: string;
