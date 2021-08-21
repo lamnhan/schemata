@@ -17,11 +17,15 @@ export class ProfileDataService extends DatabaseData<Profile> {
           { collection: 'posts', key: 'authors' },
           { collection: 'audios', key: 'authors' },
           { collection: 'videos', key: 'authors' },
+          { collection: 'bundles', key: 'authors' },
         ],
         linkingFields: [
           'createdAt',
+          'role',
           'thumbnails',
           'description',
+          'rank',
+          'legit',
           'badges',
         ],
         effectDataPickers: {
