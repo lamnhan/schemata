@@ -12,11 +12,11 @@ export interface BasicWithLocalization extends Basic, I18n {
   // I18n
 }
 
-export interface Basic extends Minimum, Status, Timing {
+export interface Basic extends Minimum, Status, Timestamps {
   uid: string;
   // Minimum
   // Status
-  // Timing
+  // Timestamps
 }
 
 export interface Minimum {
@@ -29,7 +29,7 @@ export interface Status {
   status: 'draft' | 'publish' | 'archive' | 'trash';
 }
 
-export interface Timing {
+export interface Timestamps {
   createdAt: string;
   updatedAt: string;
 }

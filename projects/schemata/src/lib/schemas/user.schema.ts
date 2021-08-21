@@ -1,8 +1,8 @@
-import {Status, Timing} from '../shared.type';
+import {Status, Timestamps} from '../shared.type';
 
-export interface User extends Status, Timing, UserProperties, UserActivities, UserSecret {
+export interface User extends Status, Timestamps, UserProperties, UserActivities, UserSecret {
   // Status
-  // Timing
+  // Timestamps
   // UserProperties
   // UserSecret
 }
@@ -71,12 +71,15 @@ export type UserRole =
   | 'contributor' // level = 2
   | 'subscriber'; // level = 1
 
+export type UserRank = string;
+
 export type UserLegit = 'average' | 'official' | 'suspicious';
 
 export interface UserClaims {
   role?: UserRole;
+  rank?: UserRank;
   legit?: UserLegit;
-  [name: string]: unknown;
+  [name: string]: any;
 }
 
 export interface UserProperties extends UserPrivate, UserContext, UserProfile {
