@@ -46,8 +46,8 @@ Use services:
 import { PostDataService } from '@lamnhan/ngx-schemata';
 
 class Foo {
-  public readonly posts$ = this.postDataService.getCollection();
-  public readonly post$ = this.postDataService.getDoc('foo');
+  public readonly posts$ = this.postDataService.list();
+  public readonly post$ = this.postDataService.get('foo');
 }
 ```
 

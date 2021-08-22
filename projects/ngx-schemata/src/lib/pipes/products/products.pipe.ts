@@ -9,6 +9,6 @@ import { ProductDataService } from '../../services/product/product.service';
 export class ProductsPipe implements PipeTransform {
   constructor(private dataService: ProductDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

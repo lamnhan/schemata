@@ -50,7 +50,7 @@ export class NotificationState {
       return of(currentDefaultList[type]);
     }
     return this.dataService
-      .getCollection(
+      .list(
         ref => ref
           .where('status', '==', 'publish')
           .where('type', '==', type)
@@ -79,7 +79,7 @@ export class NotificationState {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
-      .getCollection(queryFn, {name: `[Notification] ${queryId}`})
+      .list(queryFn, {name: `[Notification] ${queryId}`})
       .pipe(
         tap(items =>
           patchState({
@@ -100,7 +100,7 @@ export class NotificationState {
       return of(currentItemRecord[id]);
     }
     return this.dataService
-      .getDoc(id)
+      .get(id)
       .pipe(
         tap(item =>
           !item ? false : patchState({

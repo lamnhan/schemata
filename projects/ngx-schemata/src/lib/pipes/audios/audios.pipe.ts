@@ -9,6 +9,6 @@ import { AudioDataService } from '../../services/audio/audio.service';
 export class AudiosPipe implements PipeTransform {
   constructor(private dataService: AudioDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

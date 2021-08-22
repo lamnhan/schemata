@@ -9,6 +9,6 @@ import { OptionDataService } from '../../services/option/option.service';
 export class OptionsPipe implements PipeTransform {
   constructor(private dataService: OptionDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

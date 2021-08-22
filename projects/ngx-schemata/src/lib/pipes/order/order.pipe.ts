@@ -9,6 +9,6 @@ import { OrderDataService } from '../../services/order/order.service';
 export class OrderPipe implements PipeTransform {
   constructor(private dataService: OrderDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

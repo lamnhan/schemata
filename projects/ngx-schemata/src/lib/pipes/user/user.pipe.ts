@@ -9,6 +9,6 @@ import { UserDataService } from '../../services/user/user.service';
 export class UserPipe implements PipeTransform {
   constructor(private dataService: UserDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

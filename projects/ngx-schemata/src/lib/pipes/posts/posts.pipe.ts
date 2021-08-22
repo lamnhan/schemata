@@ -9,6 +9,6 @@ import { PostDataService } from '../../services/post/post.service';
 export class PostsPipe implements PipeTransform {
   constructor(private dataService: PostDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

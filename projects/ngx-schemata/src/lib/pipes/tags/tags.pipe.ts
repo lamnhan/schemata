@@ -9,6 +9,6 @@ import { TagDataService } from '../../services/tag/tag.service';
 export class TagsPipe implements PipeTransform {
   constructor(private dataService: TagDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

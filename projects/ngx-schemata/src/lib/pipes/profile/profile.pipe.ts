@@ -9,6 +9,6 @@ import { ProfileDataService } from '../../services/profile/profile.service';
 export class ProfilePipe implements PipeTransform {
   constructor(private dataService: ProfileDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

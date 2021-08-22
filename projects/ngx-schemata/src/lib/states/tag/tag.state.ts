@@ -48,7 +48,7 @@ export class TagState {
       return of(currentDefaultList[type]);
     }
     return this.dataService
-      .getCollection(
+      .list(
         ref => ref
           .where('status', '==', 'publish')
           .orderBy('createdAt', 'desc'),
@@ -74,7 +74,7 @@ export class TagState {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
-      .getCollection(queryFn, {name: `[Tag] ${queryId}`})
+      .list(queryFn, {name: `[Tag] ${queryId}`})
       .pipe(
         tap(items =>
           patchState({
@@ -95,7 +95,7 @@ export class TagState {
       return of(currentItemRecord[id]);
     }
     return this.dataService
-      .getDoc(id)
+      .get(id)
       .pipe(
         tap(item =>
           !item ? false : patchState({

@@ -9,6 +9,6 @@ import { VideoDataService } from '../../services/video/video.service';
 export class VideosPipe implements PipeTransform {
   constructor(private dataService: VideoDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

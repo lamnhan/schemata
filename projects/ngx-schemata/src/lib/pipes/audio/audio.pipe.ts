@@ -9,6 +9,6 @@ import { AudioDataService } from '../../services/audio/audio.service';
 export class AudioPipe implements PipeTransform {
   constructor(private dataService: AudioDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

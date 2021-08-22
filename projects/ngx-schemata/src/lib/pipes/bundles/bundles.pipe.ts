@@ -9,6 +9,6 @@ import { BundleDataService } from '../../services/bundle/bundle.service';
 export class BundlesPipe implements PipeTransform {
   constructor(private dataService: BundleDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

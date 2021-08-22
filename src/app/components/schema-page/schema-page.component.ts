@@ -47,8 +47,8 @@ import { ${this.titleName}DataService } from '@lamnhan/ngx-schemata';
 constructor(private ${this.name}DataService: ${this.titleName}DataService) {}
 
 // use methods
-public readonly list$ = this.${this.name}DataService.getCollection();
-public readonly item$ = this.${this.name}DataService.getDoc('foo');
+public readonly list$ = this.${this.name}DataService.list();
+public readonly item$ = this.${this.name}DataService.get('foo');
 \`\`\`
 
 Use the pipe ([@lamnhan/ngx-schemata](/guide/ngx-schemata)):

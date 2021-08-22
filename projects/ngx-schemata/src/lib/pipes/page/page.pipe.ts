@@ -9,6 +9,6 @@ import { PageDataService } from '../../services/page/page.service';
 export class PagePipe implements PipeTransform {
   constructor(private dataService: PageDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

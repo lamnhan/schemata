@@ -48,7 +48,7 @@ export class MetaState {
       return of(currentDefaultList[type]);
     }
     return this.dataService
-      .getCollection(
+      .list(
         ref => ref
           .where('status', '==', 'publish')
           .where('type', '==', type)
@@ -75,7 +75,7 @@ export class MetaState {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
-      .getCollection(queryFn, {name: `[Meta] ${queryId}`})
+      .list(queryFn, {name: `[Meta] ${queryId}`})
       .pipe(
         tap(items =>
           patchState({
@@ -96,7 +96,7 @@ export class MetaState {
       return of(currentItemRecord[id]);
     }
     return this.dataService
-      .getDoc(id)
+      .get(id)
       .pipe(
         tap(item =>
           !item ? false : patchState({

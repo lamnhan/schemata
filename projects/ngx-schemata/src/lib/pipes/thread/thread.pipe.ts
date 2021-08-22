@@ -9,6 +9,6 @@ import { ThreadDataService } from '../../services/thread/thread.service';
 export class ThreadPipe implements PipeTransform {
   constructor(private dataService: ThreadDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

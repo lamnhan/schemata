@@ -9,6 +9,6 @@ import { PromotionDataService } from '../../services/promotion/promotion.service
 export class PromotionPipe implements PipeTransform {
   constructor(private dataService: PromotionDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }

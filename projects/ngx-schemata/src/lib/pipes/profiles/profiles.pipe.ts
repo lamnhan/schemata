@@ -9,6 +9,6 @@ import { ProfileDataService } from '../../services/profile/profile.service';
 export class ProfilesPipe implements PipeTransform {
   constructor(private dataService: ProfileDataService) {}
   transform(limit: number, caching?: false | CacheConfig) {
-    return this.dataService.getCollection(ref => ref.limit(limit), caching);
+    return this.dataService.list(ref => ref.limit(limit), caching);
   }
 }

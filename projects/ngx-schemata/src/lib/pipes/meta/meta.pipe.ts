@@ -9,6 +9,6 @@ import { MetaDataService } from '../../services/meta/meta.service';
 export class MetaPipe implements PipeTransform {
   constructor(private dataService: MetaDataService) {}
   transform(id: string, caching?: false | CacheConfig) {
-    return this.dataService.getDoc(id, caching);
+    return this.dataService.get(id, caching);
   }
 }
