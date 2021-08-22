@@ -12,6 +12,8 @@ export class ProfileDataService extends DatabaseData<Profile> {
       databaseService,
       'profiles',
       {
+        manualDocumentCounting: true,
+        manualSearchIndexing: true,
         updateEffects: [
           { collection: 'profiles', key: 'relatedProfiles' },
           { collection: 'posts', key: 'authors' },
@@ -36,8 +38,6 @@ export class ProfileDataService extends DatabaseData<Profile> {
             }
           }),
         },
-        searchIndexingBuildItemExtender: ({role, rank}) => ({ role, ...(!rank ? {} : {rank}) }),
-        searchIndexingCheckUpdateExtender: ({role, rank}) => (role || rank),
       }
     );
   }
