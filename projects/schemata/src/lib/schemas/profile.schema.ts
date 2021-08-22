@@ -44,6 +44,7 @@ export interface Profile
   legit?: UserLegit;
   badges?: string[];
   props?: Record<string, unknown>; // picks of user.additionalData
+  counting?: Record<string, number>;
   // Taxonomies
   // Relationships
   // Statistics

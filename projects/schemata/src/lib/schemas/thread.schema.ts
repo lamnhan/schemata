@@ -27,5 +27,6 @@ export interface Thread extends Basic, Statistics {
   parent: string; // composite: '' (top), parent-1 (level 1), parent-1child-1 (lv. 2), ...
   master?: string; // collection#doc
   attachments?: ThreadAttachment[];
+  count?: number;
   // Statistics
 }
