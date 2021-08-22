@@ -71,14 +71,8 @@ export type UserRole =
   | 'contributor' // level = 2
   | 'subscriber'; // level = 1
 
-export type UserRank = string;
-
-export type UserLegit = 'average' | 'official' | 'suspicious';
-
 export interface UserClaims {
   role?: UserRole;
-  rank?: UserRank;
-  legit?: UserLegit;
   [name: string]: any;
 }
 

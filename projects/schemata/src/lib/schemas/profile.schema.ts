@@ -8,7 +8,11 @@ import {
   Statistics,
   ResourceAlike,
 } from '../shared.type';
-import { UserRole, UserRank, UserLegit } from './user.schema';
+import { UserRole } from './user.schema';
+
+export type UserRank = string;
+
+export type UserLegit = 'average' | 'official' | 'suspicious';
 
 export interface ProfileLite extends Minimum {
   // Minimum
