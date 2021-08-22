@@ -33,7 +33,7 @@ export class CategoryDataService extends DatabaseData<Category> {
             }
           }),
         },
-        linkingHook: (mode, item, dataService) => {
+        linkingHook: (mode, item, context, dataService) => {
           // mode = create
           if (mode === 'create') {
             return dataService.update(
