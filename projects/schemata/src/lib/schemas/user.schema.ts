@@ -1,8 +1,7 @@
-import {Status, Timestamps} from '../shared.type';
+import { Basic, Status, Timestamps } from '../shared.type';
 
-export interface User extends Status, Timestamps, UserProperties, UserActivities, UserSecret {
-  // Status
-  // Timestamps
+export interface User extends Basic, UserProperties, UserActivities, UserSecret {
+  // Basic
   // UserProperties
   // UserSecret
 }
