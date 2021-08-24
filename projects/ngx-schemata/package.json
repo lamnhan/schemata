@@ -21,8 +21,8 @@
   "peerDependencies": {
     "@angular/common": "^12.0.3",
     "@angular/core": "^12.0.3",
-    "@lamnhan/schemata": "file:../../dist/schemata/lamnhan-schemata-0.0.22.tgz",
-    "@lamnhan/ngx-useful": "file:../ngx-useful/dist/useful/lamnhan-ngx-useful-0.0.27.tgz",
+    "@lamnhan/schemata": "0.0.22",
+    "@lamnhan/ngx-useful": "0.0.28",
     "@ngxs/store": "^3.7.2"
   },
   "dependencies": {
