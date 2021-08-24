@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { PromotionDataService } from '../../services/promotion/promotion.service';
 
 @Pipe({
-  name: 'promotionDataItem'
+  name: 'promotionDataGet'
 })
 export class PromotionPipe implements PipeTransform {
   constructor(private dataService: PromotionDataService) {}

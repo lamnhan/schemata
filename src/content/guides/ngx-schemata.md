@@ -3,5 +3,5 @@
 Services and pipes for accessing database.
 
 ```sh
-npm install --save @lamnhan/ngx-schemata
+npm i @lamnhan/ngx-schemata
 ```

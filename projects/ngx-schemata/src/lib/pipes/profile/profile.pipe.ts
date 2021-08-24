@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { ProfileDataService } from '../../services/profile/profile.service';
 
 @Pipe({
-  name: 'profileDataItem'
+  name: 'profileDataGet'
 })
 export class ProfilePipe implements PipeTransform {
   constructor(private dataService: ProfileDataService) {}

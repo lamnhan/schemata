@@ -10,12 +10,12 @@ export class HomeComponent implements OnInit {
   installContent =
 `Install models:
 \`\`\`sh
-npm install --save @lamnhan/schemata@0.0.8
+npm i @lamnhan/schemata@0.0.8
 \`\`\`
 
 For Angular app (services, pipes):
 \`\`\`sh
-npm install --save @lamnhan/ngx-schemata@0.0.1
+npm i @lamnhan/ngx-schemata@0.0.1
 \`\`\`
 `;
 

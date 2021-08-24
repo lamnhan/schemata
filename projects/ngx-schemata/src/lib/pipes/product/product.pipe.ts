@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { ProductDataService } from '../../services/product/product.service';
 
 @Pipe({
-  name: 'productDataItem'
+  name: 'productDataGet'
 })
 export class ProductPipe implements PipeTransform {
   constructor(private dataService: ProductDataService) {}

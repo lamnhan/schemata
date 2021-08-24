@@ -7,7 +7,6 @@ module.exports = {
   },
   fileRender: {
     'docs/content/schemas/audio.md': {main: ['Audio', 'SUMMARY_PROPERTIES']},
-    'docs/content/schemas/author.md': {main: ['Author', 'SUMMARY_PROPERTIES']},
     'docs/content/schemas/bundle.md': {main: ['Bundle', 'SUMMARY_PROPERTIES']},
     'docs/content/schemas/category.md': {main: ['Category', 'SUMMARY_PROPERTIES']},
     'docs/content/schemas/meta.md': {main: ['Meta', 'SUMMARY_PROPERTIES']},

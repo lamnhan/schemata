@@ -14,7 +14,7 @@ export class SchemaPageComponent implements OnInit, OnChanges {
   collectionUrl = '';
 
   usageContent = '';
-  securitySrc = '';
+  specificUsageSrc = '';
   apiSrc = '';
 
   constructor() {}
@@ -61,19 +61,19 @@ import { ${this.titleName}DataPipeModule } from '@lamnhan/ngx-schemata';
 
 \`\`\`html
 <!-- listing -->
-<div *ngIf="10 | ${this.pluralName} | async; let items">
+<div *ngIf="10 | ${this.name}DataList | async; let items">
   <ul *ngIf="items.length">
     <li *ngFor="let item of items">{{ item.title }}</li>
   </ul>
 </div>
 
 <!-- getting -->
-<div *ngIf="'foo' | ${this.name} | async; let item">
+<div *ngIf="'foo' | ${this.name}DataGet | async; let item">
   <h1>{{ item.title }}</h1>
 </div>
 \`\`\`
 `;
-    this.securitySrc = `/content/rules/${this.name}.md`;
+    this.specificUsageSrc = `/content/usages/${this.name}.md`;
     this.apiSrc = `https://raw.githubusercontent.com/lamnhan/schemata/main/docs/content/schemas/${this.name}.md`;
   }
 

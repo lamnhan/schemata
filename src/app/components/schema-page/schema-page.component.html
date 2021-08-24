@@ -10,15 +10,14 @@
 
   <section class="usage margin-top-3x" *ngIf="usageContent">
     <h3 class="title">Usage</h3>
-    <div class="body">
+    <div class="body margin-top-2x">
       <nguix-content [content]="usageContent"></nguix-content>
     </div>
   </section>
 
-  <section class="security margin-top-3x" *ngIf="securitySrc">
-    <h3 class="title">Security rule</h3>
+  <section class="specific-usage margin-top-3x" *ngIf="specificUsageSrc">
     <div class="body">
-      <nguix-content [contentSrc]="securitySrc"></nguix-content>
+      <nguix-content [contentSrc]="specificUsageSrc"></nguix-content>
     </div>
   </section>
 

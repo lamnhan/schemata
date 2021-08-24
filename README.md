@@ -18,7 +18,7 @@ Commonly used data models.
 - Interface package:
 
 ```sh
-npm install --save @lamnhan/schemata
+npm i @lamnhan/schemata
 ```
 
 Use the interface:
@@ -37,7 +37,7 @@ const post: Post = {
 - Angular utilities:
 
 ```sh
-npm install --save @lamnhan/ngx-schemata
+npm i @lamnhan/ngx-schemata
 ```
 
 Use services:

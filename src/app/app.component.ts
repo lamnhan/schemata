@@ -38,11 +38,6 @@ export class AppComponent {
         routerLink: ['schema', 'audio']
       },
       {
-        text: 'Author',
-        level: 1,
-        routerLink: ['schema', 'author']
-      },
-      {
         text: 'Bundle',
         level: 1,
         routerLink: ['schema', 'bundle']
@@ -132,32 +127,29 @@ export class AppComponent {
 
   private initialize() {
     this.localstorageService.init();
-    this.appService.init({ splashScreen: true });
-    this.settingService.init(
-      {
+    this.appService
+      .setOptions({ splashScreen: true })
+      .init();
+    this.settingService
+      .setOptions({
         browserColor: true,
         onReady: () => this.appService.hideSplashScreen(),
-      },
-      {},
-      {
+      })
+      .setIntegrations({
         localstorageService: this.localstorageService,
-      },
-    );
-    this.navService.init(
-      {},
-      { settingService: this.settingService },
-    );
-    this.metaService.init(
-      {
+      })
+      .init();
+    this.navService
+      .setIntegrations({ settingService: this.settingService })
+      .init();
+    this.metaService
+      .setIntegrations({ settingService: this.settingService })
+      .init({
+        locale: 'en-US',
         title: 'Schemata',
         description: 'Commonly used data models.',
         image: 'https://schemata.lamnhan.com/assets/images/featured.jpg',
         url: 'https://schemata.lamnhan.com/',
-        lang: 'en',
-        ogLocale: 'en-US',
-      },
-      {},
-      { settingService: this.settingService },
-    );
+      });
   }
 }

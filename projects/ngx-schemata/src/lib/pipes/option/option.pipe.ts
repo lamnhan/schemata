@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { OptionDataService } from '../../services/option/option.service';
 
 @Pipe({
-  name: 'optionDataItem'
+  name: 'optionDataGet'
 })
 export class OptionPipe implements PipeTransform {
   constructor(private dataService: OptionDataService) {}

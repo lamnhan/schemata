@@ -1,20 +1,18 @@
-@import '@lamnhan/unistylus/scss/mixins';
+@import '@unistylus/core/scss/mixins';
 
-$shared_icons: (
-  github-light: '#{$bootstrap_icons}/dark/github.svg',
-);
+$shared_icons: ();
 
 $light_theme_icons: (
-  menu: '#{$bootstrap_icons}/light/list.svg',
-  github: '#{$bootstrap_icons}/light/github.svg',
+  menu: '#{$bootstrap_icons}/list.svg',
+  github: '#{$bootstrap_icons}/github.svg',
 );
 
 $dark_theme_icons: (
-  menu: '#{$bootstrap_icons}/dark/list.svg',
-  github: '#{$bootstrap_icons}/dark/github.svg',
+  menu: '#{$bootstrap_icons}/list.svg',
+  github: '#{$bootstrap_icons}/github.svg',
 );
 
-@include register_app_icons(
+@include register_theme_icons(
   (
     light: $light_theme_icons,
     dark: $dark_theme_icons,

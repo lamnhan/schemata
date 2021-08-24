@@ -73,7 +73,8 @@
 				<ul>
 					<li>Interface package:</li>
 				</ul>
-				<pre><code class="language-sh">npm install --save @lamnhan/schemata</code></pre>
+				<pre><code class="language-sh">npm i @lamnhan/schemata
+</code></pre>
 				<p>Use the interface:</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { Post } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/schemata&#x27;</span>;
 
@@ -82,23 +83,27 @@
 <span class="hljs-keyword">const</span> post: Post = {
   <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;...&#x27;</span>,
   <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;...&#x27;</span>,
-};</code></pre>
+};
+</code></pre>
 				<ul>
 					<li>Angular utilities:</li>
 				</ul>
-				<pre><code class="language-sh">npm install --save @lamnhan/ngx-schemata</code></pre>
+				<pre><code class="language-sh">npm i @lamnhan/ngx-schemata
+</code></pre>
 				<p>Use services:</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { PostDataService } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>{
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> posts$ = <span class="hljs-built_in">this</span>.postDataService.getCollection();
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> post$ = <span class="hljs-built_in">this</span>.postDataService.getDoc(<span class="hljs-string">&#x27;foo&#x27;</span>);
-}</code></pre>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> posts$ = <span class="hljs-built_in">this</span>.postDataService.list();
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> post$ = <span class="hljs-built_in">this</span>.postDataService.get(<span class="hljs-string">&#x27;foo&#x27;</span>);
+}
+</code></pre>
 				<p>Use pipes:</p>
 				<pre><code class="language-ts"><span class="hljs-comment">// listing pipe</span>
 <span class="hljs-keyword">import</span> { PostsDataPipeModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;
 <span class="hljs-comment">// getting pipe</span>
-<span class="hljs-keyword">import</span> { PostDataPipeModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;</code></pre>
+<span class="hljs-keyword">import</span> { PostDataPipeModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@lamnhan/ngx-schemata&#x27;</span>;
+</code></pre>
 				<pre><code class="language-html"><span class="hljs-comment">&lt;!-- listing --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;10 | posts | async; let items&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;items.length&quot;</span>&gt;</span>
@@ -109,7 +114,8 @@
 <span class="hljs-comment">&lt;!-- getting --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">&quot;&#x27;foo&#x27; | post | async; let item&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ item.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
 				<a href="#models" id="models" style="color: inherit; text-decoration: none;">
 					<h2>Models</h2>
 				</a>
@@ -196,31 +202,52 @@
 						<a href="interfaces/audio.html" class="tsd-kind-icon">Audio</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/author.html" class="tsd-kind-icon">Author</a>
+						<a href="interfaces/audiolite.html" class="tsd-kind-icon">Audio<wbr>Lite</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/authors.html" class="tsd-kind-icon">Authors</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/basic.html" class="tsd-kind-icon">Basic</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/basicwithlocalization.html" class="tsd-kind-icon">Basic<wbr>With<wbr>Localization</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/bundle.html" class="tsd-kind-icon">Bundle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/bundlelite.html" class="tsd-kind-icon">Bundle<wbr>Lite</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/category.html" class="tsd-kind-icon">Category</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/categorylite.html" class="tsd-kind-icon">Category<wbr>Lite</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/content.html" class="tsd-kind-icon">Content</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/fileattachment.html" class="tsd-kind-icon">File<wbr>Attachment</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/groupingthread.html" class="tsd-kind-icon">Grouping<wbr>Thread</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/ids.html" class="tsd-kind-icon">Ids</a>
+						<a href="interfaces/i18n.html" class="tsd-kind-icon">I18n</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/images.html" class="tsd-kind-icon">Images</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/linkattachment.html" class="tsd-kind-icon">Link<wbr>Attachment</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/meta.html" class="tsd-kind-icon">Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/minimum.html" class="tsd-kind-icon">Minimum</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/notification.html" class="tsd-kind-icon">Notification</a>
@@ -241,9 +268,6 @@
 						<a href="interfaces/orderitem.html" class="tsd-kind-icon">Order<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/orderproduct.html" class="tsd-kind-icon">Order<wbr>Product</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/page.html" class="tsd-kind-icon">Page</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -253,10 +277,16 @@
 						<a href="interfaces/post.html" class="tsd-kind-icon">Post</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/postlite.html" class="tsd-kind-icon">Post<wbr>Lite</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/posttocitem.html" class="tsd-kind-icon">PostTOCItem</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/product.html" class="tsd-kind-icon">Product</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/productlite.html" class="tsd-kind-icon">Product<wbr>Lite</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/productoption.html" class="tsd-kind-icon">Product<wbr>Option</a>
@@ -271,10 +301,19 @@
 						<a href="interfaces/profile.html" class="tsd-kind-icon">Profile</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/profilelite.html" class="tsd-kind-icon">Profile<wbr>Lite</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/promotion.html" class="tsd-kind-icon">Promotion</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/relationships.html" class="tsd-kind-icon">Relationships</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/repostoptions.html" class="tsd-kind-icon">Repost<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/resourcealike.html" class="tsd-kind-icon">Resource<wbr>Alike</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/statistics.html" class="tsd-kind-icon">Statistics</a>
@@ -286,19 +325,22 @@
 						<a href="interfaces/tag.html" class="tsd-kind-icon">Tag</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/taglite.html" class="tsd-kind-icon">Tag<wbr>Lite</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/taxonomies.html" class="tsd-kind-icon">Taxonomies</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/thread.html" class="tsd-kind-icon">Thread</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/threadattachment.html" class="tsd-kind-icon">Thread<wbr>Attachment</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/timing.html" class="tsd-kind-icon">Timing</a>
+						<a href="interfaces/timestamps.html" class="tsd-kind-icon">Timestamps</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/useractivities.html" class="tsd-kind-icon">User<wbr>Activities</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/useraddress.html" class="tsd-kind-icon">User<wbr>Address</a>
@@ -345,20 +387,17 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/video.html" class="tsd-kind-icon">Video</a>
 					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#childthread" class="tsd-kind-icon">Child<wbr>Thread</a>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/videolite.html" class="tsd-kind-icon">Video<wbr>Lite</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#message" class="tsd-kind-icon">Message</a>
+						<a href="globals.html#promotionbuiltinkind" class="tsd-kind-icon">Promotion<wbr>Builtin<wbr>Kind</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#parentthread" class="tsd-kind-icon">Parent<wbr>Thread</a>
+						<a href="globals.html#threadattachment" class="tsd-kind-icon">Thread<wbr>Attachment</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#promotionbuiltinkinds" class="tsd-kind-icon">Promotion<wbr>Builtin<wbr>Kinds</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#userlegits" class="tsd-kind-icon">User<wbr>Legits</a>
+						<a href="globals.html#userlegit" class="tsd-kind-icon">User<wbr>Legit</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#useroobmode" class="tsd-kind-icon">User<wbr>Oob<wbr>Mode</a>
@@ -367,7 +406,10 @@
 						<a href="globals.html#userproviderid" class="tsd-kind-icon">User<wbr>Provider<wbr>Id</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#userroles" class="tsd-kind-icon">User<wbr>Roles</a>
+						<a href="globals.html#userrank" class="tsd-kind-icon">User<wbr>Rank</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#userrole" class="tsd-kind-icon">User<wbr>Role</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#context" class="tsd-kind-icon">context</a>

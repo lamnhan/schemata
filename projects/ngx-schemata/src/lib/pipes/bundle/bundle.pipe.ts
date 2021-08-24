@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { BundleDataService } from '../../services/bundle/bundle.service';
 
 @Pipe({
-  name: 'bundleDataItem'
+  name: 'bundleDataGet'
 })
 export class BundlePipe implements PipeTransform {
   constructor(private dataService: BundleDataService) {}

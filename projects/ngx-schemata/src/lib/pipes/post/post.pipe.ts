@@ -4,7 +4,7 @@ import { CacheConfig } from '@lamnhan/ngx-useful';
 import { PostDataService } from '../../services/post/post.service';
 
 @Pipe({
-  name: 'postDataItem'
+  name: 'postDataGet'
 })
 export class PostPipe implements PipeTransform {
   constructor(private dataService: PostDataService) {}

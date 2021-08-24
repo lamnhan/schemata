@@ -43,13 +43,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
 
   <!-- In-app splashscreen -->
-  <link rel="stylesheet" href="https://unpkg.com/@lamnhan/nguix-starter@latest/src/splashscreens/heartbeat/index.css">
-  <script defer src="https://unpkg.com/@lamnhan/nguix-starter@latest/src/splashscreens/heartbeat/index.js"></script>
-  <style>#app-splash-screen{background: #222428;color: #f4f5f8;}</style>
+  <link rel="stylesheet" href="https://unpkg.com/@lamnhan/nguix-starter@latest/splashscreens/heartbeat/index.css">
+  <script defer src="https://unpkg.com/@lamnhan/nguix-starter@latest/splashscreens/heartbeat/index.js"></script>
+  <noscript><style>#app-splash-screen{display: none !important;}</style></noscript>
+  <style>#app-splash-screen.en-US .only.en-US {display: inline-block !important;}</style>
+  <style>#app-splash-screen{background: #1e2023;color: #f4f5f8;}</style>
 
 </head>
 <body>
   <app-root></app-root>
-  <div id="app-splash-screen"><div class="main"><div class="body"><img src="/assets/images/logo.svg"></div><div class="foot">Still working, please wait! 👌</div></div><noscript>Please enable JavaScript!</noscript></div>
+  <div id="app-splash-screen" class="en-US"><div class="body"><img src="/assets/images/logo.svg"></div><div class="foot"> <span class="only en-US">Still working, please wait! 👌</span></div></div>
 </body>
 </html>
