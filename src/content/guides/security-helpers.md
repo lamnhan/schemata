@@ -179,7 +179,6 @@ function unchangableFields() {
     'uid',
     'id',
     'type',
-    'status',
     'createdAt',
     'locale',
     'ogirin'
