@@ -1,6 +1,6 @@
 {
   "name": "@lamnhan/ngx-schemata",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Schemata native services, pipes for Angular apps.",
   "author": "Lam Nhan",
   "homepage": "https://schemata.lamnhan.com",
@@ -19,10 +19,10 @@
     "url": "https://github.com/lamnhan/schemata/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^12.0.3",
-    "@angular/core": "^12.0.3",
-    "@lamnhan/schemata": "0.0.23",
-    "@lamnhan/ngx-useful": "0.0.29",
+    "@angular/common": "^12.2.5",
+    "@angular/core": "^12.2.5",
+    "@lamnhan/schemata": "0.0.24",
+    "@lamnhan/ngx-useful": "0.0.30",
     "@ngxs/store": "^3.7.2"
   },
   "dependencies": {
