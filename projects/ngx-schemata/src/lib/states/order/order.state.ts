@@ -6,25 +6,25 @@ import { tap } from 'rxjs/operators';
 import { Order } from '@lamnhan/schemata';
 import { OrderDataService } from '../../services/order/order.service';
 
-export interface OrderStateModel {
-  defaultList: Record<string, Order[]>;
-  queryList: Record<string, Order[]>;
-  itemRecord: Record<string, Order>;
-}
-
-export class OrderList {
+export class OrderListAction {
   static readonly type = '[Order] List';
   constructor(public type = 'default') {}
 }
 
-export class OrderQuery {
+export class OrderQueryAction {
   static readonly type = '[Order] Query';
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
-export class OrderItem {
+export class OrderItemAction {
   static readonly type = '[Order] Item';
   constructor(public id: string) {}
+}
+
+export interface OrderStateModel {
+  defaultList: Record<string, Order[]>;
+  queryList: Record<string, Order[]>;
+  itemRecord: Record<string, Order>;
 }
 
 @State<OrderStateModel>({
@@ -40,11 +40,11 @@ export class OrderState {
 
   constructor(private dataService: OrderDataService) {}
 
-  @Action(OrderList)
-  orderList({getState, patchState}: StateContext<OrderStateModel>, action: OrderList) {
+  @Action(OrderListAction)
+  orderList({getState, patchState}: StateContext<OrderStateModel>, action: OrderListAction) {
     const {defaultList: currentDefaultList} = getState();
     const {type} = action;
-    if (currentDefaultList?.[type].length) {
+    if (currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -67,11 +67,11 @@ export class OrderState {
       );
   }
 
-  @Action(OrderQuery)
-  orderQuery({getState, patchState}: StateContext<OrderStateModel>, action: OrderQuery) {
+  @Action(OrderQueryAction)
+  orderQuery({getState, patchState}: StateContext<OrderStateModel>, action: OrderQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -88,8 +88,8 @@ export class OrderState {
       );
   }
 
-  @Action(OrderItem)
-  orderItem({getState, patchState}: StateContext<OrderStateModel>, action: OrderItem) {
+  @Action(OrderItemAction)
+  orderItem({getState, patchState}: StateContext<OrderStateModel>, action: OrderItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

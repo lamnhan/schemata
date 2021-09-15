@@ -6,25 +6,25 @@ import { tap } from 'rxjs/operators';
 import { Option } from '@lamnhan/schemata';
 import { OptionDataService } from '../../services/option/option.service';
 
-export interface OptionStateModel {
-  defaultList: Record<string, Option[]>;
-  queryList: Record<string, Option[]>;
-  itemRecord: Record<string, Option>;
-}
-
-export class OptionList {
+export class OptionListAction {
   static readonly type = '[Option] List';
   constructor(public type = 'default') {}
 }
 
-export class OptionQuery {
+export class OptionQueryAction {
   static readonly type = '[Option] Query';
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
-export class OptionItem {
+export class OptionItemAction {
   static readonly type = '[Option] Item';
   constructor(public id: string) {}
+}
+
+export interface OptionStateModel {
+  defaultList: Record<string, Option[]>;
+  queryList: Record<string, Option[]>;
+  itemRecord: Record<string, Option>;
 }
 
 @State<OptionStateModel>({
@@ -40,11 +40,11 @@ export class OptionState {
 
   constructor(private dataService: OptionDataService) {}
 
-  @Action(OptionList)
-  optionList({getState, patchState}: StateContext<OptionStateModel>, action: OptionList) {
+  @Action(OptionListAction)
+  optionList({getState, patchState}: StateContext<OptionStateModel>, action: OptionListAction) {
     const {defaultList: currentDefaultList} = getState();
     const {type} = action;
-    if (currentDefaultList?.[type].length) {
+    if (currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -67,11 +67,11 @@ export class OptionState {
       );
   }
 
-  @Action(OptionQuery)
-  optionQuery({getState, patchState}: StateContext<OptionStateModel>, action: OptionQuery) {
+  @Action(OptionQueryAction)
+  optionQuery({getState, patchState}: StateContext<OptionStateModel>, action: OptionQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -88,8 +88,8 @@ export class OptionState {
       );
   }
 
-  @Action(OptionItem)
-  optionItem({getState, patchState}: StateContext<OptionStateModel>, action: OptionItem) {
+  @Action(OptionItemAction)
+  optionItem({getState, patchState}: StateContext<OptionStateModel>, action: OptionItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

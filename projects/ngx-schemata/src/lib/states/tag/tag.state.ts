@@ -6,25 +6,25 @@ import { tap } from 'rxjs/operators';
 import { Tag } from '@lamnhan/schemata';
 import { TagDataService } from '../../services/tag/tag.service';
 
-export interface TagStateModel {
-  defaultList: Record<string, Tag[]>;
-  queryList: Record<string, Tag[]>;
-  itemRecord: Record<string, Tag>;
-}
-
-export class TagList {
+export class TagListAction {
   static readonly type = '[Tag] List';
   constructor() {}
 }
 
-export class TagQuery {
+export class TagQueryAction {
   static readonly type = '[Tag] Query';
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
-export class TagItem {
+export class TagItemAction {
   static readonly type = '[Tag] Item';
   constructor(public id: string) {}
+}
+
+export interface TagStateModel {
+  defaultList: Record<string, Tag[]>;
+  queryList: Record<string, Tag[]>;
+  itemRecord: Record<string, Tag>;
 }
 
 @State<TagStateModel>({
@@ -40,11 +40,11 @@ export class TagState {
 
   constructor(private dataService: TagDataService) {}
 
-  @Action(TagList)
+  @Action(TagListAction)
   tagList({getState, patchState}: StateContext<TagStateModel>) {
     const {defaultList: currentDefaultList} = getState();
     const type = 'default';
-    if (currentDefaultList?.[type].length) {
+    if (currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -66,11 +66,11 @@ export class TagState {
       );
   }
 
-  @Action(TagQuery)
-  tagQuery({getState, patchState}: StateContext<TagStateModel>, action: TagQuery) {
+  @Action(TagQueryAction)
+  tagQuery({getState, patchState}: StateContext<TagStateModel>, action: TagQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -87,8 +87,8 @@ export class TagState {
       );
   }
 
-  @Action(TagItem)
-  tagItem({getState, patchState}: StateContext<TagStateModel>, action: TagItem) {
+  @Action(TagItemAction)
+  tagItem({getState, patchState}: StateContext<TagStateModel>, action: TagItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

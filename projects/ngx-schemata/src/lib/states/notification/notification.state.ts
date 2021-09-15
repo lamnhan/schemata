@@ -6,26 +6,26 @@ import { tap } from 'rxjs/operators';
 import { Notification } from '@lamnhan/schemata';
 import { NotificationDataService } from '../../services/notification/notification.service';
 
+export class NotificationListAction {
+  static readonly type = '[Notification] List';
+  constructor(public type = 'default', public locale: string) {}
+}
+
+export class NotificationQueryAction {
+  static readonly type = '[Notification] Query';
+  constructor(public queryId: string, public queryFn: QueryFn) {}
+}
+
+export class NotificationItemAction {
+  static readonly type = '[Notification] Item';
+  constructor(public id: string) {}
+}
+
 export interface NotificationStateModel {
   locale: string;
   defaultList: Record<string, Notification[]>;
   queryList: Record<string, Notification[]>;
   itemRecord: Record<string, Notification>;
-}
-
-export class NotificationList {
-  static readonly type = '[Notification] List';
-  constructor(public type = 'default', public locale: string) {}
-}
-
-export class NotificationQuery {
-  static readonly type = '[Notification] Query';
-  constructor(public queryId: string, public queryFn: QueryFn) {}
-}
-
-export class NotificationItem {
-  static readonly type = '[Notification] Item';
-  constructor(public id: string) {}
 }
 
 @State<NotificationStateModel>({
@@ -42,11 +42,11 @@ export class NotificationState {
 
   constructor(private dataService: NotificationDataService) {}
 
-  @Action(NotificationList)
-  notificationList({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationList) {
+  @Action(NotificationListAction)
+  notificationList({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationListAction) {
     const {locale: currentLocale, defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type].length) {
+    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -71,11 +71,11 @@ export class NotificationState {
       );
   }
 
-  @Action(NotificationQuery)
-  notificationQuery({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationQuery) {
+  @Action(NotificationQueryAction)
+  notificationQuery({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -92,8 +92,8 @@ export class NotificationState {
       );
   }
 
-  @Action(NotificationItem)
-  notificationItem({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationItem) {
+  @Action(NotificationItemAction)
+  notificationItem({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

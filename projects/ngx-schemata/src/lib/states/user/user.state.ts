@@ -5,13 +5,13 @@ import { tap } from 'rxjs/operators';
 import { User } from '@lamnhan/schemata';
 import { UserDataService } from '../../services/user/user.service';
 
-export interface UserStateModel {
-  itemRecord: Record<string, User>;
-}
-
-export class UserItem {
+export class UserItemAction {
   static readonly type = '[User] Item';
   constructor(public id: string) {}
+}
+
+export interface UserStateModel {
+  itemRecord: Record<string, User>;
 }
 
 @State<UserStateModel>({
@@ -25,8 +25,8 @@ export class UserState {
 
   constructor(private dataService: UserDataService) {}
 
-  @Action(UserItem)
-  tagItem({getState, patchState}: StateContext<UserStateModel>, action: UserItem) {
+  @Action(UserItemAction)
+  userItem({getState, patchState}: StateContext<UserStateModel>, action: UserItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

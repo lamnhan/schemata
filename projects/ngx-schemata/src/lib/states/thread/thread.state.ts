@@ -6,25 +6,25 @@ import { tap } from 'rxjs/operators';
 import { Thread } from '@lamnhan/schemata';
 import { ThreadDataService } from '../../services/thread/thread.service';
 
-export interface ThreadStateModel {
-  defaultList: Record<string, Thread[]>;
-  queryList: Record<string, Thread[]>;
-  itemRecord: Record<string, Thread>;
-}
-
-export class ThreadList {
+export class ThreadListAction {
   static readonly type = '[Thread] List';
   constructor(public type = 'default') {}
 }
 
-export class ThreadQuery {
+export class ThreadQueryAction {
   static readonly type = '[Thread] Query';
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
-export class ThreadItem {
+export class ThreadItemAction {
   static readonly type = '[Thread] Item';
   constructor(public id: string) {}
+}
+
+export interface ThreadStateModel {
+  defaultList: Record<string, Thread[]>;
+  queryList: Record<string, Thread[]>;
+  itemRecord: Record<string, Thread>;
 }
 
 @State<ThreadStateModel>({
@@ -40,11 +40,11 @@ export class ThreadState {
 
   constructor(private dataService: ThreadDataService) {}
 
-  @Action(ThreadList)
-  threadList({getState, patchState}: StateContext<ThreadStateModel>, action: ThreadList) {
+  @Action(ThreadListAction)
+  threadList({getState, patchState}: StateContext<ThreadStateModel>, action: ThreadListAction) {
     const {defaultList: currentDefaultList} = getState();
     const {type} = action;
-    if (currentDefaultList?.[type].length) {
+    if (currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -67,11 +67,11 @@ export class ThreadState {
       );
   }
 
-  @Action(ThreadQuery)
-  threadQuery({getState, patchState}: StateContext<ThreadStateModel>, action: ThreadQuery) {
+  @Action(ThreadQueryAction)
+  threadQuery({getState, patchState}: StateContext<ThreadStateModel>, action: ThreadQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -88,8 +88,8 @@ export class ThreadState {
       );
   }
 
-  @Action(ThreadItem)
-  threadItem({getState, patchState}: StateContext<ThreadStateModel>, action: ThreadItem) {
+  @Action(ThreadItemAction)
+  threadItem({getState, patchState}: StateContext<ThreadStateModel>, action: ThreadItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

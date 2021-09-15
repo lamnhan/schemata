@@ -6,25 +6,25 @@ import { tap } from 'rxjs/operators';
 import { Meta } from '@lamnhan/schemata';
 import { MetaDataService } from '../../services/meta/meta.service';
 
-export interface MetaStateModel {
-  defaultList: Record<string, Meta[]>;
-  queryList: Record<string, Meta[]>;
-  itemRecord: Record<string, Meta>;
-}
-
-export class MetaList {
+export class MetaListAction {
   static readonly type = '[Meta] List';
   constructor(public type = 'default') {}
 }
 
-export class MetaQuery {
+export class MetaQueryAction {
   static readonly type = '[Meta] Query';
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
-export class MetaItem {
+export class MetaItemAction {
   static readonly type = '[Meta] Item';
   constructor(public id: string) {}
+}
+
+export interface MetaStateModel {
+  defaultList: Record<string, Meta[]>;
+  queryList: Record<string, Meta[]>;
+  itemRecord: Record<string, Meta>;
 }
 
 @State<MetaStateModel>({
@@ -40,11 +40,11 @@ export class MetaState {
 
   constructor(private dataService: MetaDataService) {}
 
-  @Action(MetaList)
-  metaList({getState, patchState}: StateContext<MetaStateModel>, action: MetaList) {
+  @Action(MetaListAction)
+  metaList({getState, patchState}: StateContext<MetaStateModel>, action: MetaListAction) {
     const {defaultList: currentDefaultList} = getState();
     const {type} = action;
-    if (currentDefaultList?.[type].length) {
+    if (currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -67,11 +67,11 @@ export class MetaState {
       );
   }
 
-  @Action(MetaQuery)
-  metaQuery({getState, patchState}: StateContext<MetaStateModel>, action: MetaQuery) {
+  @Action(MetaQueryAction)
+  metaQuery({getState, patchState}: StateContext<MetaStateModel>, action: MetaQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -88,8 +88,8 @@ export class MetaState {
       );
   }
 
-  @Action(MetaItem)
-  metaItem({getState, patchState}: StateContext<MetaStateModel>, action: MetaItem) {
+  @Action(MetaItemAction)
+  metaItem({getState, patchState}: StateContext<MetaStateModel>, action: MetaItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

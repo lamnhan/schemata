@@ -6,26 +6,26 @@ import { tap } from 'rxjs/operators';
 import { Video } from '@lamnhan/schemata';
 import { VideoDataService } from '../../services/video/video.service';
 
+export class VideoListAction {
+  static readonly type = '[Video] List';
+  constructor(public type = 'default', public locale: string) {}
+}
+
+export class VideoQueryAction {
+  static readonly type = '[Video] Query';
+  constructor(public queryId: string, public queryFn: QueryFn) {}
+}
+
+export class VideoItemAction {
+  static readonly type = '[Video] Item';
+  constructor(public id: string) {}
+}
+
 export interface VideoStateModel {
   locale: string;
   defaultList: Record<string, Video[]>;
   queryList: Record<string, Video[]>;
   itemRecord: Record<string, Video>;
-}
-
-export class VideoList {
-  static readonly type = '[Video] List';
-  constructor(public type = 'default', public locale: string) {}
-}
-
-export class VideoQuery {
-  static readonly type = '[Video] Query';
-  constructor(public queryId: string, public queryFn: QueryFn) {}
-}
-
-export class VideoItem {
-  static readonly type = '[Video] Item';
-  constructor(public id: string) {}
 }
 
 @State<VideoStateModel>({
@@ -42,11 +42,11 @@ export class VideoState {
 
   constructor(private dataService: VideoDataService) {}
 
-  @Action(VideoList)
-  videoList({getState, patchState}: StateContext<VideoStateModel>, action: VideoList) {
+  @Action(VideoListAction)
+  videoList({getState, patchState}: StateContext<VideoStateModel>, action: VideoListAction) {
     const {locale: currentLocale, defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type].length) {
+    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -71,11 +71,11 @@ export class VideoState {
       );
   }
 
-  @Action(VideoQuery)
-  videoQuery({getState, patchState}: StateContext<VideoStateModel>, action: VideoQuery) {
+  @Action(VideoQueryAction)
+  videoQuery({getState, patchState}: StateContext<VideoStateModel>, action: VideoQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -92,8 +92,8 @@ export class VideoState {
       );
   }
 
-  @Action(VideoItem)
-  videoItem({getState, patchState}: StateContext<VideoStateModel>, action: VideoItem) {
+  @Action(VideoItemAction)
+  videoItem({getState, patchState}: StateContext<VideoStateModel>, action: VideoItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

@@ -6,26 +6,26 @@ import { tap } from 'rxjs/operators';
 import { Bundle } from '@lamnhan/schemata';
 import { BundleDataService } from '../../services/bundle/bundle.service';
 
+export class BundleListAction {
+  static readonly type = '[Bundle] List';
+  constructor(public type = 'default', public locale: string) {}
+}
+
+export class BundleQueryAction {
+  static readonly type = '[Bundle] Query';
+  constructor(public queryId: string, public queryFn: QueryFn) {}
+}
+
+export class BundleItemAction {
+  static readonly type = '[Bundle] Item';
+  constructor(public id: string) {}
+}
+
 export interface BundleStateModel {
   locale: string;
   defaultList: Record<string, Bundle[]>;
   queryList: Record<string, Bundle[]>;
   itemRecord: Record<string, Bundle>;
-}
-
-export class BundleList {
-  static readonly type = '[Bundle] List';
-  constructor(public type = 'default', public locale: string) {}
-}
-
-export class BundleQuery {
-  static readonly type = '[Bundle] Query';
-  constructor(public queryId: string, public queryFn: QueryFn) {}
-}
-
-export class BundleItem {
-  static readonly type = '[Bundle] Item';
-  constructor(public id: string) {}
 }
 
 @State<BundleStateModel>({
@@ -42,11 +42,11 @@ export class BundleState {
 
   constructor(private dataService: BundleDataService) {}
 
-  @Action(BundleList)
-  bundleList({getState, patchState}: StateContext<BundleStateModel>, action: BundleList) {
+  @Action(BundleListAction)
+  bundleList({getState, patchState}: StateContext<BundleStateModel>, action: BundleListAction) {
     const {locale: currentLocale, defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type].length) {
+    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -71,11 +71,11 @@ export class BundleState {
       );
   }
 
-  @Action(BundleQuery)
-  bundleQuery({getState, patchState}: StateContext<BundleStateModel>, action: BundleQuery) {
+  @Action(BundleQueryAction)
+  bundleQuery({getState, patchState}: StateContext<BundleStateModel>, action: BundleQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -92,8 +92,8 @@ export class BundleState {
       );
   }
 
-  @Action(BundleItem)
-  bundleItem({getState, patchState}: StateContext<BundleStateModel>, action: BundleItem) {
+  @Action(BundleItemAction)
+  bundleItem({getState, patchState}: StateContext<BundleStateModel>, action: BundleItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

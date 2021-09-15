@@ -6,25 +6,25 @@ import { tap } from 'rxjs/operators';
 import { Profile } from '@lamnhan/schemata';
 import { ProfileDataService } from '../../services/profile/profile.service';
 
-export interface ProfileStateModel {
-  defaultList: Record<string, Profile[]>;
-  queryList: Record<string, Profile[]>;
-  itemRecord: Record<string, Profile>;
-}
-
-export class ProfileList {
+export class ProfileListAction {
   static readonly type = '[Profile] List';
   constructor(public type = 'default') {}
 }
 
-export class ProfileQuery {
+export class ProfileQueryAction {
   static readonly type = '[Profile] Query';
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
-export class ProfileItem {
+export class ProfileItemAction {
   static readonly type = '[Profile] Item';
   constructor(public id: string) {}
+}
+
+export interface ProfileStateModel {
+  defaultList: Record<string, Profile[]>;
+  queryList: Record<string, Profile[]>;
+  itemRecord: Record<string, Profile>;
 }
 
 @State<ProfileStateModel>({
@@ -40,11 +40,11 @@ export class ProfileState {
 
   constructor(private dataService: ProfileDataService) {}
 
-  @Action(ProfileList)
-  profileList({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileList) {
+  @Action(ProfileListAction)
+  profileList({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileListAction) {
     const {defaultList: currentDefaultList} = getState();
     const {type} = action;
-    if (currentDefaultList?.[type].length) {
+    if (currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -67,11 +67,11 @@ export class ProfileState {
       );
   }
 
-  @Action(ProfileQuery)
-  profileQuery({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileQuery) {
+  @Action(ProfileQueryAction)
+  profileQuery({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -88,8 +88,8 @@ export class ProfileState {
       );
   }
 
-  @Action(ProfileItem)
-  profileItem({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileItem) {
+  @Action(ProfileItemAction)
+  profileItem({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

@@ -6,26 +6,26 @@ import { tap } from 'rxjs/operators';
 import { Category } from '@lamnhan/schemata';
 import { CategoryDataService } from '../../services/category/category.service';
 
+export class CategoryListAction {
+  static readonly type = '[Category] List';
+  constructor(public type = 'default', public locale: string) {}
+}
+
+export class CategoryQueryAction {
+  static readonly type = '[Category] Query';
+  constructor(public queryId: string, public queryFn: QueryFn) {}
+}
+
+export class CategoryItemAction {
+  static readonly type = '[Category] Item';
+  constructor(public id: string) {}
+}
+
 export interface CategoryStateModel {
   locale: string;
   defaultList: Record<string, Category[]>;
   queryList: Record<string, Category[]>;
   itemRecord: Record<string, Category>;
-}
-
-export class CategoryList {
-  static readonly type = '[Category] List';
-  constructor(public type = 'default', public locale: string) {}
-}
-
-export class CategoryQuery {
-  static readonly type = '[Category] Query';
-  constructor(public queryId: string, public queryFn: QueryFn) {}
-}
-
-export class CategoryItem {
-  static readonly type = '[Category] Item';
-  constructor(public id: string) {}
 }
 
 @State<CategoryStateModel>({
@@ -42,11 +42,11 @@ export class CategoryState {
 
   constructor(private dataService: CategoryDataService) {}
 
-  @Action(CategoryList)
-  categoryList({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryList) {
+  @Action(CategoryListAction)
+  categoryList({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryListAction) {
     const {locale: currentLocale, defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type].length) {
+    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -71,11 +71,11 @@ export class CategoryState {
       );
   }
 
-  @Action(CategoryQuery)
-  categoryQuery({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryQuery) {
+  @Action(CategoryQueryAction)
+  categoryQuery({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -92,8 +92,8 @@ export class CategoryState {
       );
   }
 
-  @Action(CategoryItem)
-  categoryItem({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryItem) {
+  @Action(CategoryItemAction)
+  categoryItem({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      

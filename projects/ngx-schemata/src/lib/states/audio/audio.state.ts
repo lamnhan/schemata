@@ -6,26 +6,26 @@ import { tap } from 'rxjs/operators';
 import { Audio } from '@lamnhan/schemata';
 import { AudioDataService } from '../../services/audio/audio.service';
 
+export class AudioListAction {
+  static readonly type = '[Audio] List';
+  constructor(public type = 'default', public locale: string) {}
+}
+
+export class AudioQueryAction {
+  static readonly type = '[Audio] Query';
+  constructor(public queryId: string, public queryFn: QueryFn) {}
+}
+
+export class AudioItemAction {
+  static readonly type = '[Audio] Item';
+  constructor(public id: string) {}
+}
+
 export interface AudioStateModel {
   locale: string;
   defaultList: Record<string, Audio[]>;
   queryList: Record<string, Audio[]>;
   itemRecord: Record<string, Audio>;
-}
-
-export class AudioList {
-  static readonly type = '[Audio] List';
-  constructor(public type = 'default', public locale: string) {}
-}
-
-export class AudioQuery {
-  static readonly type = '[Audio] Query';
-  constructor(public queryId: string, public queryFn: QueryFn) {}
-}
-
-export class AudioItem {
-  static readonly type = '[Audio] Item';
-  constructor(public id: string) {}
 }
 
 @State<AudioStateModel>({
@@ -42,11 +42,11 @@ export class AudioState {
 
   constructor(private dataService: AudioDataService) {}
 
-  @Action(AudioList)
-  audioList({getState, patchState}: StateContext<AudioStateModel>, action: AudioList) {
+  @Action(AudioListAction)
+  audioList({getState, patchState}: StateContext<AudioStateModel>, action: AudioListAction) {
     const {locale: currentLocale, defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type].length) {
+    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
       return of(currentDefaultList[type]);
     }
     return this.dataService
@@ -71,11 +71,11 @@ export class AudioState {
       );
   }
 
-  @Action(AudioQuery)
-  audioQuery({getState, patchState}: StateContext<AudioStateModel>, action: AudioQuery) {
+  @Action(AudioQueryAction)
+  audioQuery({getState, patchState}: StateContext<AudioStateModel>, action: AudioQueryAction) {
     const {queryList: currentQueryList} = getState();
     const {queryId, queryFn} = action;
-    if (currentQueryList?.[queryId].length) {
+    if (currentQueryList?.[queryId]?.length) {
       return of(currentQueryList[queryId]);
     }
     return this.dataService
@@ -92,8 +92,8 @@ export class AudioState {
       );
   }
 
-  @Action(AudioItem)
-  audioItem({getState, patchState}: StateContext<AudioStateModel>, action: AudioItem) {
+  @Action(AudioItemAction)
+  audioItem({getState, patchState}: StateContext<AudioStateModel>, action: AudioItemAction) {
     const {itemRecord: currentItemRecord} = getState();
     const {id} = action;
     if (currentItemRecord[id]) {      
