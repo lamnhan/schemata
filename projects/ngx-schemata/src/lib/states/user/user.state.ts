@@ -15,7 +15,7 @@ export class UserItem {
 }
 
 @State<UserStateModel>({
-  name: 'user',
+  name: 'schemata_user',
   defaults: {
     itemRecord: {},
   },

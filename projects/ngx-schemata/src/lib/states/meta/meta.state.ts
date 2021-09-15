@@ -28,7 +28,7 @@ export class MetaItem {
 }
 
 @State<MetaStateModel>({
-  name: 'meta',
+  name: 'schemata_meta',
   defaults: {
     defaultList: {},
     queryList: {},

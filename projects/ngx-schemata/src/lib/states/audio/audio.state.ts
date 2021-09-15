@@ -29,7 +29,7 @@ export class AudioItem {
 }
 
 @State<AudioStateModel>({
-  name: 'audio',
+  name: 'schemata_audio',
   defaults: {
     locale: '',
     defaultList: {},

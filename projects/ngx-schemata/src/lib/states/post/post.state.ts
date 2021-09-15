@@ -29,7 +29,7 @@ export class PostItem {
 }
 
 @State<PostStateModel>({
-  name: 'post',
+  name: 'schemata_post',
   defaults: {
     locale: '',
     defaultList: {},

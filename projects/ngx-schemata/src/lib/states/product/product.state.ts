@@ -29,7 +29,7 @@ export class ProductItem {
 }
 
 @State<ProductStateModel>({
-  name: 'product',
+  name: 'schemata_product',
   defaults: {
     locale: '',
     defaultList: {},

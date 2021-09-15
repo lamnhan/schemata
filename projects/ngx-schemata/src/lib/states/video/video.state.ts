@@ -29,7 +29,7 @@ export class VideoItem {
 }
 
 @State<VideoStateModel>({
-  name: 'video',
+  name: 'schemata_video',
   defaults: {
     locale: '',
     defaultList: {},

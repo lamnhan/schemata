@@ -28,7 +28,7 @@ export class ProfileItem {
 }
 
 @State<ProfileStateModel>({
-  name: 'profile',
+  name: 'schemata_profile',
   defaults: {
     defaultList: {},
     queryList: {},

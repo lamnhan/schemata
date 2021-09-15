@@ -28,7 +28,7 @@ export class OptionItem {
 }
 
 @State<OptionStateModel>({
-  name: 'option',
+  name: 'schemata_option',
   defaults: {
     defaultList: {},
     queryList: {},

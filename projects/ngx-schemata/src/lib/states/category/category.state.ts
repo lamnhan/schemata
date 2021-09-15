@@ -29,7 +29,7 @@ export class CategoryItem {
 }
 
 @State<CategoryStateModel>({
-  name: 'category',
+  name: 'schemata_category',
   defaults: {
     locale: '',
     defaultList: {},

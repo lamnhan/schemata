@@ -28,7 +28,7 @@ export class ThreadItem {
 }
 
 @State<ThreadStateModel>({
-  name: 'thread',
+  name: 'schemata_thread',
   defaults: {
     defaultList: {},
     queryList: {},

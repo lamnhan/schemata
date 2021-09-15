@@ -29,7 +29,7 @@ export class BundleItem {
 }
 
 @State<BundleStateModel>({
-  name: 'bundle',
+  name: 'schemata_bundle',
   defaults: {
     locale: '',
     defaultList: {},

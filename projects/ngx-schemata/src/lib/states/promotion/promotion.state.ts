@@ -29,7 +29,7 @@ export class PromotionItem {
 }
 
 @State<PromotionStateModel>({
-  name: 'promotion',
+  name: 'schemata_promotion',
   defaults: {
     locale: '',
     defaultList: {},

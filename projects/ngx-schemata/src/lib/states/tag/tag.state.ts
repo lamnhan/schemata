@@ -28,7 +28,7 @@ export class TagItem {
 }
 
 @State<TagStateModel>({
-  name: 'tag',
+  name: 'schemata_tag',
   defaults: {
     defaultList: {},
     queryList: {},

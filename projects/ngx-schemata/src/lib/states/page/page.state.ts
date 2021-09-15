@@ -29,7 +29,7 @@ export class PageItem {
 }
 
 @State<PageStateModel>({
-  name: 'page',
+  name: 'schemata_page',
   defaults: {
     locale: '',
     defaultList: {},

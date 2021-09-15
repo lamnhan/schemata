@@ -29,7 +29,7 @@ export class NotificationItem {
 }
 
 @State<NotificationStateModel>({
-  name: 'notification',
+  name: 'schemata_notification',
   defaults: {
     locale: '',
     defaultList: {},

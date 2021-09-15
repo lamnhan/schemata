@@ -28,7 +28,7 @@ export class OrderItem {
 }
 
 @State<OrderStateModel>({
-  name: 'order',
+  name: 'schemata_order',
   defaults: {
     defaultList: {},
     queryList: {},
