@@ -22,7 +22,6 @@ export class BundleItemAction {
 }
 
 export interface BundleStateModel {
-  locale: string;
   defaultList: Record<string, Bundle[]>;
   queryList: Record<string, Bundle[]>;
   itemRecord: Record<string, Bundle>;
@@ -31,7 +30,6 @@ export interface BundleStateModel {
 @State<BundleStateModel>({
   name: 'schemata_bundle',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class BundleState {
 
   @Action(BundleListAction)
   bundleList({getState, patchState}: StateContext<BundleStateModel>, action: BundleListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class BundleState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

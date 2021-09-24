@@ -22,7 +22,6 @@ export class NotificationItemAction {
 }
 
 export interface NotificationStateModel {
-  locale: string;
   defaultList: Record<string, Notification[]>;
   queryList: Record<string, Notification[]>;
   itemRecord: Record<string, Notification>;
@@ -31,7 +30,6 @@ export interface NotificationStateModel {
 @State<NotificationStateModel>({
   name: 'schemata_notification',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class NotificationState {
 
   @Action(NotificationListAction)
   notificationList({getState, patchState}: StateContext<NotificationStateModel>, action: NotificationListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class NotificationState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

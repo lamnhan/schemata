@@ -22,7 +22,6 @@ export class VideoItemAction {
 }
 
 export interface VideoStateModel {
-  locale: string;
   defaultList: Record<string, Video[]>;
   queryList: Record<string, Video[]>;
   itemRecord: Record<string, Video>;
@@ -31,7 +30,6 @@ export interface VideoStateModel {
 @State<VideoStateModel>({
   name: 'schemata_video',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class VideoState {
 
   @Action(VideoListAction)
   videoList({getState, patchState}: StateContext<VideoStateModel>, action: VideoListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class VideoState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

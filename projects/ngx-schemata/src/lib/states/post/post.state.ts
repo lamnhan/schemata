@@ -22,7 +22,6 @@ export class PostItemAction {
 }
 
 export interface PostStateModel {
-  locale: string;
   defaultList: Record<string, Post[]>;
   queryList: Record<string, Post[]>;
   itemRecord: Record<string, Post>;
@@ -31,7 +30,6 @@ export interface PostStateModel {
 @State<PostStateModel>({
   name: 'schemata_post',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class PostState {
 
   @Action(PostListAction)
   postList({getState, patchState}: StateContext<PostStateModel>, action: PostListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class PostState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

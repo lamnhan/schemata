@@ -22,7 +22,6 @@ export class PromotionItemAction {
 }
 
 export interface PromotionStateModel {
-  locale: string;
   defaultList: Record<string, Promotion[]>;
   queryList: Record<string, Promotion[]>;
   itemRecord: Record<string, Promotion>;
@@ -31,7 +30,6 @@ export interface PromotionStateModel {
 @State<PromotionStateModel>({
   name: 'schemata_promotion',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class PromotionState {
 
   @Action(PromotionListAction)
   promotionList({getState, patchState}: StateContext<PromotionStateModel>, action: PromotionListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class PromotionState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

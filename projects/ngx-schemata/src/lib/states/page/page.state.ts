@@ -22,7 +22,6 @@ export class PageItemAction {
 }
 
 export interface PageStateModel {
-  locale: string;
   defaultList: Record<string, Page[]>;
   queryList: Record<string, Page[]>;
   itemRecord: Record<string, Page>;
@@ -31,7 +30,6 @@ export interface PageStateModel {
 @State<PageStateModel>({
   name: 'schemata_page',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class PageState {
 
   @Action(PageListAction)
   pageList({getState, patchState}: StateContext<PageStateModel>, action: PageListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class PageState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

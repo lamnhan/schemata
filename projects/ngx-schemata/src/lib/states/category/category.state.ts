@@ -22,7 +22,6 @@ export class CategoryItemAction {
 }
 
 export interface CategoryStateModel {
-  locale: string;
   defaultList: Record<string, Category[]>;
   queryList: Record<string, Category[]>;
   itemRecord: Record<string, Category>;
@@ -31,7 +30,6 @@ export interface CategoryStateModel {
 @State<CategoryStateModel>({
   name: 'schemata_category',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class CategoryState {
 
   @Action(CategoryListAction)
   categoryList({getState, patchState}: StateContext<CategoryStateModel>, action: CategoryListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class CategoryState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

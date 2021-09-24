@@ -22,7 +22,6 @@ export class AudioItemAction {
 }
 
 export interface AudioStateModel {
-  locale: string;
   defaultList: Record<string, Audio[]>;
   queryList: Record<string, Audio[]>;
   itemRecord: Record<string, Audio>;
@@ -31,7 +30,6 @@ export interface AudioStateModel {
 @State<AudioStateModel>({
   name: 'schemata_audio',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class AudioState {
 
   @Action(AudioListAction)
   audioList({getState, patchState}: StateContext<AudioStateModel>, action: AudioListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class AudioState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),

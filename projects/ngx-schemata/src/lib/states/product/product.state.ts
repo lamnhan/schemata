@@ -22,7 +22,6 @@ export class ProductItemAction {
 }
 
 export interface ProductStateModel {
-  locale: string;
   defaultList: Record<string, Product[]>;
   queryList: Record<string, Product[]>;
   itemRecord: Record<string, Product>;
@@ -31,7 +30,6 @@ export interface ProductStateModel {
 @State<ProductStateModel>({
   name: 'schemata_product',
   defaults: {
-    locale: '',
     defaultList: {},
     queryList: {},
     itemRecord: {},
@@ -44,10 +42,11 @@ export class ProductState {
 
   @Action(ProductListAction)
   productList({getState, patchState}: StateContext<ProductStateModel>, action: ProductListAction) {
-    const {locale: currentLocale, defaultList: currentDefaultList} = getState();
+    const {defaultList: currentDefaultList} = getState();
     const {type, locale} = action;
-    if (currentLocale === locale && currentDefaultList?.[type]?.length) {
-      return of(currentDefaultList[type]);
+    const listId = `${type}:${locale}`;
+    if (currentDefaultList?.[listId]?.length) {
+      return of(currentDefaultList[listId]);
     }
     return this.dataService
       .list(
@@ -61,10 +60,9 @@ export class ProductState {
       .pipe(
         tap(items =>
           patchState({
-            locale,
             defaultList: {
               ...currentDefaultList,
-              [type]: items,
+              [listId]: items,
             },
           })
         ),
