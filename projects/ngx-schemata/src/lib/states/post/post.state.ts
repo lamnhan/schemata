@@ -4,6 +4,7 @@ import { State, Action, StateContext } from '@ngxs/store';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Post } from '@lamnhan/schemata';
+import { DatabaseDataSearchingIndexData, DatabaseDataSearchResult } from '@lamnhan/ngx-useful';
 import { PostDataService } from '../../services/post/post.service';
 
 export class PostListAction {
@@ -16,14 +17,36 @@ export class PostQueryAction {
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
+export class PostSearchAction {
+  static readonly type = '[Post] Search';
+  constructor(
+    public searchId: string,
+    public query: string,
+    public limit?: number,
+    public context?: string | DatabaseDataSearchingIndexData
+  ) {}
+}
+
+export class PostSearchMoreAction {
+  static readonly type = '[Post] Search load more';
+  constructor(public searchId: string, public page: number) {}
+}
+
 export class PostItemAction {
   static readonly type = '[Post] Item';
   constructor(public id: string) {}
 }
 
+export interface PostStateSearchListItem {
+  query: string;
+  result: DatabaseDataSearchResult<Post>;
+  items: Post[];
+}
+
 export interface PostStateModel {
   defaultList: Record<string, Post[]>;
   queryList: Record<string, Post[]>;
+  searchList: Record<string, PostStateSearchListItem>;
   itemRecord: Record<string, Post>;
 }
 
@@ -32,6 +55,7 @@ export interface PostStateModel {
   defaults: {
     defaultList: {},
     queryList: {},
+    searchList: {},
     itemRecord: {},
   },
 })
@@ -84,6 +108,53 @@ export class PostState {
             queryList: {
               ...currentQueryList,
               [queryId]: items,
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(PostSearchAction)
+  postSearch({getState, patchState}: StateContext<PostStateModel>, action: PostSearchAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, query, limit, context} = action;
+    if (currentSearchList?.[searchId] && currentSearchList?.[searchId]?.query === query) {
+      return of(currentSearchList[searchId]);
+    }
+    const result = this.dataService.search(query, limit, context);
+    return result.list()
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: { query, result, items },
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(PostSearchMoreAction)
+  postSearchMore({getState, patchState}: StateContext<PostStateModel>, action: PostSearchMoreAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, page} = action;
+    const currentSearchItem = currentSearchList?.[searchId];
+    if (!currentSearchItem) {
+      return of(false);
+    }
+    const {result, query, items: currentItems} = currentSearchItem;
+    return result.list(page)
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: {
+                query,
+                result,
+                items: [...currentItems, ...items],
+              },
             },
           })
         ),

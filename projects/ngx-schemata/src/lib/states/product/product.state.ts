@@ -4,6 +4,7 @@ import { State, Action, StateContext } from '@ngxs/store';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Product } from '@lamnhan/schemata';
+import { DatabaseDataSearchingIndexData, DatabaseDataSearchResult } from '@lamnhan/ngx-useful';
 import { ProductDataService } from '../../services/product/product.service';
 
 export class ProductListAction {
@@ -16,14 +17,36 @@ export class ProductQueryAction {
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
+export class ProductSearchAction {
+  static readonly type = '[Product] Search';
+  constructor(
+    public searchId: string,
+    public query: string,
+    public limit?: number,
+    public context?: string | DatabaseDataSearchingIndexData
+  ) {}
+}
+
+export class ProductSearchMoreAction {
+  static readonly type = '[Product] Search load more';
+  constructor(public searchId: string, public page: number) {}
+}
+
 export class ProductItemAction {
   static readonly type = '[Product] Item';
   constructor(public id: string) {}
 }
 
+export interface ProductStateSearchListItem {
+  query: string;
+  result: DatabaseDataSearchResult<Product>;
+  items: Product[];
+}
+
 export interface ProductStateModel {
   defaultList: Record<string, Product[]>;
   queryList: Record<string, Product[]>;
+  searchList: Record<string, ProductStateSearchListItem>;
   itemRecord: Record<string, Product>;
 }
 
@@ -32,6 +55,7 @@ export interface ProductStateModel {
   defaults: {
     defaultList: {},
     queryList: {},
+    searchList: {},
     itemRecord: {},
   },
 })
@@ -84,6 +108,53 @@ export class ProductState {
             queryList: {
               ...currentQueryList,
               [queryId]: items,
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(ProductSearchAction)
+  productSearch({getState, patchState}: StateContext<ProductStateModel>, action: ProductSearchAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, query, limit, context} = action;
+    if (currentSearchList?.[searchId] && currentSearchList?.[searchId]?.query === query) {
+      return of(currentSearchList[searchId]);
+    }
+    const result = this.dataService.search(query, limit, context);
+    return result.list()
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: { query, result, items },
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(ProductSearchMoreAction)
+  productSearchMore({getState, patchState}: StateContext<ProductStateModel>, action: ProductSearchMoreAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, page} = action;
+    const currentSearchItem = currentSearchList?.[searchId];
+    if (!currentSearchItem) {
+      return of(false);
+    }
+    const {result, query, items: currentItems} = currentSearchItem;
+    return result.list(page)
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: {
+                query,
+                result,
+                items: [...currentItems, ...items],
+              },
             },
           })
         ),

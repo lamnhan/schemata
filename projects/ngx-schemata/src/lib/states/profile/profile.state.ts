@@ -4,6 +4,7 @@ import { State, Action, StateContext } from '@ngxs/store';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Profile } from '@lamnhan/schemata';
+import { DatabaseDataSearchingIndexData, DatabaseDataSearchResult } from '@lamnhan/ngx-useful';
 import { ProfileDataService } from '../../services/profile/profile.service';
 
 export class ProfileListAction {
@@ -16,14 +17,36 @@ export class ProfileQueryAction {
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
+export class ProfileSearchAction {
+  static readonly type = '[Profile] Search';
+  constructor(
+    public searchId: string,
+    public query: string,
+    public limit?: number,
+    public context?: string | DatabaseDataSearchingIndexData
+  ) {}
+}
+
+export class ProfileSearchMoreAction {
+  static readonly type = '[Profile] Search load more';
+  constructor(public searchId: string, public page: number) {}
+}
+
 export class ProfileItemAction {
   static readonly type = '[Profile] Item';
   constructor(public id: string) {}
 }
 
+export interface ProfileStateSearchListItem {
+  query: string;
+  result: DatabaseDataSearchResult<Profile>;
+  items: Profile[];
+}
+
 export interface ProfileStateModel {
   defaultList: Record<string, Profile[]>;
   queryList: Record<string, Profile[]>;
+  searchList: Record<string, ProfileStateSearchListItem>;
   itemRecord: Record<string, Profile>;
 }
 
@@ -32,6 +55,7 @@ export interface ProfileStateModel {
   defaults: {
     defaultList: {},
     queryList: {},
+    searchList: {},
     itemRecord: {},
   },
 })
@@ -82,6 +106,53 @@ export class ProfileState {
             queryList: {
               ...currentQueryList,
               [queryId]: items,
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(ProfileSearchAction)
+  profileSearch({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileSearchAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, query, limit, context} = action;
+    if (currentSearchList?.[searchId] && currentSearchList?.[searchId]?.query === query) {
+      return of(currentSearchList[searchId]);
+    }
+    const result = this.dataService.search(query, limit, context);
+    return result.list()
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: { query, result, items },
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(ProfileSearchMoreAction)
+  profileSearchMore({getState, patchState}: StateContext<ProfileStateModel>, action: ProfileSearchMoreAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, page} = action;
+    const currentSearchItem = currentSearchList?.[searchId];
+    if (!currentSearchItem) {
+      return of(false);
+    }
+    const {result, query, items: currentItems} = currentSearchItem;
+    return result.list(page)
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: {
+                query,
+                result,
+                items: [...currentItems, ...items],
+              },
             },
           })
         ),

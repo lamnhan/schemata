@@ -4,6 +4,7 @@ import { State, Action, StateContext } from '@ngxs/store';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Video } from '@lamnhan/schemata';
+import { DatabaseDataSearchingIndexData, DatabaseDataSearchResult } from '@lamnhan/ngx-useful';
 import { VideoDataService } from '../../services/video/video.service';
 
 export class VideoListAction {
@@ -16,14 +17,36 @@ export class VideoQueryAction {
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
+export class VideoSearchAction {
+  static readonly type = '[Video] Search';
+  constructor(
+    public searchId: string,
+    public query: string,
+    public limit?: number,
+    public context?: string | DatabaseDataSearchingIndexData
+  ) {}
+}
+
+export class VideoSearchMoreAction {
+  static readonly type = '[Video] Search load more';
+  constructor(public searchId: string, public page: number) {}
+}
+
 export class VideoItemAction {
   static readonly type = '[Video] Item';
   constructor(public id: string) {}
 }
 
+export interface VideoStateSearchListItem {
+  query: string;
+  result: DatabaseDataSearchResult<Video>;
+  items: Video[];
+}
+
 export interface VideoStateModel {
   defaultList: Record<string, Video[]>;
   queryList: Record<string, Video[]>;
+  searchList: Record<string, VideoStateSearchListItem>;
   itemRecord: Record<string, Video>;
 }
 
@@ -32,6 +55,7 @@ export interface VideoStateModel {
   defaults: {
     defaultList: {},
     queryList: {},
+    searchList: {},
     itemRecord: {},
   },
 })
@@ -84,6 +108,53 @@ export class VideoState {
             queryList: {
               ...currentQueryList,
               [queryId]: items,
+            },
+          })
+        ),
+      );
+  }
+  
+  @Action(VideoSearchAction)
+  videoSearch({getState, patchState}: StateContext<VideoStateModel>, action: VideoSearchAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, query, limit, context} = action;
+    if (currentSearchList?.[searchId] && currentSearchList?.[searchId]?.query === query) {
+      return of(currentSearchList[searchId]);
+    }
+    const result = this.dataService.search(query, limit, context);
+    return result.list()
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: { query, result, items },
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(VideoSearchMoreAction)
+  videoSearchMore({getState, patchState}: StateContext<VideoStateModel>, action: VideoSearchMoreAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, page} = action;
+    const currentSearchItem = currentSearchList?.[searchId];
+    if (!currentSearchItem) {
+      return of(false);
+    }
+    const {result, query, items: currentItems} = currentSearchItem;
+    return result.list(page)
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: {
+                query,
+                result,
+                items: [...currentItems, ...items],
+              },
             },
           })
         ),

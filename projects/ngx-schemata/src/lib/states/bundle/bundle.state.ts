@@ -4,6 +4,7 @@ import { State, Action, StateContext } from '@ngxs/store';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Bundle } from '@lamnhan/schemata';
+import { DatabaseDataSearchingIndexData, DatabaseDataSearchResult } from '@lamnhan/ngx-useful';
 import { BundleDataService } from '../../services/bundle/bundle.service';
 
 export class BundleListAction {
@@ -16,14 +17,36 @@ export class BundleQueryAction {
   constructor(public queryId: string, public queryFn: QueryFn) {}
 }
 
+export class BundleSearchAction {
+  static readonly type = '[Bundle] Search';
+  constructor(
+    public searchId: string,
+    public query: string,
+    public limit?: number,
+    public context?: string | DatabaseDataSearchingIndexData
+  ) {}
+}
+
+export class BundleSearchMoreAction {
+  static readonly type = '[Bundle] Search load more';
+  constructor(public searchId: string, public page: number) {}
+}
+
 export class BundleItemAction {
   static readonly type = '[Bundle] Item';
   constructor(public id: string) {}
 }
 
+export interface BundleStateSearchListItem {
+  query: string;
+  result: DatabaseDataSearchResult<Bundle>;
+  items: Bundle[];
+}
+
 export interface BundleStateModel {
   defaultList: Record<string, Bundle[]>;
   queryList: Record<string, Bundle[]>;
+  searchList: Record<string, BundleStateSearchListItem>;
   itemRecord: Record<string, Bundle>;
 }
 
@@ -32,6 +55,7 @@ export interface BundleStateModel {
   defaults: {
     defaultList: {},
     queryList: {},
+    searchList: {},
     itemRecord: {},
   },
 })
@@ -84,6 +108,53 @@ export class BundleState {
             queryList: {
               ...currentQueryList,
               [queryId]: items,
+            },
+          })
+        ),
+      );
+  }
+  
+  @Action(BundleSearchAction)
+  bundleSearch({getState, patchState}: StateContext<BundleStateModel>, action: BundleSearchAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, query, limit, context} = action;
+    if (currentSearchList?.[searchId] && currentSearchList?.[searchId]?.query === query) {
+      return of(currentSearchList[searchId]);
+    }
+    const result = this.dataService.search(query, limit, context);
+    return result.list()
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: { query, result, items },
+            },
+          })
+        ),
+      );
+  }
+
+  @Action(BundleSearchMoreAction)
+  bundleSearchMore({getState, patchState}: StateContext<BundleStateModel>, action: BundleSearchMoreAction) {
+    const {searchList: currentSearchList} = getState();
+    const {searchId, page} = action;
+    const currentSearchItem = currentSearchList?.[searchId];
+    if (!currentSearchItem) {
+      return of(false);
+    }
+    const {result, query, items: currentItems} = currentSearchItem;
+    return result.list(page)
+      .pipe(
+        tap(items =>
+          patchState({
+            searchList: {
+              ...currentSearchList,
+              [searchId]: {
+                query,
+                result,
+                items: [...currentItems, ...items],
+              },
             },
           })
         ),
