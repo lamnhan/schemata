@@ -22,7 +22,7 @@
     "@angular/common": "^12.2.5",
     "@angular/core": "^12.2.5",
     "@lamnhan/schemata": "0.0.24",
-    "@lamnhan/ngx-useful": "0.0.30",
+    "@lamnhan/ngx-useful": "0.0.33",
     "@ngxs/store": "^3.7.2"
   },
   "dependencies": {
